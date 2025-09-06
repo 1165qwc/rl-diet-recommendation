@@ -487,69 +487,69 @@ class DietRecommendationEnvironment:
         # Get current BMI for intelligent transitions
         current_bmi = next_state[0] * (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0]) + self.state_bounds['bmi'][0]
         
-        # Calculate BMI change based on current BMI and action
+        # Calculate BMI change based on current BMI and action (increased for longer timeline)
         if action == 0:  # High Protein, Low Carb
             if current_bmi > 25:  # If overweight/obese, reduce BMI
-                bmi_change = -0.02
+                bmi_change = -0.08  # Increased from -0.02
             elif current_bmi < 18.5:  # If underweight, slight increase
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             else:  # Normal weight, maintain
-                bmi_change = -0.005
+                bmi_change = -0.02  # Increased from -0.005
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
-            next_state[3] = min(1, next_state[3] + 0.02)  # Exercise increase
+            next_state[3] = min(1, next_state[3] + 0.08)  # Exercise increase (increased from 0.02)
             
         elif action == 1:  # Balanced Mediterranean
             if current_bmi > 25:  # If overweight/obese, reduce BMI
-                bmi_change = -0.015
+                bmi_change = -0.06  # Increased from -0.015
             elif current_bmi < 18.5:  # If underweight, slight increase
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             else:  # Normal weight, maintain
-                bmi_change = -0.005
+                bmi_change = -0.02  # Increased from -0.005
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
-            next_state[5] = min(1, next_state[5] + 0.01)  # Vegetable increase
-            next_state[4] = min(1, next_state[4] + 0.01)  # Water increase
+            next_state[5] = min(1, next_state[5] + 0.04)  # Vegetable increase (increased from 0.01)
+            next_state[4] = min(1, next_state[4] + 0.04)  # Water increase (increased from 0.01)
             
         elif action == 2:  # Low Calorie, High Volume
             if current_bmi > 25:  # If overweight/obese, reduce BMI
-                bmi_change = -0.025
+                bmi_change = -0.10  # Increased from -0.025
             elif current_bmi < 18.5:  # If underweight, avoid further reduction
-                bmi_change = 0.005
+                bmi_change = 0.02  # Increased from 0.005
             else:  # Normal weight, slight reduction
-                bmi_change = -0.01
+                bmi_change = -0.04  # Increased from -0.01
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
-            next_state[5] = min(1, next_state[5] + 0.02)  # Vegetable increase
+            next_state[5] = min(1, next_state[5] + 0.08)  # Vegetable increase (increased from 0.02)
             
         elif action == 3:  # Intermittent Fasting
             if current_bmi > 25:  # If overweight/obese, reduce BMI
-                bmi_change = -0.02
+                bmi_change = -0.08  # Increased from -0.02
             elif current_bmi < 18.5:  # If underweight, avoid fasting
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             else:  # Normal weight, slight reduction
-                bmi_change = -0.01
+                bmi_change = -0.04  # Increased from -0.01
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
-            next_state[7] = max(0, next_state[7] - 0.01)  # Meal reduction
+            next_state[7] = max(0, next_state[7] - 0.04)  # Meal reduction (increased from 0.01)
             
         elif action == 4:  # Plant-Based Focus
             if current_bmi > 25:  # If overweight/obese, reduce BMI
-                bmi_change = -0.01
+                bmi_change = -0.04  # Increased from -0.01
             elif current_bmi < 18.5:  # If underweight, slight increase
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             else:  # Normal weight, maintain
-                bmi_change = -0.005
+                bmi_change = -0.02  # Increased from -0.005
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
-            next_state[5] = min(1, next_state[5] + 0.03)  # Vegetable increase
+            next_state[5] = min(1, next_state[5] + 0.12)  # Vegetable increase (increased from 0.03)
             
         elif action == 5:  # Keto-Inspired
             if current_bmi > 30:  # If obese, reduce BMI
-                bmi_change = -0.03
+                bmi_change = -0.12  # Increased from -0.03
             elif current_bmi > 25:  # If overweight, reduce BMI
-                bmi_change = -0.02
+                bmi_change = -0.08  # Increased from -0.02
             elif current_bmi < 18.5:  # If underweight, avoid keto
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             else:  # Normal weight, slight reduction
-                bmi_change = -0.01
+                bmi_change = -0.04  # Increased from -0.01
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
-            next_state[7] = max(0, next_state[7] - 0.02)  # Meal reduction
+            next_state[7] = max(0, next_state[7] - 0.08)  # Meal reduction (increased from 0.02)
         
         return next_state
 
@@ -715,7 +715,7 @@ class RecommendationImpactPredictor:
         self.env = env
         self.agent = agent
         
-    def predict_following_recommendation(self, current_state, steps_ahead=30):
+    def predict_following_recommendation(self, current_state, steps_ahead=90):
         """Predict outcomes when following the RL recommendation"""
         # Create a copy of the environment for prediction
         pred_env = DietRecommendationEnvironment()
@@ -740,7 +740,7 @@ class RecommendationImpactPredictor:
                 
         return predicted_states, total_reward
     
-    def predict_not_following_recommendation(self, current_state, steps_ahead=30):
+    def predict_not_following_recommendation(self, current_state, steps_ahead=90):
         """Predict outcomes when NOT following the RL recommendation"""
         # Create a copy of the environment for prediction
         pred_env = DietRecommendationEnvironment()
@@ -777,62 +777,62 @@ class RecommendationImpactPredictor:
         # Get current BMI for poor transitions
         current_bmi = next_state[0] * (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0]) + self.env.state_bounds['bmi'][0]
         
-        # Poor BMI changes (opposite of good choices)
+        # Poor BMI changes (opposite of good choices) - increased for longer timeline
         if action == 0:  # High Protein, Low Carb (poor choice for some)
             if current_bmi < 18.5:  # If underweight, make it worse
-                bmi_change = -0.03  # Further weight loss
+                bmi_change = -0.12  # Increased from -0.03
             elif current_bmi > 25:  # If overweight, less effective
-                bmi_change = -0.005  # Minimal weight loss
+                bmi_change = -0.02  # Increased from -0.005
             else:  # Normal weight, slight increase
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
-            next_state[3] = max(0, next_state[3] - 0.01)  # Exercise decrease
+            next_state[3] = max(0, next_state[3] - 0.04)  # Exercise decrease (increased from 0.01)
             
         elif action == 1:  # Balanced Mediterranean (less effective for weight loss)
             if current_bmi > 25:  # If overweight, minimal improvement
-                bmi_change = -0.005
+                bmi_change = -0.02  # Increased from -0.005
             else:  # Normal/underweight, slight increase
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
-            next_state[5] = max(0, next_state[5] - 0.01)  # Vegetable decrease
+            next_state[5] = max(0, next_state[5] - 0.04)  # Vegetable decrease (increased from 0.01)
             
         elif action == 2:  # Low Calorie, High Volume (poor for underweight)
             if current_bmi < 18.5:  # If underweight, make it worse
-                bmi_change = -0.02
+                bmi_change = -0.08  # Increased from -0.02
             elif current_bmi > 25:  # If overweight, less effective
-                bmi_change = -0.01
+                bmi_change = -0.04  # Increased from -0.01
             else:  # Normal weight, slight increase
-                bmi_change = 0.005
+                bmi_change = 0.02  # Increased from 0.005
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
             
         elif action == 3:  # Intermittent Fasting (poor for underweight)
             if current_bmi < 18.5:  # If underweight, make it worse
-                bmi_change = -0.02
+                bmi_change = -0.08  # Increased from -0.02
             elif current_bmi > 25:  # If overweight, less effective
-                bmi_change = -0.01
+                bmi_change = -0.04  # Increased from -0.01
             else:  # Normal weight, slight increase
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
-            next_state[7] = min(1, next_state[7] + 0.01)  # Meal increase
+            next_state[7] = min(1, next_state[7] + 0.04)  # Meal increase (increased from 0.01)
             
         elif action == 4:  # Plant-Based Focus (less effective for weight gain)
             if current_bmi < 18.5:  # If underweight, less effective
-                bmi_change = 0.005
+                bmi_change = 0.02  # Increased from 0.005
             elif current_bmi > 25:  # If overweight, minimal improvement
-                bmi_change = -0.005
+                bmi_change = -0.02  # Increased from -0.005
             else:  # Normal weight, slight increase
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
             
         elif action == 5:  # Keto-Inspired (poor for underweight)
             if current_bmi < 18.5:  # If underweight, make it worse
-                bmi_change = -0.03
+                bmi_change = -0.12  # Increased from -0.03
             elif current_bmi > 30:  # If obese, less effective
-                bmi_change = -0.01
+                bmi_change = -0.04  # Increased from -0.01
             else:  # Normal/overweight, slight increase
-                bmi_change = 0.01
+                bmi_change = 0.04  # Increased from 0.01
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
-            next_state[7] = min(1, next_state[7] + 0.01)  # Meal increase
+            next_state[7] = min(1, next_state[7] + 0.04)  # Meal increase (increased from 0.01)
         
         return next_state
     
@@ -1167,7 +1167,7 @@ def main():
             
             # Simple explanation
             st.info("""
-            **This prediction shows you what could happen to your health over the next 30 days:**
+            **This prediction shows you what could happen to your health over the next 90 days (3 months):**
             - 🟢 **Green line**: If you follow the AI recommendation
             - 🔴 **Red line**: If you ignore the recommendation and make poor food choices
             """)
@@ -1178,8 +1178,8 @@ def main():
                 
                 # Get predictions
                 try:
-                    follow_states, follow_reward = predictor.predict_following_recommendation(st.session_state.user_state, steps_ahead=30)
-                    not_follow_states, not_follow_reward = predictor.predict_not_following_recommendation(st.session_state.user_state, steps_ahead=30)
+                    follow_states, follow_reward = predictor.predict_following_recommendation(st.session_state.user_state, steps_ahead=90)
+                    not_follow_states, not_follow_reward = predictor.predict_not_following_recommendation(st.session_state.user_state, steps_ahead=90)
                     
                     # Extract BMI progression
                     follow_bmi = []
@@ -1263,8 +1263,8 @@ def main():
                         fig_bmi.add_hline(y=24.9, line_dash="dot", line_color="blue")
                         
                         fig_bmi.update_layout(
-                            title="Your BMI Prediction Over 30 Days",
-                            xaxis_title="Days",
+                            title="Your BMI Prediction Over 90 Days (3 Months)",
+                            xaxis_title="Days (0-90)",
                             yaxis_title="BMI",
                             height=400,
                             showlegend=True,
@@ -1278,38 +1278,38 @@ def main():
                         
                         bmi_difference = follow_final_bmi - not_follow_final_bmi
                         
-                        if abs(bmi_difference) < 0.5:
-                            st.warning("⚠️ **Small Difference**: Both paths lead to similar results")
+                        if abs(bmi_difference) < 1.0:
+                            st.warning("⚠️ **Small Difference**: Both paths lead to similar results over 3 months")
                         elif bmi_difference < 0:
-                            st.success(f"🎉 **Following is Better**: You'll be {abs(bmi_difference):.1f} BMI points healthier!")
+                            st.success(f"🎉 **Following is Better**: You'll be {abs(bmi_difference):.1f} BMI points healthier after 3 months!")
                         else:
-                            st.error(f"⚠️ **Not Following is Worse**: You'll be {bmi_difference:.1f} BMI points unhealthier")
+                            st.error(f"⚠️ **Not Following is Worse**: You'll be {bmi_difference:.1f} BMI points unhealthier after 3 months")
                         
                         # Simple explanation
                         st.markdown("### 💡 **What This Means**")
                         
                         if bmi_change_follow < 0 and bmi_change_not_follow > 0:
                             st.success("""
-                            **Great news!** Following the recommendation will help you:
+                            **Great news!** Following the recommendation will help you over 3 months:
                             - ✅ Lose weight and get healthier
                             - ✅ Move closer to the healthy BMI range (18.5-24.9)
                             - ❌ Not following will make you gain weight
                             """)
                         elif bmi_change_follow < 0 and bmi_change_not_follow < 0:
                             st.info("""
-                            **Both paths help you lose weight, but:**
+                            **Both paths help you lose weight over 3 months, but:**
                             - ✅ Following the recommendation is more effective
                             - ⚠️ Not following will still help, but less effectively
                             """)
                         elif bmi_change_follow > 0 and bmi_change_not_follow > 0:
                             st.warning("""
-                            **Both paths lead to weight gain, but:**
+                            **Both paths lead to weight gain over 3 months, but:**
                             - ⚠️ Following the recommendation minimizes weight gain
                             - ❌ Not following will cause more weight gain
                             """)
                         else:
                             st.info("""
-                            **The recommendation helps you:**
+                            **The recommendation helps you over 3 months:**
                             - ✅ Maintain or improve your current health
                             - ⚠️ Not following could lead to health decline
                             """)
