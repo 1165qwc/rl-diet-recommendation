@@ -756,16 +756,120 @@ class RecommendationImpactPredictor:
             # Simulate "not following recommendation" by making poor dietary choices
             action = self._get_poor_diet_choice(recommended_action, state)
             
-            # Simulate not following the recommendation
-            next_state, reward, done = pred_env.step(action)
+            # Use a different state transition that simulates poor choices
+            next_state = self._simulate_poor_state_transition(state, action)
+            reward = self._calculate_poor_reward(action, state)
+            
             state = next_state
             predicted_states.append(state.copy())
             total_reward += reward
             
-            if done:
+            if step >= steps_ahead - 1:
                 break
                 
         return predicted_states, total_reward
+    
+    def _simulate_poor_state_transition(self, current_state, action):
+        """Simulate state changes when making poor dietary choices"""
+        next_state = current_state.copy()
+        
+        # Get current BMI for poor transitions
+        current_bmi = next_state[0] * (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0]) + self.env.state_bounds['bmi'][0]
+        
+        # Poor BMI changes (opposite of good choices)
+        if action == 0:  # High Protein, Low Carb (poor choice for some)
+            if current_bmi < 18.5:  # If underweight, make it worse
+                bmi_change = -0.03  # Further weight loss
+            elif current_bmi > 25:  # If overweight, less effective
+                bmi_change = -0.005  # Minimal weight loss
+            else:  # Normal weight, slight increase
+                bmi_change = 0.01
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
+            next_state[3] = max(0, next_state[3] - 0.01)  # Exercise decrease
+            
+        elif action == 1:  # Balanced Mediterranean (less effective for weight loss)
+            if current_bmi > 25:  # If overweight, minimal improvement
+                bmi_change = -0.005
+            else:  # Normal/underweight, slight increase
+                bmi_change = 0.01
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
+            next_state[5] = max(0, next_state[5] - 0.01)  # Vegetable decrease
+            
+        elif action == 2:  # Low Calorie, High Volume (poor for underweight)
+            if current_bmi < 18.5:  # If underweight, make it worse
+                bmi_change = -0.02
+            elif current_bmi > 25:  # If overweight, less effective
+                bmi_change = -0.01
+            else:  # Normal weight, slight increase
+                bmi_change = 0.005
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
+            
+        elif action == 3:  # Intermittent Fasting (poor for underweight)
+            if current_bmi < 18.5:  # If underweight, make it worse
+                bmi_change = -0.02
+            elif current_bmi > 25:  # If overweight, less effective
+                bmi_change = -0.01
+            else:  # Normal weight, slight increase
+                bmi_change = 0.01
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
+            next_state[7] = min(1, next_state[7] + 0.01)  # Meal increase
+            
+        elif action == 4:  # Plant-Based Focus (less effective for weight gain)
+            if current_bmi < 18.5:  # If underweight, less effective
+                bmi_change = 0.005
+            elif current_bmi > 25:  # If overweight, minimal improvement
+                bmi_change = -0.005
+            else:  # Normal weight, slight increase
+                bmi_change = 0.01
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
+            
+        elif action == 5:  # Keto-Inspired (poor for underweight)
+            if current_bmi < 18.5:  # If underweight, make it worse
+                bmi_change = -0.03
+            elif current_bmi > 30:  # If obese, less effective
+                bmi_change = -0.01
+            else:  # Normal/overweight, slight increase
+                bmi_change = 0.01
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
+            next_state[7] = min(1, next_state[7] + 0.01)  # Meal increase
+        
+        return next_state
+    
+    def _calculate_poor_reward(self, action, state):
+        """Calculate lower reward for poor dietary choices"""
+        # Get current BMI
+        bmi = state[0] * (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0]) + self.env.state_bounds['bmi'][0]
+        
+        # Lower base reward for poor choices
+        poor_action_effectiveness = {
+            0: 0.3,  # High Protein, Low Carb (poor choice)
+            1: 0.4,  # Balanced Mediterranean (less effective)
+            2: 0.2,  # Low Calorie, High Volume (poor choice)
+            3: 0.2,  # Intermittent Fasting (poor choice)
+            4: 0.3,  # Plant-Based Focus (less effective)
+            5: 0.1   # Keto-Inspired (poor choice)
+        }
+        
+        base_reward = poor_action_effectiveness[action]
+        
+        # BMI-based reward (same as good choices but with lower multiplier)
+        if 18.5 <= bmi <= 24.9:
+            bmi_reward = 1.0
+        elif 17 <= bmi < 18.5 or 24.9 < bmi <= 26:
+            bmi_reward = 0.8
+        elif 15 <= bmi < 17 or 26 < bmi <= 30:
+            bmi_reward = 0.6
+        elif 30 < bmi <= 35:
+            bmi_reward = 0.4
+        else:
+            bmi_reward = 0.2
+        
+        # Combine with lower weights for poor choices
+        total_reward = (bmi_reward * 0.3) + (base_reward * 0.7)
+        
+        # Add small noise
+        noise = np.random.normal(0, 0.05)
+        return total_reward + noise
     
     def _get_poor_diet_choice(self, recommended_action, current_state):
         """Get a poor dietary choice that represents not following recommendations"""
@@ -954,9 +1058,10 @@ def main():
     if st.session_state.trained and 'user_state' in st.session_state:
         st.header("🤖 AI Diet Recommendation")
         
-        col1, col2 = st.columns(2)
+        # Button section
+        col_btn1, col_btn2 = st.columns(2)
         
-        with col1:
+        with col_btn1:
             if st.button("🎯 Get Personalized Recommendation", type="primary"):
                 # Get recommendation from RL agent
                 action, action_probs = st.session_state.agent.get_action(st.session_state.user_state, training=False)
@@ -969,17 +1074,37 @@ def main():
                 st.session_state.current_action = action
                 st.session_state.current_action_probs = action_probs
                 st.session_state.current_recommendation = rec
-                
-                # Display recommendation
-                st.markdown(f"""
-                <div class="recommendation-card">
-                    <h3>🎯 Recommended Diet: {rec['name']}</h3>
-                    <p><strong>Description:</strong> {rec['description']}</p>
-                    <p><strong>Confidence:</strong> {action_probs[action]:.1%}</p>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                # Detailed recommendations
+                st.session_state.show_recommendation = True
+        
+        with col_btn2:
+            if st.button("🔮 Predict Recommendation Impact", type="secondary"):
+                if 'current_action' not in st.session_state:
+                    st.warning("Please get a recommendation first!")
+                else:
+                    st.session_state.show_prediction = True
+        
+        # Display recommendation if available
+        if 'show_recommendation' in st.session_state and st.session_state.show_recommendation:
+            st.markdown("---")
+            st.subheader("🎯 Your Personalized Recommendation")
+            
+            rec = st.session_state.current_recommendation
+            action_probs = st.session_state.current_action_probs
+            action = st.session_state.current_action
+            
+            # Display recommendation
+            st.markdown(f"""
+            <div class="recommendation-card">
+                <h3>🎯 Recommended Diet: {rec['name']}</h3>
+                <p><strong>Description:</strong> {rec['description']}</p>
+                <p><strong>Confidence:</strong> {action_probs[action]:.1%}</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Detailed recommendations in columns
+            col1, col2 = st.columns(2)
+            
+            with col1:
                 st.subheader("✅ Recommended Foods")
                 for food in rec['foods']:
                     st.write(food)
@@ -987,46 +1112,53 @@ def main():
                 st.subheader("❌ Foods to Avoid")
                 for food in rec['avoid']:
                     st.write(food)
-                
+            
+            with col2:
                 st.subheader("💡 Helpful Tips")
                 for tip in rec['tips']:
                     st.write(f"• {tip}")
+                
+                # Action probabilities
+                st.subheader("🧠 AI Confidence Levels")
+                prob_data = pd.DataFrame({
+                    'Diet Strategy': [get_diet_recommendations()[i]['name'] for i in range(6)],
+                    'Confidence': action_probs
+                }).sort_values('Confidence', ascending=True)
+                
+                fig = px.bar(prob_data, x='Confidence', y='Diet Strategy', 
+                           orientation='h', title="AI Confidence in Each Strategy")
+                st.plotly_chart(fig, use_container_width=True)
         
-        with col2:
-            if st.button("🔮 Predict Recommendation Impact", type="secondary"):
-                if 'current_action' not in st.session_state:
-                    st.warning("Please get a recommendation first!")
-                else:
-                    with st.spinner("🔮 Predicting outcomes..."):
-                        # Create predictor
-                        predictor = RecommendationImpactPredictor(st.session_state.env, st.session_state.agent)
+        # Display prediction if requested
+        if 'show_prediction' in st.session_state and st.session_state.show_prediction:
+            st.markdown("---")
+            st.subheader("🔮 Recommendation Impact Prediction")
+            
+            with st.spinner("🔮 Predicting outcomes..."):
+                # Create predictor
+                predictor = RecommendationImpactPredictor(st.session_state.env, st.session_state.agent)
+                
+                # Get predictions
+                try:
+                    follow_states, follow_reward = predictor.predict_following_recommendation(st.session_state.user_state, steps_ahead=30)
+                    not_follow_states, not_follow_reward = predictor.predict_not_following_recommendation(st.session_state.user_state, steps_ahead=30)
+                    
+                    # Extract BMI progression
+                    follow_bmi = []
+                    not_follow_bmi = []
+                    
+                    for state in follow_states:
+                        bmi = state[0] * (st.session_state.env.state_bounds['bmi'][1] - st.session_state.env.state_bounds['bmi'][0]) + st.session_state.env.state_bounds['bmi'][0]
+                        follow_bmi.append(bmi)
                         
-                        # Get predictions
-                        try:
-                            follow_states, follow_reward = predictor.predict_following_recommendation(st.session_state.user_state, steps_ahead=30)
-                            not_follow_states, not_follow_reward = predictor.predict_not_following_recommendation(st.session_state.user_state, steps_ahead=30)
-                            
-                            # Extract BMI progression
-                            follow_bmi = []
-                            not_follow_bmi = []
-                            
-                            for state in follow_states:
-                                bmi = state[0] * (st.session_state.env.state_bounds['bmi'][1] - st.session_state.env.state_bounds['bmi'][0]) + st.session_state.env.state_bounds['bmi'][0]
-                                follow_bmi.append(bmi)
-                                
-                            for state in not_follow_states:
-                                bmi = state[0] * (st.session_state.env.state_bounds['bmi'][1] - st.session_state.env.state_bounds['bmi'][0]) + st.session_state.env.state_bounds['bmi'][0]
-                                not_follow_bmi.append(bmi)
-                            
-                            # Ensure we have data to plot
-                            if len(follow_bmi) == 0 or len(not_follow_bmi) == 0:
-                                st.error("❌ Prediction failed - no data generated")
-                                return
-                                
-                        except Exception as e:
-                            st.error(f"❌ Prediction failed: {str(e)}")
-                            return
-                        
+                    for state in not_follow_states:
+                        bmi = state[0] * (st.session_state.env.state_bounds['bmi'][1] - st.session_state.env.state_bounds['bmi'][0]) + st.session_state.env.state_bounds['bmi'][0]
+                        not_follow_bmi.append(bmi)
+                    
+                    # Ensure we have data to plot
+                    if len(follow_bmi) == 0 or len(not_follow_bmi) == 0:
+                        st.error("❌ Prediction failed - no data generated")
+                    else:
                         # Create comparison plot
                         fig = make_subplots(
                             rows=2, cols=2,
@@ -1106,18 +1238,9 @@ def main():
                         with col_c:
                             health_impact = "Better" if follow_bmi[-1] < not_follow_bmi[-1] else "Worse"
                             st.metric("Health Impact", health_impact)
-        
-        # Action probabilities (if recommendation was made)
-        if 'current_action_probs' in st.session_state:
-            st.subheader("🧠 AI Confidence Levels")
-            prob_data = pd.DataFrame({
-                'Diet Strategy': [get_diet_recommendations()[i]['name'] for i in range(6)],
-                'Confidence': st.session_state.current_action_probs
-            }).sort_values('Confidence', ascending=True)
-            
-            fig = px.bar(prob_data, x='Confidence', y='Diet Strategy', 
-                       orientation='h', title="AI Confidence in Each Strategy")
-            st.plotly_chart(fig, use_container_width=True)
+                        
+                except Exception as e:
+                    st.error(f"❌ Prediction failed: {str(e)}")
     
     # Footer
     st.markdown("---")
