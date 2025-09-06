@@ -1,0 +1,1001 @@
+Gender,Age,Height,Weight,family_history_with_overweight,highcal,eatvege,MainMeal,TeaTime,SMOKE,H2O,calorymonitor,phyact,TechFreq,Alcohol,transp,ObesityLvl,BMI,ActivityLevel
+Female,19,1.74,49.84,false,0,1,2,no,yes,0,yes,2,2,Frequently,Public_Transportation,Overweight_Level_II,16.46,Moderately Active
+Male,3,1.41,63.63,true,1,3,2,no,no,1,yes,2,1,Sometimes,Automobile,Normal_Weight,32.01,Moderately Active
+Female,16,1.5,86.47,true,0,3,1,Sometimes,no,0,yes,2,0,Frequently,Public_Transportation,Underweight,38.43,StayHome
+Female,15,1.75,72.77,true,1,3,3,Sometimes,yes,0,no,0,1,no,Automobile,Normal_Weight,23.76,Active
+Female,10,1.11,83.53,false,0,2,2,no,yes,1,no,2,0,no,Public_Transportation,Normal_Weight,67.79,Moderately Active
+Female,7,1.08,58.14,false,1,3,3,Sometimes,yes,1,yes,0,0,Frequently,Automobile,Overweight_Level_I,49.85,Active
+Female,46,1.61,81.27,true,0,3,1,Sometimes,no,2,no,0,0,Frequently,Automobile,Normal_Weight,31.35,Moderately Active
+Male,23,1.75,58.66,false,0,3,1,Sometimes,yes,1,yes,1,1,Sometimes,Automobile,Underweight,19.15,Moderately Active
+Male,17,1.46,89.29,false,1,2,2,Sometimes,no,1,no,2,1,Sometimes,Automobile,Underweight,41.89,StayHome
+Female,59,1.08,64.25,true,0,2,2,no,yes,1,no,2,2,no,Public_Transportation,Overweight_Level_I,55.08,StayHome
+Male,21,1.32,89.88,false,1,2,3,Sometimes,no,0,no,1,1,Sometimes,Public_Transportation,Normal_Weight,51.58,Active
+Male,25,1.72,77.05,false,0,2,3,no,no,1,yes,0,0,no,Automobile,Overweight_Level_II,26.04,StayHome
+Male,43,1.63,57.91,false,1,3,1,Sometimes,yes,0,yes,0,0,Sometimes,Automobile,Normal_Weight,21.8,Active
+Male,22,1.38,45.25,true,1,1,1,Sometimes,no,2,yes,2,0,Frequently,Public_Transportation,Underweight,23.76,Active
+Female,80,1.54,49.08,true,0,1,3,Sometimes,no,0,yes,0,2,Frequently,Public_Transportation,Normal_Weight,20.69,StayHome
+Male,36,1.58,47.1,false,1,1,1,Sometimes,yes,1,yes,0,2,Frequently,Public_Transportation,Overweight_Level_II,18.87,Moderately Active
+Female,76,1.3,52.4,true,1,1,2,no,no,1,yes,2,2,no,Public_Transportation,Underweight,31.01,Moderately Active
+Male,4,1.34,76.19,true,1,2,1,no,no,1,yes,1,0,no,Automobile,Normal_Weight,42.43,Moderately Active
+Female,22,1.27,76.07,true,0,1,2,no,yes,2,no,2,1,Frequently,Public_Transportation,Overweight_Level_I,47.16,Active
+Female,31,1.07,76.96,true,1,1,2,Sometimes,yes,1,yes,0,1,Frequently,Public_Transportation,Underweight,67.22,Active
+Male,50,1.72,48.74,true,1,2,1,Sometimes,no,2,yes,0,0,no,Automobile,Overweight_Level_I,16.48,Active
+Male,73,1.38,67.57,true,0,2,3,no,yes,1,no,0,0,Frequently,Automobile,Underweight,35.48,Moderately Active
+Female,14,1.54,51.64,false,0,1,3,Sometimes,no,1,no,2,2,no,Public_Transportation,Normal_Weight,21.77,Active
+Female,34,1.75,50.25,true,0,1,1,no,yes,1,yes,1,0,no,Automobile,Overweight_Level_II,16.41,Active
+Male,53,1.57,58.37,false,1,3,2,Sometimes,yes,2,yes,0,0,Sometimes,Public_Transportation,Underweight,23.68,Active
+Female,14,1.39,44.15,true,0,1,3,no,no,0,yes,1,2,Frequently,Public_Transportation,Normal_Weight,22.85,StayHome
+Bigender,68,1.57,64.95,false,0,3,3,no,no,2,no,0,2,Frequently,Automobile,Normal_Weight,26.35,StayHome
+Male,62,1.51,71.29,false,0,3,1,Sometimes,no,1,no,1,2,Frequently,Public_Transportation,Overweight_Level_I,31.27,Moderately Active
+Female,58,1.35,52.58,false,0,3,1,no,yes,0,no,1,1,Sometimes,Automobile,Underweight,28.85,StayHome
+Female,55,1.41,71.6,true,1,3,3,Sometimes,yes,2,yes,0,2,no,Public_Transportation,Underweight,36.01,Active
+Male,44,1.69,78.17,true,1,2,3,Sometimes,no,2,no,2,0,Sometimes,Public_Transportation,Normal_Weight,27.37,Moderately Active
+Agender,3,1.58,82.21,false,0,3,1,no,no,2,no,0,2,no,Public_Transportation,Normal_Weight,32.93,StayHome
+Female,21,1.6,43.4,false,1,1,2,Sometimes,yes,0,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_I,16.95,Active
+Male,78,1.2,80.27,false,0,2,3,no,yes,0,no,1,1,Sometimes,Automobile,Overweight_Level_I,55.74,Active
+Female,60,1.54,64.0,false,1,1,1,Sometimes,yes,2,no,1,2,Frequently,Public_Transportation,Overweight_Level_II,26.99,StayHome
+Female,73,1.61,44.99,true,0,2,1,Sometimes,yes,1,no,2,1,Sometimes,Automobile,Overweight_Level_II,17.36,Moderately Active
+Male,7,1.46,81.73,true,0,3,3,Sometimes,yes,1,no,0,2,Sometimes,Automobile,Normal_Weight,38.34,Active
+Male,77,1.25,51.48,true,1,3,1,Sometimes,no,0,yes,2,0,Frequently,Automobile,Normal_Weight,32.95,Active
+Female,20,1.76,66.85,true,1,2,3,no,yes,0,yes,1,2,Frequently,Public_Transportation,Underweight,21.58,Active
+Female,51,1.35,66.41,false,1,2,1,Sometimes,yes,1,yes,1,1,Frequently,Public_Transportation,Overweight_Level_II,36.44,StayHome
+Female,28,1.55,52.68,false,1,3,3,no,yes,2,yes,1,2,Sometimes,Public_Transportation,Overweight_Level_I,21.93,StayHome
+Female,16,1.6,63.45,true,0,2,3,no,no,0,yes,0,1,no,Public_Transportation,Overweight_Level_II,24.79,Active
+Female,65,1.13,65.99,true,0,1,3,no,no,2,yes,0,2,Frequently,Public_Transportation,Overweight_Level_I,51.68,Moderately Active
+Male,9,1.07,81.72,true,1,2,3,no,no,2,no,1,1,Frequently,Automobile,Overweight_Level_II,71.38,Moderately Active
+Agender,17,1.1,54.14,false,1,3,3,no,yes,2,yes,2,0,Frequently,Public_Transportation,Overweight_Level_I,44.74,Moderately Active
+Male,31,1.54,66.76,true,1,3,1,no,yes,1,no,1,1,no,Public_Transportation,Normal_Weight,28.15,Moderately Active
+Female,76,1.53,82.81,true,1,1,2,Sometimes,no,0,yes,1,1,Frequently,Public_Transportation,Overweight_Level_I,35.38,Moderately Active
+Male,54,1.04,63.84,false,0,3,2,Sometimes,no,2,yes,2,1,no,Automobile,Overweight_Level_II,59.02,Active
+Polygender,24,1.52,54.51,false,0,2,2,no,yes,1,yes,1,2,no,Automobile,Overweight_Level_II,23.59,Active
+Female,18,1.02,42.83,false,0,3,2,no,yes,2,yes,2,1,Frequently,Public_Transportation,Overweight_Level_II,41.17,Active
+Male,71,1.24,68.07,true,1,1,3,no,yes,0,yes,2,0,no,Public_Transportation,Underweight,44.27,Active
+Female,58,1.75,45.44,true,1,1,2,no,no,0,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_I,14.84,Active
+Male,30,1.3,65.16,true,1,3,3,Sometimes,no,2,no,2,2,Sometimes,Automobile,Overweight_Level_II,38.56,Active
+Female,48,1.63,84.38,true,0,3,2,no,yes,2,no,0,2,Frequently,Automobile,Overweight_Level_I,31.76,Active
+Female,29,1.34,80.39,true,0,3,1,Sometimes,no,0,yes,1,2,Sometimes,Public_Transportation,Overweight_Level_II,44.77,Moderately Active
+Female,32,1.78,51.96,true,0,3,2,no,yes,0,no,2,0,Frequently,Automobile,Overweight_Level_I,16.4,StayHome
+Male,58,1.63,45.9,false,1,2,1,no,no,1,yes,0,2,Frequently,Public_Transportation,Normal_Weight,17.28,Active
+Female,21,1.44,82.51,false,1,3,1,Sometimes,no,1,yes,0,1,Sometimes,Public_Transportation,Overweight_Level_I,39.79,StayHome
+Female,59,1.43,68.86,true,0,1,1,no,no,2,no,0,2,Frequently,Automobile,Underweight,33.67,Active
+Male,25,1.79,50.33,false,0,3,2,no,yes,1,yes,2,1,no,Automobile,Overweight_Level_I,15.71,Active
+Male,75,1.59,78.28,false,1,1,2,Sometimes,no,1,yes,0,0,Sometimes,Public_Transportation,Underweight,30.96,StayHome
+Female,45,1.38,59.01,true,0,2,3,Sometimes,no,0,yes,0,1,Sometimes,Automobile,Overweight_Level_II,30.99,StayHome
+Male,63,1.25,43.49,false,1,3,1,Sometimes,yes,0,no,2,2,no,Automobile,Normal_Weight,27.83,StayHome
+Bigender,15,1.33,45.11,false,0,2,1,no,yes,2,no,0,2,no,Public_Transportation,Overweight_Level_II,25.5,StayHome
+Female,22,1.74,78.84,true,0,2,2,Sometimes,yes,0,no,0,0,no,Automobile,Normal_Weight,26.04,StayHome
+Female,6,1.71,57.28,true,1,2,1,no,yes,0,no,2,2,Sometimes,Automobile,Overweight_Level_I,19.59,Moderately Active
+Female,35,1.37,63.72,false,0,2,3,no,no,2,yes,1,2,Frequently,Public_Transportation,Underweight,33.95,Moderately Active
+Male,14,1.47,84.16,false,0,1,1,no,no,1,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_I,38.95,Active
+Female,34,1.08,45.13,false,1,1,2,Sometimes,no,1,yes,2,0,Sometimes,Public_Transportation,Overweight_Level_I,38.69,Active
+Female,17,1.17,51.41,false,0,1,2,no,yes,2,yes,1,1,Sometimes,Automobile,Normal_Weight,37.56,StayHome
+Female,44,1.18,79.7,false,1,2,1,Sometimes,yes,0,no,1,1,Sometimes,Public_Transportation,Underweight,57.24,Active
+Male,80,1.01,41.35,true,1,3,1,Sometimes,no,2,no,1,1,Sometimes,Public_Transportation,Underweight,40.54,StayHome
+Male,66,1.15,48.88,false,1,3,2,Sometimes,yes,2,yes,1,1,Frequently,Public_Transportation,Underweight,36.96,Active
+Male,72,1.78,48.02,true,0,2,1,Sometimes,no,0,yes,1,2,no,Public_Transportation,Overweight_Level_II,15.16,Active
+Female,37,1.01,73.08,false,0,1,1,Sometimes,yes,2,yes,1,0,Sometimes,Automobile,Overweight_Level_I,71.64,Moderately Active
+Female,68,1.74,65.74,false,0,2,2,no,yes,0,no,0,2,no,Public_Transportation,Underweight,21.71,Moderately Active
+Female,78,1.46,66.62,true,1,3,3,no,no,0,yes,2,0,no,Automobile,Overweight_Level_II,31.25,Moderately Active
+Female,8,1.27,55.72,true,0,2,1,no,yes,1,no,1,2,Frequently,Automobile,Overweight_Level_I,34.55,StayHome
+Female,16,1.72,70.65,true,0,1,2,no,no,0,no,0,1,Sometimes,Public_Transportation,Overweight_Level_I,23.88,StayHome
+Male,59,1.15,52.9,false,0,2,2,Sometimes,no,2,no,2,1,no,Automobile,Normal_Weight,40.0,Moderately Active
+Male,42,1.1,71.58,false,0,2,2,no,no,0,no,1,2,Frequently,Public_Transportation,Normal_Weight,59.16,Moderately Active
+Female,26,1.8,63.45,true,1,3,2,no,no,2,no,0,0,Frequently,Automobile,Overweight_Level_II,19.58,StayHome
+Male,13,1.07,64.84,true,0,1,3,no,yes,2,no,0,2,no,Automobile,Underweight,56.63,Moderately Active
+Female,41,1.69,69.18,true,0,1,3,Sometimes,no,2,no,1,0,Frequently,Automobile,Overweight_Level_I,24.22,StayHome
+Non-binary,60,1.1,83.36,true,1,2,2,no,no,0,yes,2,2,no,Public_Transportation,Underweight,68.89,StayHome
+Female,76,1.79,60.37,true,1,2,3,Sometimes,no,0,no,1,0,Sometimes,Public_Transportation,Overweight_Level_I,18.84,StayHome
+Male,38,1.42,54.99,false,1,1,2,no,yes,2,no,0,0,no,Automobile,Overweight_Level_II,27.27,StayHome
+Genderfluid,57,1.2,63.29,false,1,2,3,Sometimes,yes,1,no,1,1,Sometimes,Automobile,Normal_Weight,43.95,Active
+Male,78,1.4,76.45,false,0,3,1,Sometimes,no,1,no,2,1,Frequently,Automobile,Overweight_Level_I,39.01,Active
+Female,10,1.18,67.83,false,1,1,1,Sometimes,no,2,yes,0,2,Sometimes,Public_Transportation,Overweight_Level_II,48.71,StayHome
+Male,44,1.68,42.22,false,0,3,3,no,yes,2,yes,1,2,Frequently,Public_Transportation,Underweight,14.96,StayHome
+Polygender,71,1.64,86.65,false,0,3,2,no,yes,0,yes,2,2,no,Automobile,Overweight_Level_II,32.22,Moderately Active
+Male,62,1.68,45.23,true,1,2,2,Sometimes,yes,2,yes,0,0,Frequently,Automobile,Normal_Weight,16.03,StayHome
+Male,19,1.81,80.33,true,0,2,3,no,no,0,yes,1,2,no,Automobile,Normal_Weight,24.52,Moderately Active
+Female,3,1.33,79.63,false,1,2,1,no,yes,2,no,0,2,Sometimes,Public_Transportation,Underweight,45.02,Moderately Active
+Polygender,79,1.67,75.38,true,0,3,2,Sometimes,no,0,no,1,1,no,Public_Transportation,Overweight_Level_II,27.03,StayHome
+Male,3,1.58,61.52,false,0,1,2,Sometimes,yes,1,no,1,1,Sometimes,Public_Transportation,Overweight_Level_I,24.64,StayHome
+Male,24,1.36,45.83,false,0,3,1,Sometimes,no,1,no,2,0,no,Public_Transportation,Overweight_Level_II,24.78,StayHome
+Male,13,1.29,69.7,false,0,1,3,no,no,0,no,1,2,no,Public_Transportation,Underweight,41.88,Active
+Genderfluid,31,1.68,84.21,true,0,3,1,Sometimes,yes,2,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_II,29.84,Active
+Male,73,1.69,46.13,true,1,2,1,Sometimes,no,2,yes,0,0,Frequently,Automobile,Underweight,16.15,StayHome
+Female,65,1.2,75.8,true,0,2,2,Sometimes,yes,2,no,1,0,no,Automobile,Overweight_Level_II,52.64,Active
+Male,60,1.15,48.43,false,1,1,3,Sometimes,no,2,yes,0,2,Frequently,Automobile,Underweight,36.62,Moderately Active
+Female,42,1.64,85.68,true,1,1,3,Sometimes,no,0,yes,1,2,Frequently,Automobile,Overweight_Level_II,31.86,Active
+Female,33,1.38,83.05,false,1,3,3,Sometimes,no,2,no,0,1,Sometimes,Public_Transportation,Normal_Weight,43.61,Active
+Male,54,1.31,69.83,true,1,2,3,no,no,1,yes,0,0,no,Automobile,Overweight_Level_II,40.69,Moderately Active
+Male,55,1.35,45.11,true,1,3,2,no,no,2,no,1,2,Frequently,Public_Transportation,Normal_Weight,24.75,Active
+Genderqueer,21,1.56,45.56,true,0,1,1,no,yes,0,yes,2,0,Frequently,Public_Transportation,Overweight_Level_I,18.72,StayHome
+Male,34,1.3,58.79,false,0,2,1,no,no,2,no,2,1,no,Automobile,Underweight,34.79,Active
+Polygender,28,1.7,74.98,false,0,1,3,Sometimes,no,1,yes,2,1,no,Automobile,Underweight,25.94,StayHome
+Female,47,1.36,83.9,false,1,3,2,no,no,0,yes,0,2,Sometimes,Automobile,Underweight,45.36,Moderately Active
+Male,64,1.01,54.76,false,1,1,1,no,no,2,yes,2,2,no,Automobile,Overweight_Level_II,53.68,Active
+Male,75,1.8,44.98,true,0,3,3,Sometimes,yes,2,yes,1,1,no,Public_Transportation,Underweight,13.88,Active
+Male,13,1.82,67.61,false,0,1,3,no,no,0,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_I,20.41,Moderately Active
+Male,36,1.18,70.12,false,0,2,3,Sometimes,no,0,yes,1,1,no,Automobile,Underweight,50.36,Active
+Female,18,1.13,74.22,false,1,3,1,no,no,2,yes,0,1,Frequently,Automobile,Underweight,58.13,Moderately Active
+Male,10,1.1,75.22,false,0,3,2,Sometimes,yes,2,no,0,2,no,Automobile,Underweight,62.17,StayHome
+Female,28,1.39,59.47,true,0,2,3,Sometimes,yes,0,no,2,1,Sometimes,Automobile,Underweight,30.78,StayHome
+Female,42,1.65,71.08,false,1,1,3,no,yes,2,yes,0,1,Frequently,Automobile,Underweight,26.11,StayHome
+Male,13,1.47,49.99,false,0,2,1,Sometimes,yes,2,no,2,2,no,Public_Transportation,Underweight,23.13,StayHome
+Female,47,1.48,58.53,false,0,3,1,Sometimes,no,1,no,2,2,Sometimes,Automobile,Overweight_Level_II,26.72,Active
+Female,63,1.23,65.85,false,0,1,1,Sometimes,no,2,no,1,0,Frequently,Automobile,Underweight,43.53,StayHome
+Male,77,1.11,42.82,false,0,2,1,Sometimes,yes,0,no,2,0,Frequently,Public_Transportation,Underweight,34.75,Active
+Female,53,1.33,45.68,false,1,1,3,no,no,2,yes,0,2,Sometimes,Public_Transportation,Overweight_Level_II,25.82,StayHome
+Male,13,1.26,71.56,false,0,2,3,no,no,2,no,1,2,Sometimes,Automobile,Overweight_Level_I,45.07,StayHome
+Female,74,1.59,82.1,true,0,2,1,Sometimes,yes,0,no,1,1,no,Public_Transportation,Normal_Weight,32.47,StayHome
+Male,70,1.39,77.02,false,1,1,2,no,yes,2,no,0,0,Sometimes,Public_Transportation,Normal_Weight,39.86,Moderately Active
+Male,47,1.63,44.96,true,1,1,2,no,yes,0,no,2,1,no,Automobile,Underweight,16.92,Active
+Female,40,1.09,44.93,true,0,3,2,Sometimes,no,1,no,1,1,no,Automobile,Overweight_Level_I,37.82,Moderately Active
+Male,68,1.31,63.98,true,0,3,3,no,yes,1,yes,1,1,no,Automobile,Normal_Weight,37.28,Moderately Active
+Agender,7,1.17,57.96,false,0,2,1,Sometimes,no,2,no,1,1,Frequently,Public_Transportation,Normal_Weight,42.34,Moderately Active
+Female,80,1.01,43.87,false,1,1,3,no,yes,0,no,1,2,Frequently,Automobile,Underweight,43.01,StayHome
+Male,63,1.66,87.11,true,1,1,2,no,yes,0,no,0,2,Sometimes,Automobile,Overweight_Level_II,31.61,Moderately Active
+Male,40,1.25,87.69,false,0,3,1,no,no,2,no,0,1,Frequently,Automobile,Overweight_Level_II,56.12,StayHome
+Male,23,1.76,74.66,false,1,1,2,no,yes,1,no,1,1,Sometimes,Automobile,Overweight_Level_II,24.1,StayHome
+Male,64,1.05,90.0,true,1,2,3,no,no,0,no,2,2,Frequently,Public_Transportation,Overweight_Level_I,81.63,Active
+Female,55,1.53,72.65,true,0,3,2,no,no,2,yes,1,2,no,Public_Transportation,Overweight_Level_I,31.04,StayHome
+Female,61,1.75,86.69,true,1,3,3,Sometimes,no,0,no,1,0,no,Public_Transportation,Normal_Weight,28.31,StayHome
+Agender,16,1.78,47.03,false,0,1,3,no,yes,2,no,2,2,Sometimes,Automobile,Overweight_Level_I,14.84,Moderately Active
+Male,32,1.16,48.86,false,1,3,1,no,yes,1,yes,1,0,Frequently,Automobile,Overweight_Level_I,36.31,StayHome
+Female,8,1.71,53.67,true,0,1,3,no,no,0,yes,2,0,no,Public_Transportation,Normal_Weight,18.35,Active
+Bigender,75,1.36,87.32,true,1,3,1,Sometimes,no,1,yes,0,2,Frequently,Automobile,Normal_Weight,47.21,Moderately Active
+Female,7,1.0,52.12,false,1,2,3,no,yes,0,no,1,2,Sometimes,Automobile,Underweight,52.12,Active
+Male,41,1.47,62.34,false,0,2,1,no,yes,0,yes,1,2,Sometimes,Automobile,Underweight,28.85,Active
+Female,58,1.74,45.33,false,1,1,2,Sometimes,no,2,no,1,2,no,Public_Transportation,Overweight_Level_II,14.97,StayHome
+Female,46,1.74,56.24,true,0,3,3,no,no,0,yes,2,1,Frequently,Automobile,Normal_Weight,18.58,StayHome
+Male,72,1.35,45.71,true,1,2,2,Sometimes,no,1,yes,2,2,Sometimes,Automobile,Underweight,25.08,Active
+Male,39,1.44,40.56,false,0,2,3,Sometimes,yes,0,yes,2,2,Frequently,Automobile,Overweight_Level_II,19.56,Active
+Female,31,1.08,47.37,false,0,1,1,no,no,2,no,0,0,Sometimes,Automobile,Overweight_Level_I,40.61,Moderately Active
+Genderfluid,63,1.62,68.12,true,0,3,3,no,yes,0,no,1,0,Frequently,Automobile,Underweight,25.96,Active
+Female,74,1.61,54.86,false,1,1,1,Sometimes,yes,0,yes,1,0,no,Public_Transportation,Overweight_Level_I,21.16,Active
+Agender,55,1.57,60.58,true,0,3,2,no,yes,2,yes,0,2,no,Automobile,Normal_Weight,24.58,StayHome
+Female,17,1.65,59.91,true,1,2,3,no,yes,2,no,0,2,Frequently,Automobile,Overweight_Level_I,22.01,Active
+Female,78,1.34,85.41,false,1,3,3,Sometimes,yes,1,yes,2,2,no,Automobile,Overweight_Level_I,47.57,Active
+Female,46,1.62,84.07,false,0,1,3,Sometimes,no,1,no,1,0,no,Public_Transportation,Overweight_Level_II,32.03,StayHome
+Female,58,1.64,51.92,true,0,1,3,no,no,0,yes,2,2,Sometimes,Automobile,Overweight_Level_I,19.3,StayHome
+Male,75,1.21,63.8,false,1,2,1,Sometimes,yes,1,yes,2,0,no,Public_Transportation,Overweight_Level_II,43.58,StayHome
+Male,77,1.14,88.9,true,0,3,1,Sometimes,yes,0,no,0,2,no,Public_Transportation,Overweight_Level_I,68.41,Moderately Active
+Male,18,1.77,68.83,false,0,2,3,Sometimes,no,1,no,2,1,no,Automobile,Overweight_Level_II,21.97,StayHome
+Male,67,1.55,86.52,false,0,3,1,Sometimes,no,2,no,2,2,Sometimes,Public_Transportation,Overweight_Level_I,36.01,Active
+Female,68,1.8,53.76,false,0,2,2,Sometimes,yes,1,no,0,2,no,Automobile,Overweight_Level_I,16.59,StayHome
+Female,44,1.62,65.62,false,1,1,1,no,yes,1,no,0,0,Frequently,Public_Transportation,Underweight,25.0,StayHome
+Female,42,1.41,69.23,true,1,3,2,Sometimes,no,2,no,2,2,no,Automobile,Overweight_Level_II,34.82,Active
+Male,65,1.3,75.4,false,0,2,3,no,yes,0,no,1,0,Frequently,Automobile,Overweight_Level_I,44.62,Active
+Male,5,1.12,51.2,false,1,3,1,Sometimes,no,1,yes,1,2,Frequently,Automobile,Overweight_Level_II,40.82,StayHome
+Female,60,1.75,59.57,true,1,2,1,Sometimes,yes,0,yes,2,1,Frequently,Automobile,Overweight_Level_I,19.45,StayHome
+Female,36,1.11,76.85,false,1,3,2,no,yes,1,no,1,0,no,Automobile,Overweight_Level_I,62.37,Active
+Male,66,1.37,54.17,false,0,3,3,no,yes,1,no,2,1,Sometimes,Public_Transportation,Overweight_Level_I,28.86,Moderately Active
+Male,9,1.35,72.08,true,0,2,3,no,no,2,yes,0,2,no,Public_Transportation,Overweight_Level_II,39.55,StayHome
+Male,28,1.46,52.24,false,0,2,2,Sometimes,no,0,yes,0,0,no,Automobile,Underweight,24.51,StayHome
+Female,3,1.77,72.27,true,1,3,1,Sometimes,yes,1,yes,2,2,Frequently,Public_Transportation,Overweight_Level_II,23.07,Moderately Active
+Female,73,1.59,47.11,false,0,3,3,Sometimes,yes,2,yes,1,1,Sometimes,Public_Transportation,Underweight,18.63,StayHome
+Male,11,1.16,76.4,false,1,3,1,Sometimes,yes,0,yes,1,1,no,Public_Transportation,Normal_Weight,56.78,Active
+Female,48,1.65,52.69,false,0,1,1,Sometimes,no,1,no,2,1,no,Automobile,Normal_Weight,19.35,Active
+Female,22,1.82,51.92,true,1,1,2,no,no,1,no,2,2,Frequently,Automobile,Overweight_Level_I,15.67,Moderately Active
+Male,8,1.0,73.03,false,1,2,3,no,no,2,yes,2,1,Frequently,Public_Transportation,Overweight_Level_I,73.03,Active
+Female,77,1.66,40.76,true,1,2,2,Sometimes,yes,1,yes,0,2,Sometimes,Automobile,Normal_Weight,14.79,Active
+Male,48,1.64,49.05,true,0,3,2,Sometimes,no,2,no,0,0,no,Automobile,Underweight,18.24,Active
+Female,27,1.78,86.8,false,0,3,2,Sometimes,yes,0,yes,1,0,no,Public_Transportation,Overweight_Level_II,27.4,Active
+Female,29,1.53,89.36,true,1,3,3,no,yes,2,no,0,1,no,Automobile,Overweight_Level_II,38.17,Active
+Male,3,1.0,66.27,true,1,2,2,Sometimes,no,1,yes,1,0,Sometimes,Public_Transportation,Normal_Weight,66.27,Moderately Active
+Female,35,1.5,40.43,true,1,1,1,no,yes,0,yes,0,0,no,Public_Transportation,Underweight,17.97,Active
+Male,23,1.42,68.85,false,1,1,3,Sometimes,yes,2,yes,0,0,no,Public_Transportation,Overweight_Level_II,34.15,StayHome
+Female,31,1.49,77.87,false,0,2,2,no,yes,2,yes,1,0,no,Public_Transportation,Overweight_Level_II,35.07,Active
+Male,46,1.75,79.69,true,1,2,2,no,no,1,yes,2,2,no,Automobile,Underweight,26.02,Moderately Active
+Male,49,1.01,88.87,true,0,2,2,no,yes,2,no,2,0,Frequently,Automobile,Overweight_Level_I,87.12,Active
+Female,79,1.4,60.82,true,1,1,3,no,no,2,no,0,2,Frequently,Automobile,Normal_Weight,31.03,StayHome
+Male,30,1.39,78.09,false,1,3,1,Sometimes,yes,1,no,0,0,Sometimes,Automobile,Normal_Weight,40.42,StayHome
+Female,21,1.53,71.46,true,1,3,2,no,no,0,yes,2,2,no,Public_Transportation,Overweight_Level_II,30.53,Active
+Male,21,1.32,40.89,true,0,1,2,Sometimes,yes,2,yes,0,1,Sometimes,Public_Transportation,Normal_Weight,23.47,StayHome
+Female,57,1.49,70.55,true,0,1,1,no,no,1,no,2,1,no,Public_Transportation,Overweight_Level_II,31.78,Moderately Active
+Female,79,1.41,66.75,true,1,2,2,Sometimes,yes,0,no,1,1,Frequently,Public_Transportation,Underweight,33.57,Moderately Active
+Female,39,1.28,70.51,true,0,2,1,no,yes,2,yes,0,0,Frequently,Automobile,Overweight_Level_I,43.04,Moderately Active
+Female,64,1.18,73.16,false,1,2,2,Sometimes,no,0,yes,0,0,no,Automobile,Overweight_Level_II,52.54,StayHome
+Male,6,1.72,73.45,true,1,2,2,Sometimes,yes,1,yes,0,1,Sometimes,Public_Transportation,Normal_Weight,24.83,StayHome
+Female,6,1.64,55.51,true,1,1,3,no,yes,0,yes,0,1,no,Automobile,Overweight_Level_I,20.64,StayHome
+Male,20,1.48,64.8,true,0,1,3,Sometimes,no,1,yes,2,0,Frequently,Public_Transportation,Underweight,29.58,Active
+Male,16,1.75,80.5,true,0,1,1,no,no,0,yes,0,0,Frequently,Public_Transportation,Underweight,26.29,Active
+Female,66,1.34,52.84,false,0,1,2,no,yes,2,yes,0,1,no,Public_Transportation,Overweight_Level_I,29.43,Moderately Active
+Male,73,1.45,60.34,true,1,1,1,Sometimes,no,1,no,0,2,Sometimes,Automobile,Overweight_Level_I,28.7,Active
+Male,48,1.61,87.47,false,0,3,1,Sometimes,yes,0,yes,0,1,no,Automobile,Overweight_Level_I,33.74,Active
+Male,73,1.09,79.24,true,0,1,3,no,no,0,yes,1,2,Frequently,Public_Transportation,Normal_Weight,66.69,Active
+Female,15,1.53,49.74,true,1,2,2,Sometimes,yes,1,yes,2,2,no,Public_Transportation,Overweight_Level_I,21.25,Moderately Active
+Agender,12,1.53,65.13,false,1,2,3,no,no,0,no,2,2,Sometimes,Automobile,Normal_Weight,27.82,Active
+Female,17,1.5,71.96,true,0,2,3,no,no,1,yes,2,2,Sometimes,Automobile,Overweight_Level_II,31.98,Moderately Active
+Female,32,1.15,75.18,false,0,3,2,Sometimes,yes,1,no,0,2,no,Automobile,Underweight,56.85,StayHome
+Female,2,1.46,81.64,false,0,3,1,no,yes,0,no,0,0,Sometimes,Public_Transportation,Normal_Weight,38.3,Active
+Female,63,1.03,62.43,false,0,3,3,no,yes,0,yes,1,1,Frequently,Automobile,Overweight_Level_I,58.85,StayHome
+Male,43,1.43,85.5,false,0,3,1,Sometimes,no,2,no,2,0,Frequently,Automobile,Underweight,41.81,StayHome
+Female,79,1.76,67.79,false,0,3,1,Sometimes,no,0,no,0,1,no,Public_Transportation,Overweight_Level_I,21.88,Moderately Active
+Male,11,1.48,63.22,true,0,1,1,no,yes,0,no,2,2,Frequently,Public_Transportation,Underweight,28.86,Moderately Active
+Female,4,1.71,78.77,true,1,2,2,Sometimes,yes,2,no,0,0,no,Automobile,Normal_Weight,26.94,StayHome
+Agender,48,1.56,73.17,true,0,1,3,no,no,0,yes,2,0,no,Automobile,Underweight,30.07,StayHome
+Female,31,1.2,83.63,true,0,1,1,Sometimes,yes,2,no,0,2,no,Automobile,Overweight_Level_II,58.08,StayHome
+Female,74,1.2,72.02,true,0,2,2,Sometimes,no,1,yes,1,2,no,Automobile,Overweight_Level_I,50.01,StayHome
+Female,56,1.24,66.99,true,1,1,2,Sometimes,no,2,yes,2,2,Frequently,Public_Transportation,Underweight,43.57,Moderately Active
+Male,74,1.11,64.95,true,0,3,3,no,no,0,no,1,2,Sometimes,Public_Transportation,Overweight_Level_II,52.71,Active
+Female,49,1.77,83.57,true,0,1,3,no,no,2,yes,2,2,no,Automobile,Overweight_Level_II,26.67,Active
+Female,14,1.61,68.87,false,1,3,3,Sometimes,no,1,no,0,0,no,Automobile,Overweight_Level_II,26.57,StayHome
+Female,77,1.8,59.24,false,0,2,2,Sometimes,yes,0,no,0,1,no,Public_Transportation,Overweight_Level_II,18.28,StayHome
+Polygender,39,1.6,86.88,false,0,1,1,no,no,1,yes,0,2,no,Public_Transportation,Overweight_Level_I,33.94,Moderately Active
+Male,51,1.2,76.14,false,1,1,2,no,yes,2,no,0,1,Sometimes,Automobile,Overweight_Level_II,52.88,StayHome
+Female,56,1.21,41.19,false,0,1,3,Sometimes,no,0,yes,0,1,Sometimes,Public_Transportation,Overweight_Level_II,28.13,Active
+Male,39,1.35,75.18,false,1,2,1,no,yes,0,yes,0,0,Frequently,Public_Transportation,Overweight_Level_II,41.25,Moderately Active
+Male,20,1.8,87.92,false,1,3,1,Sometimes,no,1,no,2,1,no,Public_Transportation,Overweight_Level_II,27.14,StayHome
+Male,75,1.35,51.8,true,1,2,2,Sometimes,yes,0,no,0,2,Sometimes,Automobile,Normal_Weight,28.42,StayHome
+Male,3,1.65,46.82,false,0,1,2,no,yes,2,yes,0,1,Frequently,Public_Transportation,Overweight_Level_I,17.2,Active
+Male,55,1.04,82.43,false,0,1,2,Sometimes,no,1,no,0,1,Frequently,Public_Transportation,Underweight,76.21,Moderately Active
+Female,33,1.03,68.28,true,1,3,1,no,yes,2,yes,0,0,no,Automobile,Underweight,64.36,Active
+Male,49,1.31,50.35,false,0,1,2,no,yes,1,no,0,0,no,Automobile,Underweight,29.34,Active
+Female,36,1.53,41.94,false,0,3,2,Sometimes,no,0,yes,1,0,Frequently,Automobile,Overweight_Level_I,17.92,StayHome
+Female,7,1.78,41.16,true,1,2,1,Sometimes,yes,2,no,2,2,Sometimes,Public_Transportation,Overweight_Level_II,12.99,Active
+Non-binary,67,1.15,69.45,true,1,3,3,no,no,1,no,0,0,no,Public_Transportation,Underweight,52.51,Moderately Active
+Male,80,1.82,71.2,true,0,2,1,Sometimes,no,0,no,1,1,Sometimes,Public_Transportation,Overweight_Level_II,21.49,Active
+Agender,27,1.04,79.56,true,0,3,3,Sometimes,yes,2,no,0,0,no,Automobile,Normal_Weight,73.56,StayHome
+Female,35,1.38,48.7,true,1,3,2,no,no,2,yes,1,0,no,Public_Transportation,Underweight,25.57,StayHome
+Male,30,1.23,78.84,false,0,2,2,no,no,0,yes,0,1,Sometimes,Public_Transportation,Normal_Weight,52.11,Active
+Female,22,1.2,89.0,false,0,3,2,Sometimes,yes,0,no,2,2,Frequently,Public_Transportation,Overweight_Level_I,61.81,Moderately Active
+Male,48,1.26,76.5,true,0,2,2,Sometimes,yes,0,no,1,2,Frequently,Automobile,Underweight,48.19,Moderately Active
+Male,69,1.12,58.05,false,0,1,3,Sometimes,yes,0,no,1,1,Sometimes,Public_Transportation,Normal_Weight,46.28,Moderately Active
+Male,23,1.38,48.76,true,0,1,3,no,no,0,yes,2,1,no,Public_Transportation,Underweight,25.6,StayHome
+Polygender,74,1.75,89.72,false,1,3,3,no,yes,2,yes,2,1,Sometimes,Public_Transportation,Overweight_Level_I,29.3,Active
+Male,6,1.31,56.04,true,1,1,1,no,yes,0,no,1,1,no,Automobile,Underweight,32.66,StayHome
+Male,67,1.18,55.87,false,1,3,3,Sometimes,yes,2,yes,0,0,no,Public_Transportation,Overweight_Level_II,40.12,Active
+Female,16,1.81,81.58,true,0,1,1,no,yes,1,no,2,0,no,Automobile,Normal_Weight,24.9,StayHome
+Male,13,1.25,85.69,true,0,3,1,no,no,2,no,0,1,Frequently,Automobile,Overweight_Level_I,54.84,StayHome
+Bigender,60,1.09,67.07,true,1,1,2,Sometimes,yes,0,no,2,1,Sometimes,Automobile,Overweight_Level_I,56.45,Active
+Male,24,1.09,78.01,false,0,3,1,no,yes,0,yes,2,0,Sometimes,Public_Transportation,Overweight_Level_I,65.66,StayHome
+Male,54,1.18,43.54,false,1,3,3,Sometimes,no,0,yes,2,1,no,Automobile,Underweight,31.27,StayHome
+Male,4,1.14,75.74,false,0,3,3,no,no,1,yes,0,2,Sometimes,Public_Transportation,Overweight_Level_II,58.28,Moderately Active
+Female,41,1.36,65.6,true,0,1,3,no,yes,2,no,0,2,Sometimes,Public_Transportation,Underweight,35.47,Active
+Male,38,1.75,60.4,false,0,1,2,no,no,1,no,1,2,Sometimes,Automobile,Normal_Weight,19.72,Moderately Active
+Male,15,1.48,53.82,true,0,2,1,Sometimes,no,0,no,1,0,no,Public_Transportation,Overweight_Level_I,24.57,Moderately Active
+Male,69,1.75,42.01,false,0,3,3,Sometimes,no,0,no,0,2,no,Automobile,Overweight_Level_I,13.72,Active
+Female,54,1.1,46.16,false,0,1,3,Sometimes,yes,0,no,0,1,no,Public_Transportation,Normal_Weight,38.15,Active
+Male,27,1.5,72.99,false,0,2,1,no,no,2,yes,0,0,no,Automobile,Underweight,32.44,Active
+Male,36,1.77,69.31,true,0,1,2,Sometimes,no,1,yes,2,1,Frequently,Automobile,Overweight_Level_I,22.12,StayHome
+Male,80,1.4,43.9,false,0,3,1,no,no,1,no,0,1,Sometimes,Public_Transportation,Overweight_Level_I,22.4,StayHome
+Male,28,1.38,65.58,false,0,1,1,Sometimes,no,1,no,2,2,Frequently,Public_Transportation,Overweight_Level_I,34.44,Active
+Female,41,1.5,73.43,false,1,2,1,no,yes,0,yes,1,1,Sometimes,Public_Transportation,Normal_Weight,32.64,StayHome
+Female,63,1.25,53.76,false,1,3,2,no,no,1,no,0,2,no,Public_Transportation,Normal_Weight,34.41,Moderately Active
+Female,68,1.21,56.74,false,1,3,3,Sometimes,yes,0,yes,2,2,Sometimes,Automobile,Normal_Weight,38.75,Moderately Active
+Female,8,1.8,70.97,true,1,1,1,no,yes,1,no,2,2,Frequently,Automobile,Normal_Weight,21.9,Active
+Male,69,1.63,80.12,true,0,3,2,Sometimes,yes,1,no,2,0,no,Automobile,Normal_Weight,30.16,Moderately Active
+Male,37,1.09,51.48,true,1,3,2,no,no,2,yes,0,2,Sometimes,Automobile,Overweight_Level_II,43.33,Active
+Female,13,1.54,83.6,true,1,2,1,no,yes,1,no,0,2,Sometimes,Public_Transportation,Normal_Weight,35.25,Active
+Male,19,1.46,51.76,true,0,2,2,no,yes,1,yes,2,0,no,Automobile,Overweight_Level_I,24.28,Active
+Male,62,1.21,45.83,false,0,3,3,no,no,0,yes,2,2,Frequently,Public_Transportation,Overweight_Level_II,31.3,StayHome
+Genderfluid,77,1.2,47.77,false,1,2,2,no,yes,1,no,0,0,Sometimes,Public_Transportation,Underweight,33.17,Active
+Female,74,1.16,82.02,true,1,2,3,no,no,1,yes,0,1,Frequently,Public_Transportation,Overweight_Level_I,60.95,StayHome
+Female,78,1.46,79.6,true,0,1,2,no,yes,2,yes,1,0,Frequently,Public_Transportation,Overweight_Level_I,37.34,StayHome
+Male,8,1.47,48.02,false,1,1,2,no,no,0,yes,0,0,no,Automobile,Underweight,22.22,StayHome
+Male,74,1.08,69.8,false,1,3,2,Sometimes,yes,1,no,0,0,no,Public_Transportation,Normal_Weight,59.84,Active
+Female,37,1.49,57.34,false,0,2,3,Sometimes,yes,0,yes,1,0,no,Public_Transportation,Underweight,25.83,StayHome
+Male,31,1.48,40.36,false,0,1,1,no,yes,0,yes,0,0,Frequently,Automobile,Overweight_Level_I,18.43,Moderately Active
+Female,15,1.68,43.34,true,0,3,1,no,yes,0,yes,0,2,Sometimes,Automobile,Overweight_Level_II,15.36,StayHome
+Male,6,1.03,56.22,false,0,1,1,Sometimes,no,1,no,2,0,no,Public_Transportation,Underweight,52.99,StayHome
+Female,60,1.13,44.37,false,0,1,3,Sometimes,yes,1,no,0,0,Sometimes,Public_Transportation,Normal_Weight,34.75,StayHome
+Male,66,1.71,54.84,true,0,2,1,no,no,0,no,0,0,no,Public_Transportation,Overweight_Level_II,18.75,Moderately Active
+Male,31,1.8,84.1,false,1,3,2,no,no,0,no,0,2,no,Public_Transportation,Underweight,25.96,Moderately Active
+Male,36,1.41,42.47,true,0,1,3,Sometimes,no,1,yes,1,2,no,Automobile,Overweight_Level_I,21.36,StayHome
+Male,44,1.34,75.37,true,1,3,1,no,no,0,yes,2,2,Frequently,Public_Transportation,Overweight_Level_I,41.97,Active
+Female,18,1.53,41.9,false,0,1,2,Sometimes,yes,2,yes,0,0,no,Public_Transportation,Overweight_Level_I,17.9,StayHome
+Female,65,1.04,68.23,true,1,1,2,Sometimes,yes,2,no,0,2,Sometimes,Automobile,Underweight,63.08,Active
+Female,3,1.35,45.53,true,0,3,3,Sometimes,no,1,no,2,0,no,Public_Transportation,Overweight_Level_I,24.98,StayHome
+Female,39,1.38,64.25,false,1,3,3,Sometimes,no,1,no,2,0,Frequently,Automobile,Overweight_Level_I,33.74,StayHome
+Male,28,1.45,56.42,true,0,1,2,Sometimes,yes,2,no,2,0,Frequently,Public_Transportation,Overweight_Level_I,26.83,Moderately Active
+Male,8,1.7,66.61,true,1,1,2,no,yes,1,yes,2,0,no,Automobile,Underweight,23.05,Active
+Female,59,1.16,72.59,true,1,2,3,Sometimes,no,2,yes,2,2,no,Automobile,Normal_Weight,53.95,StayHome
+Male,6,1.08,77.05,false,0,1,3,Sometimes,yes,1,no,2,0,no,Automobile,Overweight_Level_II,66.06,StayHome
+Male,10,1.19,53.66,true,1,2,2,Sometimes,yes,2,no,2,0,no,Automobile,Underweight,37.89,Active
+Female,50,1.44,57.96,false,0,2,1,no,no,2,no,1,0,no,Public_Transportation,Overweight_Level_I,27.95,Moderately Active
+Male,51,1.23,72.68,true,0,1,1,no,no,0,yes,0,0,no,Automobile,Overweight_Level_II,48.04,Moderately Active
+Female,80,1.13,65.86,false,0,1,2,Sometimes,no,0,no,1,1,Frequently,Public_Transportation,Overweight_Level_II,51.58,Active
+Male,18,1.09,87.5,true,1,1,1,Sometimes,no,0,yes,0,0,Frequently,Automobile,Normal_Weight,73.65,Active
+Female,27,1.81,82.19,true,1,2,1,no,no,0,no,2,0,Frequently,Public_Transportation,Normal_Weight,25.09,StayHome
+Female,39,1.1,61.09,true,0,3,3,Sometimes,no,1,no,1,2,no,Automobile,Underweight,50.49,Moderately Active
+Male,13,1.79,47.79,true,1,2,1,Sometimes,no,0,yes,0,2,Frequently,Automobile,Normal_Weight,14.92,Active
+Male,22,1.37,68.92,true,1,3,2,Sometimes,no,1,yes,1,0,Sometimes,Public_Transportation,Underweight,36.72,Active
+Female,56,1.52,43.26,false,0,1,2,Sometimes,yes,2,no,2,2,Sometimes,Automobile,Overweight_Level_II,18.72,Moderately Active
+Female,49,1.69,58.8,false,1,3,3,Sometimes,no,1,yes,2,1,Frequently,Automobile,Underweight,20.59,Active
+Male,49,1.47,88.98,false,1,3,2,no,yes,1,yes,2,2,Frequently,Public_Transportation,Normal_Weight,41.18,Active
+Female,65,1.31,41.12,true,0,1,3,no,yes,2,no,2,0,no,Public_Transportation,Normal_Weight,23.96,StayHome
+Bigender,69,1.6,50.56,true,1,2,3,no,no,1,yes,0,0,Sometimes,Automobile,Overweight_Level_I,19.75,Active
+Female,47,1.28,68.19,false,1,3,3,no,yes,2,yes,2,2,Frequently,Public_Transportation,Overweight_Level_I,41.62,StayHome
+Male,20,1.48,80.62,true,1,2,1,Sometimes,yes,0,yes,2,2,no,Automobile,Overweight_Level_I,36.81,Active
+Male,72,1.11,78.13,false,0,2,2,Sometimes,yes,1,no,1,2,Frequently,Automobile,Normal_Weight,63.41,Active
+Female,80,1.27,59.81,true,1,3,1,Sometimes,no,1,yes,1,2,Frequently,Automobile,Normal_Weight,37.08,StayHome
+Female,2,1.16,51.63,false,0,2,1,no,yes,1,yes,2,0,no,Public_Transportation,Underweight,38.37,StayHome
+Female,45,1.05,52.24,true,0,2,2,Sometimes,yes,1,yes,0,0,Sometimes,Automobile,Overweight_Level_I,47.38,StayHome
+Female,37,1.21,85.62,true,0,2,3,Sometimes,no,2,yes,1,2,no,Public_Transportation,Overweight_Level_II,58.48,Moderately Active
+Male,44,1.79,68.11,false,0,3,2,Sometimes,yes,1,yes,1,2,Sometimes,Public_Transportation,Normal_Weight,21.26,Active
+Female,32,1.09,69.65,false,0,3,2,no,no,1,yes,2,2,Frequently,Public_Transportation,Underweight,58.62,Active
+Male,18,1.31,55.81,false,0,3,2,no,yes,0,yes,0,2,Sometimes,Public_Transportation,Underweight,32.52,Active
+Female,21,1.77,83.53,false,0,3,1,Sometimes,no,2,yes,0,0,no,Public_Transportation,Normal_Weight,26.66,Active
+Female,21,1.69,58.76,false,0,1,3,no,no,2,yes,2,0,Frequently,Automobile,Overweight_Level_II,20.57,Moderately Active
+Female,5,1.33,88.61,true,1,2,3,Sometimes,no,0,no,0,2,Frequently,Automobile,Overweight_Level_I,50.09,Moderately Active
+Male,74,1.64,74.55,false,0,1,2,no,yes,1,no,0,0,Frequently,Automobile,Overweight_Level_II,27.72,Active
+Male,66,1.32,81.05,true,0,2,2,Sometimes,yes,2,no,1,0,no,Automobile,Normal_Weight,46.52,Active
+Female,20,1.05,53.03,true,0,1,2,Sometimes,yes,1,yes,0,1,Frequently,Automobile,Overweight_Level_II,48.1,StayHome
+Male,68,1.68,46.3,false,1,2,1,Sometimes,no,1,no,2,2,no,Public_Transportation,Normal_Weight,16.4,Active
+Female,70,1.66,82.9,true,1,1,3,Sometimes,yes,1,yes,1,2,no,Public_Transportation,Overweight_Level_II,30.08,StayHome
+Female,15,1.54,87.32,false,1,1,1,Sometimes,no,2,yes,2,0,no,Automobile,Underweight,36.82,StayHome
+Male,39,1.28,86.77,false,1,2,3,Sometimes,yes,2,yes,0,0,Sometimes,Public_Transportation,Overweight_Level_II,52.96,Moderately Active
+Male,20,1.76,64.91,false,0,3,2,no,yes,1,no,1,1,Sometimes,Automobile,Overweight_Level_II,20.95,Moderately Active
+Male,19,1.44,89.5,false,1,2,1,no,no,0,yes,0,1,Frequently,Automobile,Underweight,43.16,Active
+Female,73,1.64,54.14,false,0,2,3,no,yes,2,yes,0,1,Frequently,Public_Transportation,Normal_Weight,20.13,Moderately Active
+Female,46,1.48,42.6,true,1,2,2,Sometimes,yes,2,no,1,0,Frequently,Automobile,Normal_Weight,19.45,StayHome
+Female,58,1.32,68.69,false,1,3,2,no,no,0,yes,1,2,no,Automobile,Normal_Weight,39.42,Moderately Active
+Male,71,1.29,87.36,true,1,2,3,Sometimes,no,2,no,0,2,no,Automobile,Underweight,52.5,Active
+Female,58,1.55,79.43,true,1,3,2,Sometimes,yes,2,yes,2,2,Sometimes,Public_Transportation,Underweight,33.06,Active
+Male,56,1.02,79.4,true,0,1,3,no,yes,0,no,1,0,Frequently,Public_Transportation,Underweight,76.32,StayHome
+Male,71,1.47,89.21,false,0,3,2,Sometimes,yes,1,yes,2,2,Sometimes,Public_Transportation,Normal_Weight,41.28,Active
+Female,79,1.56,49.3,false,1,3,2,Sometimes,no,2,yes,2,2,no,Public_Transportation,Overweight_Level_I,20.26,Moderately Active
+Female,41,1.25,73.07,false,0,3,1,no,yes,0,no,0,2,Sometimes,Public_Transportation,Overweight_Level_I,46.76,Active
+Female,57,1.69,74.11,false,1,2,1,Sometimes,no,1,no,0,2,Frequently,Public_Transportation,Normal_Weight,25.95,Active
+Male,42,1.11,45.73,true,1,2,2,Sometimes,yes,0,yes,0,1,Sometimes,Automobile,Normal_Weight,37.12,StayHome
+Female,5,1.51,75.81,true,0,3,2,Sometimes,yes,1,no,2,2,no,Automobile,Overweight_Level_I,33.25,StayHome
+Male,8,1.61,79.82,true,0,2,3,no,no,2,yes,2,1,Sometimes,Automobile,Overweight_Level_I,30.79,Moderately Active
+Agender,61,1.47,60.65,true,0,3,1,no,no,0,yes,1,0,Sometimes,Public_Transportation,Normal_Weight,28.07,Moderately Active
+Male,52,1.26,80.08,true,0,1,3,Sometimes,no,2,no,1,1,Frequently,Public_Transportation,Underweight,50.44,StayHome
+Male,46,1.47,87.43,false,1,1,1,no,yes,1,yes,1,2,Sometimes,Automobile,Overweight_Level_II,40.46,Moderately Active
+Male,78,1.02,60.09,true,0,2,2,no,no,1,yes,0,2,Sometimes,Automobile,Underweight,57.76,Active
+Female,27,1.77,63.33,false,1,3,1,Sometimes,yes,2,no,0,0,no,Automobile,Underweight,20.21,Moderately Active
+Female,67,1.21,64.93,false,1,2,1,Sometimes,no,1,yes,0,1,Sometimes,Automobile,Underweight,44.35,Moderately Active
+Female,42,1.36,45.14,true,1,2,2,no,yes,1,yes,0,0,no,Automobile,Underweight,24.41,Active
+Male,14,1.64,40.21,false,0,1,2,Sometimes,yes,0,yes,0,2,Frequently,Automobile,Overweight_Level_II,14.95,Active
+Female,60,1.03,88.13,false,0,2,3,no,no,0,no,0,0,no,Automobile,Overweight_Level_II,83.07,Moderately Active
+Male,57,1.11,58.61,true,1,2,3,Sometimes,no,2,yes,2,1,no,Automobile,Overweight_Level_I,47.57,Active
+Polygender,3,1.71,47.88,false,1,1,1,no,no,2,yes,0,0,Frequently,Automobile,Underweight,16.37,Active
+Male,58,1.25,63.42,true,0,2,1,no,no,2,no,0,1,Sometimes,Public_Transportation,Overweight_Level_I,40.59,Moderately Active
+Male,25,1.08,69.81,false,1,1,3,Sometimes,no,2,no,0,0,no,Automobile,Underweight,59.85,Moderately Active
+Female,67,1.67,74.01,false,0,1,2,Sometimes,yes,0,yes,1,1,Sometimes,Automobile,Normal_Weight,26.54,StayHome
+Female,70,1.65,62.21,true,0,2,3,Sometimes,yes,1,yes,1,0,no,Public_Transportation,Normal_Weight,22.85,Active
+Male,31,1.34,72.96,true,0,2,1,Sometimes,no,1,yes,0,0,Sometimes,Automobile,Underweight,40.63,Active
+Male,72,1.22,89.85,true,1,2,1,Sometimes,no,2,no,0,0,Frequently,Public_Transportation,Normal_Weight,60.37,StayHome
+Female,12,1.24,53.05,true,0,2,3,Sometimes,no,2,no,0,0,Sometimes,Automobile,Underweight,34.5,StayHome
+Male,49,1.07,76.87,false,1,2,3,Sometimes,no,2,yes,2,0,Sometimes,Public_Transportation,Overweight_Level_II,67.14,Moderately Active
+Female,60,1.27,82.76,true,0,3,3,Sometimes,no,1,no,0,1,Frequently,Public_Transportation,Overweight_Level_I,51.31,Active
+Female,16,1.02,56.95,true,0,3,3,no,yes,1,yes,2,0,Frequently,Public_Transportation,Normal_Weight,54.74,Active
+Female,9,1.73,82.97,true,0,1,2,Sometimes,no,2,no,1,1,Sometimes,Automobile,Underweight,27.72,StayHome
+Male,58,1.26,41.69,false,1,2,2,Sometimes,yes,1,yes,2,2,no,Public_Transportation,Underweight,26.26,StayHome
+Female,74,1.65,66.02,false,0,3,2,no,yes,1,yes,2,0,no,Public_Transportation,Normal_Weight,24.25,Moderately Active
+Female,71,1.44,87.05,true,0,1,1,no,yes,0,yes,1,1,Frequently,Public_Transportation,Overweight_Level_II,41.98,Moderately Active
+Female,70,1.16,74.9,false,1,3,3,no,no,2,yes,1,2,no,Automobile,Overweight_Level_I,55.66,Active
+Female,50,1.59,56.65,true,0,2,2,no,yes,1,no,0,2,Sometimes,Automobile,Overweight_Level_II,22.41,Moderately Active
+Male,11,1.64,57.39,false,0,3,2,no,no,0,no,1,0,Sometimes,Public_Transportation,Underweight,21.34,Active
+Female,4,1.15,60.99,false,1,3,3,Sometimes,no,1,no,2,1,Sometimes,Public_Transportation,Overweight_Level_I,46.12,Moderately Active
+Male,5,1.41,80.07,true,1,2,2,no,no,2,yes,1,2,Sometimes,Public_Transportation,Normal_Weight,40.27,StayHome
+Male,5,1.03,66.01,true,1,1,3,no,yes,0,yes,1,0,no,Public_Transportation,Overweight_Level_I,62.22,StayHome
+Female,56,1.65,56.3,true,0,1,3,no,no,0,no,1,0,Sometimes,Automobile,Overweight_Level_I,20.68,Active
+Male,4,1.36,59.6,false,1,3,2,no,yes,2,yes,1,2,Frequently,Public_Transportation,Overweight_Level_I,32.22,StayHome
+Male,36,1.73,42.21,false,1,3,2,Sometimes,yes,0,yes,1,2,no,Automobile,Overweight_Level_II,14.1,StayHome
+Female,12,1.02,46.66,true,1,3,1,Sometimes,no,0,yes,2,1,no,Automobile,Overweight_Level_II,44.85,StayHome
+Female,23,1.56,73.02,false,0,3,1,no,no,2,no,0,0,Sometimes,Automobile,Overweight_Level_I,30.0,Moderately Active
+Female,79,1.49,46.56,false,1,1,3,no,no,0,no,1,0,Frequently,Public_Transportation,Normal_Weight,20.97,Moderately Active
+Female,71,1.45,53.59,true,1,2,1,no,yes,2,yes,0,2,Frequently,Automobile,Normal_Weight,25.49,StayHome
+Female,7,1.11,46.7,false,0,1,1,Sometimes,no,1,no,1,1,Sometimes,Public_Transportation,Overweight_Level_I,37.9,StayHome
+Female,44,1.65,85.15,false,1,1,3,no,no,1,yes,2,1,Frequently,Automobile,Underweight,31.28,StayHome
+Male,49,1.79,83.68,false,1,3,2,Sometimes,no,2,no,0,2,Sometimes,Public_Transportation,Overweight_Level_I,26.12,StayHome
+Female,18,1.77,41.7,true,0,1,1,Sometimes,no,1,no,0,0,Frequently,Public_Transportation,Normal_Weight,13.31,Moderately Active
+Female,21,1.2,50.5,true,0,2,2,no,yes,2,yes,1,2,no,Public_Transportation,Underweight,35.07,Moderately Active
+Male,50,1.7,69.66,false,0,3,2,no,no,0,no,0,0,Frequently,Public_Transportation,Overweight_Level_I,24.1,Moderately Active
+Male,55,1.69,49.51,true,0,3,1,Sometimes,yes,1,yes,2,1,Frequently,Public_Transportation,Underweight,17.33,Moderately Active
+Male,4,1.0,65.5,true,0,3,2,no,yes,1,no,1,0,Frequently,Automobile,Underweight,65.5,StayHome
+Male,25,1.35,42.66,true,0,3,3,no,yes,1,no,0,0,Sometimes,Public_Transportation,Underweight,23.41,Active
+Male,2,1.63,61.83,true,0,1,3,Sometimes,yes,0,yes,1,1,no,Public_Transportation,Normal_Weight,23.27,Moderately Active
+Male,8,1.66,44.45,false,0,2,2,no,yes,2,yes,2,1,Sometimes,Public_Transportation,Overweight_Level_I,16.13,StayHome
+Male,35,1.24,45.45,false,0,1,2,Sometimes,no,1,yes,1,1,no,Automobile,Overweight_Level_II,29.56,StayHome
+Female,54,1.44,81.85,false,1,3,3,Sometimes,yes,2,yes,0,0,Sometimes,Public_Transportation,Overweight_Level_I,39.47,StayHome
+Male,37,1.71,76.49,false,1,3,1,no,no,0,no,2,2,Sometimes,Public_Transportation,Normal_Weight,26.16,Moderately Active
+Male,29,1.04,74.54,true,1,1,3,no,no,2,yes,1,2,Frequently,Automobile,Normal_Weight,68.92,StayHome
+Male,69,1.39,57.47,true,1,2,2,Sometimes,yes,0,yes,0,2,Frequently,Public_Transportation,Overweight_Level_II,29.74,Active
+Male,30,1.17,79.24,false,0,2,1,no,yes,1,yes,0,2,no,Automobile,Underweight,57.89,StayHome
+Female,24,1.56,59.42,false,0,2,2,no,no,1,yes,2,2,no,Public_Transportation,Overweight_Level_II,24.42,StayHome
+Female,29,1.11,64.91,true,0,1,1,no,no,0,yes,0,2,no,Automobile,Normal_Weight,52.68,Moderately Active
+Male,80,1.47,54.34,true,1,2,3,Sometimes,yes,2,yes,2,2,no,Automobile,Underweight,25.15,StayHome
+Female,61,1.64,63.57,true,1,2,1,Sometimes,no,2,yes,2,2,Sometimes,Automobile,Normal_Weight,23.64,Active
+Non-binary,79,1.66,44.64,true,1,1,1,no,yes,0,yes,2,0,Sometimes,Automobile,Underweight,16.2,StayHome
+Male,51,1.74,65.83,true,0,2,3,Sometimes,no,2,no,0,2,Sometimes,Public_Transportation,Underweight,21.74,Moderately Active
+Bigender,71,1.41,56.53,false,1,2,1,Sometimes,yes,1,yes,2,1,Sometimes,Automobile,Normal_Weight,28.43,Active
+Male,57,1.3,69.39,true,1,1,2,no,yes,1,no,1,2,Frequently,Public_Transportation,Overweight_Level_I,41.06,StayHome
+Female,70,1.73,63.66,true,0,1,3,no,no,2,no,1,0,Sometimes,Public_Transportation,Underweight,21.27,StayHome
+Female,73,1.75,47.09,false,1,1,3,no,yes,0,no,2,1,Frequently,Public_Transportation,Overweight_Level_I,15.38,Moderately Active
+Female,24,1.46,46.24,false,0,1,3,no,yes,1,yes,1,0,Frequently,Automobile,Overweight_Level_II,21.69,Moderately Active
+Male,19,1.59,40.29,false,0,1,2,Sometimes,no,2,yes,0,0,Frequently,Public_Transportation,Overweight_Level_II,15.94,Moderately Active
+Female,69,1.02,61.29,false,1,2,2,Sometimes,no,1,yes,0,1,Sometimes,Public_Transportation,Underweight,58.91,Active
+Female,74,1.62,42.7,true,0,3,2,Sometimes,yes,1,yes,1,0,Sometimes,Automobile,Underweight,16.27,Active
+Female,41,1.19,86.57,true,0,1,2,Sometimes,no,0,no,1,0,Sometimes,Public_Transportation,Overweight_Level_II,61.13,Active
+Female,55,1.7,42.27,true,0,3,2,no,no,0,no,0,1,Sometimes,Public_Transportation,Overweight_Level_I,14.63,Moderately Active
+Bigender,67,1.19,69.34,false,0,2,3,no,no,2,no,1,2,Frequently,Public_Transportation,Underweight,48.97,Moderately Active
+Female,34,1.56,74.45,false,1,2,2,Sometimes,no,0,yes,1,2,Sometimes,Automobile,Overweight_Level_II,30.59,Active
+Female,54,1.1,54.4,true,1,3,3,Sometimes,no,0,no,1,2,no,Public_Transportation,Overweight_Level_II,44.96,Moderately Active
+Male,23,1.76,81.51,true,1,2,1,Sometimes,no,2,yes,0,1,Frequently,Automobile,Overweight_Level_I,26.31,StayHome
+Female,66,1.73,54.64,true,1,2,3,no,yes,0,no,2,1,Sometimes,Automobile,Underweight,18.26,StayHome
+Male,43,1.77,60.27,true,1,3,1,Sometimes,no,1,no,0,0,no,Automobile,Underweight,19.24,Moderately Active
+Male,45,1.44,78.72,true,0,3,1,no,no,2,no,0,1,Sometimes,Automobile,Overweight_Level_II,37.96,StayHome
+Male,80,1.03,52.58,false,0,2,3,no,yes,0,yes,0,0,Frequently,Automobile,Overweight_Level_II,49.56,StayHome
+Male,67,1.19,56.81,true,1,2,1,no,yes,0,yes,2,2,Sometimes,Automobile,Overweight_Level_II,40.12,StayHome
+Male,6,1.09,82.52,false,1,1,2,no,no,0,yes,1,0,no,Automobile,Overweight_Level_II,69.46,StayHome
+Male,1,1.44,44.98,true,0,2,3,no,yes,0,no,1,0,Frequently,Public_Transportation,Normal_Weight,21.69,Moderately Active
+Female,24,1.65,83.41,false,0,1,3,no,yes,1,no,1,2,no,Public_Transportation,Normal_Weight,30.64,StayHome
+Female,36,1.29,60.25,true,0,3,1,no,no,0,yes,0,1,Sometimes,Automobile,Overweight_Level_I,36.21,Moderately Active
+Female,24,1.45,76.67,true,1,2,1,Sometimes,yes,0,yes,1,0,Sometimes,Automobile,Overweight_Level_I,36.47,Moderately Active
+Male,12,1.78,53.14,false,0,1,2,no,no,0,no,1,2,no,Automobile,Overweight_Level_I,16.77,Moderately Active
+Female,46,1.8,77.08,true,1,2,3,no,yes,0,no,1,0,Frequently,Automobile,Overweight_Level_I,23.79,StayHome
+Male,51,1.16,69.88,true,0,3,1,no,yes,0,yes,0,2,no,Automobile,Normal_Weight,51.93,StayHome
+Male,10,1.82,51.41,false,0,3,3,Sometimes,yes,1,no,2,1,Frequently,Automobile,Normal_Weight,15.52,Active
+Female,34,1.19,45.37,false,1,3,3,no,yes,2,yes,1,2,Sometimes,Automobile,Underweight,32.04,StayHome
+Male,61,1.55,72.96,true,0,2,1,no,no,0,no,2,2,Frequently,Public_Transportation,Underweight,30.37,StayHome
+Bigender,70,1.38,89.9,false,0,1,1,Sometimes,yes,2,yes,2,0,Frequently,Automobile,Normal_Weight,47.21,Active
+Male,20,1.27,68.34,false,0,2,1,Sometimes,yes,2,yes,1,0,no,Public_Transportation,Overweight_Level_II,42.37,Moderately Active
+Female,17,1.1,61.9,false,1,1,2,no,no,0,yes,2,1,no,Public_Transportation,Overweight_Level_I,51.16,Moderately Active
+Male,72,1.64,63.44,true,0,3,1,Sometimes,yes,2,yes,1,1,Frequently,Automobile,Normal_Weight,23.59,StayHome
+Female,64,1.68,66.31,false,1,1,2,Sometimes,no,0,yes,2,2,Sometimes,Public_Transportation,Normal_Weight,23.49,Moderately Active
+Female,15,1.03,56.68,false,0,3,2,no,yes,2,no,0,2,Frequently,Public_Transportation,Normal_Weight,53.43,Active
+Male,42,1.32,67.48,false,1,2,3,Sometimes,no,1,no,0,2,Frequently,Automobile,Underweight,38.73,Active
+Polygender,64,1.33,62.32,true,0,2,3,no,no,1,no,1,1,Sometimes,Public_Transportation,Normal_Weight,35.23,Moderately Active
+Female,16,1.38,88.14,true,1,1,1,Sometimes,yes,2,no,2,0,no,Automobile,Underweight,46.28,Active
+Agender,66,1.18,45.84,false,0,2,1,no,no,0,yes,1,0,no,Public_Transportation,Normal_Weight,32.92,Active
+Male,80,1.47,80.61,false,0,1,2,Sometimes,yes,0,no,0,1,Frequently,Automobile,Normal_Weight,37.3,Active
+Female,2,1.46,86.42,false,0,3,2,no,no,2,no,1,2,no,Public_Transportation,Underweight,40.54,Active
+Female,54,1.22,46.27,true,0,2,3,no,yes,0,no,1,1,Frequently,Public_Transportation,Overweight_Level_II,31.09,StayHome
+Genderqueer,40,1.12,77.8,false,1,2,1,no,yes,0,no,1,1,no,Public_Transportation,Overweight_Level_I,62.02,Moderately Active
+Male,51,1.61,85.46,false,1,1,3,Sometimes,no,0,no,2,0,no,Public_Transportation,Overweight_Level_II,32.97,StayHome
+Male,8,1.64,50.44,true,0,3,3,no,no,1,no,1,1,no,Public_Transportation,Overweight_Level_II,18.75,Moderately Active
+Male,21,1.12,65.54,false,1,1,3,Sometimes,yes,2,yes,2,2,no,Automobile,Overweight_Level_II,52.25,StayHome
+Female,6,1.64,80.48,false,1,1,2,Sometimes,no,0,yes,2,1,Sometimes,Public_Transportation,Overweight_Level_II,29.92,Active
+Female,80,1.11,86.23,true,1,3,1,no,no,0,yes,2,2,Frequently,Automobile,Overweight_Level_II,69.99,StayHome
+Male,11,1.05,81.52,false,0,2,2,Sometimes,yes,1,no,1,2,Frequently,Automobile,Underweight,73.94,StayHome
+Male,80,1.59,68.77,false,0,3,2,no,yes,1,yes,2,0,Sometimes,Public_Transportation,Overweight_Level_I,27.2,StayHome
+Male,24,1.29,83.98,true,0,3,2,Sometimes,yes,2,yes,1,0,no,Public_Transportation,Underweight,50.47,Active
+Male,65,1.09,68.93,true,1,3,3,no,yes,0,no,0,0,no,Public_Transportation,Normal_Weight,58.02,StayHome
+Female,57,1.69,59.83,false,1,2,2,no,yes,0,yes,0,1,Frequently,Public_Transportation,Overweight_Level_I,20.95,Active
+Male,63,1.5,46.75,true,1,3,1,no,no,1,no,0,0,Frequently,Public_Transportation,Overweight_Level_II,20.78,Active
+Female,40,1.03,77.19,true,1,1,2,Sometimes,no,1,yes,2,1,no,Public_Transportation,Normal_Weight,72.76,Active
+Female,24,1.29,71.34,true,1,1,1,no,no,1,no,1,2,no,Public_Transportation,Underweight,42.87,StayHome
+Agender,51,1.41,53.59,false,1,3,1,no,no,0,no,2,0,Frequently,Automobile,Normal_Weight,26.96,Active
+Female,22,1.65,53.84,false,0,3,1,no,no,2,yes,2,2,no,Public_Transportation,Underweight,19.78,Moderately Active
+Genderfluid,64,1.42,46.71,false,1,3,2,no,no,0,no,0,1,Sometimes,Public_Transportation,Normal_Weight,23.17,StayHome
+Female,52,1.61,68.14,true,1,2,3,no,no,1,no,0,1,no,Public_Transportation,Underweight,26.29,StayHome
+Female,68,1.43,68.74,false,1,3,1,no,yes,0,yes,2,1,Frequently,Public_Transportation,Overweight_Level_I,33.62,Active
+Female,49,1.41,63.58,false,0,2,3,Sometimes,no,1,yes,1,1,Frequently,Automobile,Normal_Weight,31.98,Moderately Active
+Male,71,1.5,67.54,true,1,2,3,Sometimes,no,2,no,0,1,Frequently,Automobile,Underweight,30.02,Active
+Male,32,1.54,60.07,false,0,2,1,no,no,2,yes,1,2,no,Public_Transportation,Underweight,25.33,Moderately Active
+Polygender,79,1.05,40.45,false,1,3,2,Sometimes,yes,2,no,1,2,Frequently,Public_Transportation,Overweight_Level_II,36.69,StayHome
+Female,54,1.5,82.03,true,0,3,3,Sometimes,yes,1,no,0,1,no,Automobile,Overweight_Level_I,36.46,Moderately Active
+Male,17,1.66,61.26,false,1,2,1,Sometimes,no,1,yes,0,2,Sometimes,Automobile,Overweight_Level_II,22.23,StayHome
+Male,35,1.15,52.29,true,1,1,1,Sometimes,yes,0,no,1,1,no,Public_Transportation,Underweight,39.54,StayHome
+Male,8,1.17,86.99,true,1,2,1,no,yes,1,yes,1,0,no,Public_Transportation,Underweight,63.55,Moderately Active
+Female,32,1.61,71.19,true,1,1,2,no,yes,0,no,1,1,no,Public_Transportation,Normal_Weight,27.46,StayHome
+Female,22,1.78,87.78,false,1,2,2,Sometimes,yes,1,yes,0,0,no,Public_Transportation,Normal_Weight,27.7,StayHome
+Male,58,1.23,83.79,false,0,1,1,Sometimes,no,1,yes,2,1,Sometimes,Public_Transportation,Overweight_Level_II,55.38,StayHome
+Male,24,1.55,88.44,false,1,1,3,Sometimes,no,0,no,2,1,Frequently,Automobile,Underweight,36.81,Active
+Male,11,1.48,73.22,true,1,3,2,Sometimes,yes,2,no,1,2,Sometimes,Public_Transportation,Overweight_Level_II,33.43,Moderately Active
+Male,22,1.81,46.54,true,0,3,2,no,no,0,no,2,2,no,Public_Transportation,Underweight,14.21,Moderately Active
+Female,63,1.68,76.07,true,0,2,2,no,yes,2,no,0,1,no,Automobile,Overweight_Level_II,26.95,Moderately Active
+Male,24,1.75,55.26,false,1,3,2,Sometimes,no,0,no,0,2,Frequently,Public_Transportation,Overweight_Level_I,18.04,Moderately Active
+Female,58,1.14,42.13,false,1,3,2,no,no,2,yes,0,1,Sometimes,Automobile,Overweight_Level_I,32.42,Active
+Male,7,1.66,87.39,false,1,2,1,no,yes,2,no,1,1,no,Public_Transportation,Normal_Weight,31.71,Active
+Male,64,1.77,51.18,true,0,3,1,Sometimes,no,2,yes,0,1,Frequently,Public_Transportation,Overweight_Level_II,16.34,Moderately Active
+Female,68,1.52,76.37,true,1,2,2,Sometimes,yes,2,no,0,2,no,Public_Transportation,Normal_Weight,33.05,StayHome
+Male,58,1.58,45.04,false,0,3,3,no,yes,0,yes,1,2,no,Automobile,Normal_Weight,18.04,StayHome
+Female,28,1.04,76.97,true,1,2,2,no,no,0,no,0,0,no,Public_Transportation,Overweight_Level_II,71.16,Active
+Male,48,1.31,50.3,true,0,1,1,no,no,0,yes,2,1,no,Automobile,Underweight,29.31,Active
+Genderfluid,65,1.11,64.95,false,1,3,2,Sometimes,no,1,no,0,1,no,Automobile,Underweight,52.71,StayHome
+Female,39,1.17,72.14,false,1,3,2,Sometimes,no,0,no,1,2,Sometimes,Public_Transportation,Overweight_Level_II,52.7,Moderately Active
+Male,17,1.66,68.57,true,1,1,2,no,yes,2,no,2,1,Frequently,Automobile,Normal_Weight,24.88,Moderately Active
+Female,22,1.46,76.2,false,0,2,2,no,no,1,yes,1,2,Frequently,Public_Transportation,Overweight_Level_I,35.75,StayHome
+Male,1,1.26,54.74,false,1,3,1,Sometimes,no,1,yes,2,0,no,Automobile,Underweight,34.48,Active
+Female,43,1.3,54.67,true,1,2,3,no,no,2,no,1,1,Sometimes,Public_Transportation,Overweight_Level_I,32.35,Active
+Male,78,1.58,47.78,true,1,2,2,no,no,1,yes,2,2,Frequently,Automobile,Overweight_Level_I,19.14,StayHome
+Female,1,1.13,47.69,false,0,1,2,Sometimes,yes,1,no,2,1,Sometimes,Automobile,Overweight_Level_II,37.35,Active
+Female,14,1.66,53.12,false,0,3,2,no,yes,1,yes,2,1,Frequently,Public_Transportation,Underweight,19.28,Moderately Active
+Female,46,1.26,82.07,false,1,2,3,no,no,2,yes,0,2,Frequently,Automobile,Normal_Weight,51.69,StayHome
+Male,22,1.2,51.26,true,1,1,3,Sometimes,yes,2,yes,0,0,no,Public_Transportation,Overweight_Level_I,35.6,Moderately Active
+Male,25,1.6,53.49,true,1,1,2,Sometimes,no,0,no,2,1,no,Public_Transportation,Normal_Weight,20.89,Moderately Active
+Female,23,1.18,58.36,false,1,3,2,Sometimes,no,1,yes,0,2,Frequently,Public_Transportation,Underweight,41.91,Moderately Active
+Female,4,1.11,81.86,true,1,2,2,no,no,1,yes,2,1,no,Public_Transportation,Underweight,66.44,Moderately Active
+Male,76,1.19,73.99,false,1,2,2,Sometimes,yes,2,no,2,2,Sometimes,Automobile,Overweight_Level_II,52.25,Active
+Female,21,1.08,73.33,true,0,2,1,Sometimes,no,2,yes,0,0,no,Public_Transportation,Normal_Weight,62.87,Moderately Active
+Male,15,1.35,55.97,false,0,3,3,Sometimes,yes,1,yes,2,2,no,Automobile,Normal_Weight,30.71,Moderately Active
+Male,67,1.74,40.46,true,0,2,1,no,no,1,yes,2,2,Frequently,Public_Transportation,Underweight,13.36,Moderately Active
+Bigender,80,1.27,87.66,true,0,3,2,Sometimes,yes,1,yes,2,0,Frequently,Public_Transportation,Overweight_Level_II,54.35,StayHome
+Female,2,1.15,73.12,false,1,1,2,no,yes,2,yes,0,0,Frequently,Public_Transportation,Underweight,55.29,StayHome
+Male,46,1.78,48.88,false,0,2,3,no,no,1,no,1,0,Frequently,Public_Transportation,Overweight_Level_II,15.43,Active
+Female,50,1.73,78.05,true,1,3,3,no,yes,2,yes,0,1,Sometimes,Public_Transportation,Normal_Weight,26.08,StayHome
+Male,64,1.75,88.46,true,0,2,3,Sometimes,no,0,yes,1,2,Frequently,Automobile,Overweight_Level_I,28.88,Moderately Active
+Female,11,1.49,61.21,true,0,3,1,no,no,1,no,2,0,Sometimes,Public_Transportation,Normal_Weight,27.57,Moderately Active
+Female,18,1.22,89.6,true,0,1,1,Sometimes,yes,2,no,1,0,no,Public_Transportation,Overweight_Level_II,60.2,StayHome
+Non-binary,20,1.16,51.82,false,1,2,2,no,no,0,no,1,0,Frequently,Automobile,Overweight_Level_II,38.51,StayHome
+Female,36,1.42,76.19,false,1,1,3,no,yes,2,no,1,0,no,Public_Transportation,Overweight_Level_II,37.79,Moderately Active
+Male,37,1.08,83.98,true,1,3,1,no,no,2,yes,1,0,Sometimes,Automobile,Overweight_Level_II,72.0,StayHome
+Female,57,1.66,58.23,true,1,2,1,Sometimes,yes,1,yes,2,0,Sometimes,Automobile,Normal_Weight,21.13,StayHome
+Female,51,1.22,55.97,true,1,1,1,Sometimes,no,1,no,0,1,no,Public_Transportation,Underweight,37.6,Moderately Active
+Female,19,1.12,78.75,false,0,3,1,Sometimes,no,0,yes,1,2,Frequently,Automobile,Overweight_Level_I,62.78,StayHome
+Male,14,1.54,75.3,false,1,1,3,Sometimes,yes,1,no,2,0,no,Public_Transportation,Overweight_Level_I,31.75,Moderately Active
+Female,36,1.12,86.4,true,0,1,2,no,no,0,no,0,2,Frequently,Public_Transportation,Underweight,68.88,Active
+Female,4,1.45,81.29,true,0,2,1,Sometimes,yes,1,no,0,1,Frequently,Automobile,Overweight_Level_II,38.66,Moderately Active
+Female,76,1.79,76.45,true,1,2,3,no,no,0,yes,2,1,no,Automobile,Underweight,23.86,Active
+Female,19,1.46,69.8,true,1,2,2,no,no,0,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_I,32.75,StayHome
+Male,3,1.2,68.39,false,0,1,1,Sometimes,yes,1,yes,2,0,Sometimes,Public_Transportation,Underweight,47.49,Moderately Active
+Female,23,1.6,56.1,false,1,3,1,no,no,2,yes,1,0,Sometimes,Public_Transportation,Overweight_Level_I,21.91,Moderately Active
+Polygender,32,1.62,73.11,false,1,1,2,no,no,0,yes,2,2,Frequently,Public_Transportation,Underweight,27.86,StayHome
+Male,9,1.08,87.81,false,0,1,2,Sometimes,yes,2,no,2,0,no,Public_Transportation,Overweight_Level_I,75.28,Moderately Active
+Male,46,1.56,42.36,false,1,3,3,no,yes,1,no,2,1,Sometimes,Automobile,Underweight,17.41,Active
+Male,32,1.28,72.26,true,1,1,3,no,yes,0,no,1,1,no,Automobile,Overweight_Level_I,44.1,Moderately Active
+Male,20,1.52,47.33,true,0,2,3,Sometimes,yes,2,no,0,1,Sometimes,Public_Transportation,Overweight_Level_II,20.49,Active
+Male,75,1.36,85.57,false,1,1,1,no,yes,0,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_II,46.26,StayHome
+Male,30,1.1,53.47,false,0,3,2,Sometimes,no,1,no,1,1,Frequently,Public_Transportation,Overweight_Level_II,44.19,Active
+Male,67,1.18,47.59,false,1,1,3,no,yes,2,no,1,1,Frequently,Automobile,Normal_Weight,34.18,StayHome
+Female,1,1.61,50.92,false,1,1,3,Sometimes,yes,2,no,1,0,no,Public_Transportation,Normal_Weight,19.64,Active
+Male,22,1.5,64.63,true,0,2,2,Sometimes,no,1,no,2,2,no,Public_Transportation,Underweight,28.72,Active
+Female,70,1.67,62.27,true,1,2,2,no,yes,0,no,0,1,Frequently,Automobile,Overweight_Level_II,22.33,Moderately Active
+Male,54,1.2,70.23,true,0,1,1,Sometimes,yes,2,yes,2,0,no,Automobile,Normal_Weight,48.77,Moderately Active
+Male,70,1.51,60.94,true,0,2,3,no,yes,1,no,1,2,no,Automobile,Underweight,26.73,Moderately Active
+Male,45,1.15,78.86,false,1,3,2,Sometimes,yes,1,yes,1,1,Sometimes,Public_Transportation,Normal_Weight,59.63,Active
+Male,55,1.22,53.23,true,1,1,1,no,yes,0,yes,0,0,no,Public_Transportation,Underweight,35.76,Active
+Male,29,1.26,46.38,true,0,1,3,no,yes,0,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_II,29.21,StayHome
+Male,6,1.66,43.14,false,0,2,1,Sometimes,yes,1,yes,0,2,Sometimes,Automobile,Overweight_Level_I,15.66,StayHome
+Male,53,1.25,51.56,true,1,3,1,no,yes,0,no,1,2,Sometimes,Automobile,Underweight,33.0,StayHome
+Male,14,1.01,71.89,false,0,1,3,Sometimes,yes,2,yes,1,0,Frequently,Public_Transportation,Normal_Weight,70.47,StayHome
+Male,53,1.43,59.31,false,0,3,1,Sometimes,no,0,no,0,2,no,Automobile,Normal_Weight,29.0,Moderately Active
+Female,78,1.8,47.97,false,0,3,3,Sometimes,yes,0,yes,2,1,no,Public_Transportation,Overweight_Level_II,14.81,Moderately Active
+Male,76,1.07,58.38,false,1,3,1,Sometimes,yes,2,no,2,0,Sometimes,Automobile,Normal_Weight,50.99,StayHome
+Female,76,1.08,78.5,true,0,2,2,Sometimes,yes,2,yes,1,1,Sometimes,Automobile,Normal_Weight,67.3,Moderately Active
+Male,71,1.03,45.93,true,1,1,3,Sometimes,yes,1,no,1,0,Frequently,Automobile,Underweight,43.29,Active
+Male,5,1.58,57.43,false,1,2,2,no,no,0,no,2,0,no,Automobile,Overweight_Level_I,23.01,Active
+Male,50,1.25,74.22,false,0,3,3,no,no,0,yes,2,1,Frequently,Public_Transportation,Normal_Weight,47.5,StayHome
+Polygender,13,1.72,52.97,false,1,3,2,Sometimes,yes,1,yes,1,2,Frequently,Public_Transportation,Overweight_Level_II,17.9,StayHome
+Male,17,1.78,80.06,true,0,3,1,no,no,0,yes,1,0,no,Public_Transportation,Overweight_Level_II,25.27,StayHome
+Male,56,1.18,78.77,false,1,1,3,Sometimes,no,1,yes,1,1,Frequently,Automobile,Overweight_Level_II,56.57,Active
+Male,4,1.43,57.62,false,1,3,2,Sometimes,yes,2,no,1,0,Sometimes,Public_Transportation,Underweight,28.18,Moderately Active
+Female,38,1.24,43.29,true,1,3,3,no,yes,1,yes,1,1,Frequently,Public_Transportation,Underweight,28.15,Active
+Female,27,1.52,83.92,false,0,2,2,Sometimes,yes,1,no,1,1,Frequently,Automobile,Overweight_Level_I,36.32,Active
+Female,9,1.74,58.6,false,0,3,3,Sometimes,no,2,yes,0,2,no,Public_Transportation,Underweight,19.36,Active
+Female,73,1.0,47.19,false,0,3,2,no,yes,1,no,1,2,no,Automobile,Normal_Weight,47.19,StayHome
+Female,15,1.8,45.91,true,1,1,2,no,no,1,no,2,2,no,Automobile,Overweight_Level_I,14.17,StayHome
+Male,7,1.74,54.35,true,0,1,1,Sometimes,yes,2,no,0,1,no,Public_Transportation,Overweight_Level_I,17.95,Active
+Agender,69,1.07,81.48,false,0,3,1,Sometimes,yes,0,yes,1,1,Sometimes,Automobile,Overweight_Level_II,71.17,Moderately Active
+Female,72,1.6,52.39,true,1,2,3,Sometimes,yes,2,yes,0,1,no,Public_Transportation,Overweight_Level_I,20.46,Active
+Female,9,1.79,88.21,true,1,2,1,no,yes,1,yes,1,2,Sometimes,Public_Transportation,Overweight_Level_II,27.53,Moderately Active
+Female,7,1.44,64.42,false,0,3,1,no,no,0,no,1,1,Sometimes,Public_Transportation,Overweight_Level_I,31.07,StayHome
+Male,54,1.61,44.1,false,1,2,3,no,yes,2,no,1,1,Frequently,Automobile,Overweight_Level_I,17.01,Active
+Female,35,1.75,68.28,true,1,3,1,Sometimes,no,1,no,0,2,Frequently,Automobile,Normal_Weight,22.3,Moderately Active
+Male,73,1.19,87.32,false,0,1,3,no,yes,2,yes,0,2,Sometimes,Automobile,Overweight_Level_II,61.66,StayHome
+Male,62,1.52,59.22,true,1,2,2,no,yes,2,no,2,0,Frequently,Public_Transportation,Underweight,25.63,Active
+Male,1,1.72,79.39,false,1,3,3,Sometimes,yes,1,no,0,0,Sometimes,Automobile,Overweight_Level_I,26.84,Active
+Female,49,1.59,71.16,true,0,2,1,no,yes,0,no,2,1,Sometimes,Public_Transportation,Overweight_Level_II,28.15,Active
+Female,68,1.07,71.86,false,0,2,3,Sometimes,no,1,no,2,2,Sometimes,Public_Transportation,Overweight_Level_I,62.77,Active
+Polygender,14,1.53,45.23,true,0,1,1,Sometimes,yes,2,no,2,0,no,Automobile,Underweight,19.32,Active
+Female,8,1.17,85.38,false,1,1,2,no,yes,0,no,2,2,Frequently,Public_Transportation,Overweight_Level_II,62.37,Active
+Bigender,36,1.39,71.98,false,1,1,3,Sometimes,no,2,no,0,1,Frequently,Automobile,Overweight_Level_I,37.25,StayHome
+Male,4,1.43,77.52,false,1,3,2,Sometimes,yes,1,no,0,1,Sometimes,Automobile,Underweight,37.91,StayHome
+Male,13,1.21,74.72,false,1,2,1,no,yes,2,yes,0,2,Sometimes,Automobile,Normal_Weight,51.03,Active
+Female,48,1.02,41.52,true,0,1,1,no,no,0,yes,0,0,Sometimes,Public_Transportation,Overweight_Level_I,39.91,Active
+Male,33,1.49,84.64,true,1,1,2,no,yes,2,yes,2,1,Sometimes,Automobile,Normal_Weight,38.12,Active
+Female,4,1.11,79.8,true,0,1,1,no,yes,2,yes,2,1,Frequently,Automobile,Overweight_Level_I,64.77,Moderately Active
+Female,51,1.46,42.26,true,0,2,1,Sometimes,no,1,no,1,1,no,Public_Transportation,Overweight_Level_II,19.83,Moderately Active
+Male,17,1.41,60.83,false,1,3,1,no,yes,1,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_I,30.6,StayHome
+Female,2,1.25,52.91,true,1,3,1,no,yes,2,no,1,0,Frequently,Public_Transportation,Overweight_Level_I,33.86,Moderately Active
+Male,15,1.48,45.81,false,0,3,3,no,yes,1,yes,1,1,Sometimes,Public_Transportation,Underweight,20.91,StayHome
+Male,70,1.55,45.93,false,0,3,1,Sometimes,yes,1,no,0,0,Sometimes,Automobile,Overweight_Level_II,19.12,StayHome
+Female,32,1.2,42.1,false,0,1,3,no,yes,0,yes,1,0,Sometimes,Public_Transportation,Normal_Weight,29.24,Moderately Active
+Female,3,1.5,76.0,false,1,2,1,no,yes,0,no,0,1,no,Public_Transportation,Underweight,33.78,Active
+Male,4,1.12,86.5,false,0,3,2,Sometimes,no,2,no,0,0,Frequently,Automobile,Overweight_Level_I,68.96,Active
+Male,68,1.3,81.06,true,1,3,1,no,no,1,yes,0,2,no,Automobile,Normal_Weight,47.96,Moderately Active
+Female,59,1.76,74.23,true,1,2,3,no,yes,2,yes,1,2,Sometimes,Public_Transportation,Normal_Weight,23.96,Moderately Active
+Male,40,1.57,68.78,false,1,1,2,no,no,1,yes,1,0,Sometimes,Public_Transportation,Underweight,27.9,StayHome
+Genderqueer,51,1.32,65.64,false,1,3,1,no,yes,0,yes,0,2,Frequently,Automobile,Overweight_Level_II,37.67,Active
+Male,36,1.18,61.65,false,0,2,1,Sometimes,yes,1,no,1,1,Sometimes,Public_Transportation,Overweight_Level_I,44.28,StayHome
+Male,38,1.1,62.2,true,0,1,1,no,yes,0,yes,2,2,Sometimes,Public_Transportation,Underweight,51.4,Active
+Genderfluid,67,1.28,74.3,true,1,3,1,no,no,1,no,1,1,Frequently,Public_Transportation,Normal_Weight,45.35,Active
+Female,26,1.4,48.59,false,1,3,2,Sometimes,yes,2,no,0,2,Frequently,Automobile,Overweight_Level_I,24.79,Active
+Female,60,1.54,67.61,false,0,3,1,no,no,1,no,0,1,Frequently,Public_Transportation,Overweight_Level_I,28.51,Active
+Female,7,1.14,67.23,true,1,1,2,Sometimes,no,0,no,0,1,Frequently,Public_Transportation,Overweight_Level_I,51.73,StayHome
+Male,49,1.59,84.75,false,1,1,3,Sometimes,no,2,no,0,2,Sometimes,Public_Transportation,Underweight,33.52,StayHome
+Agender,59,1.23,73.14,true,1,3,1,Sometimes,no,0,no,1,0,Sometimes,Automobile,Normal_Weight,48.34,Moderately Active
+Female,44,1.53,43.66,true,0,2,3,Sometimes,no,1,yes,1,0,Sometimes,Public_Transportation,Underweight,18.65,StayHome
+Female,10,1.52,45.85,true,0,1,2,Sometimes,no,2,yes,1,1,Sometimes,Public_Transportation,Underweight,19.85,Moderately Active
+Female,14,1.44,57.92,false,1,3,3,Sometimes,yes,0,no,2,1,Sometimes,Public_Transportation,Underweight,27.93,StayHome
+Female,50,1.69,82.99,false,0,3,3,no,no,2,no,0,1,Sometimes,Automobile,Underweight,29.06,StayHome
+Female,53,1.8,72.84,true,0,3,1,Sometimes,no,0,yes,1,2,Sometimes,Public_Transportation,Overweight_Level_II,22.48,Moderately Active
+Male,38,1.01,46.08,false,1,3,1,Sometimes,yes,2,no,2,2,no,Public_Transportation,Overweight_Level_II,45.17,StayHome
+Non-binary,34,1.51,65.0,true,0,2,3,no,yes,2,yes,2,1,no,Automobile,Overweight_Level_I,28.51,StayHome
+Male,20,1.54,60.15,true,1,1,1,no,no,0,yes,0,2,no,Automobile,Overweight_Level_II,25.36,Active
+Female,38,1.39,69.76,true,0,2,2,no,no,0,no,2,1,Sometimes,Public_Transportation,Overweight_Level_I,36.11,Active
+Female,19,1.22,69.47,false,0,1,1,Sometimes,yes,2,no,0,1,Sometimes,Public_Transportation,Overweight_Level_I,46.67,Moderately Active
+Female,54,1.05,81.41,true,0,3,2,Sometimes,yes,0,no,0,0,Sometimes,Public_Transportation,Overweight_Level_II,73.84,StayHome
+Male,36,1.06,49.43,true,1,2,1,Sometimes,no,1,no,0,2,Sometimes,Public_Transportation,Normal_Weight,43.99,StayHome
+Bigender,71,1.21,88.83,false,0,2,2,no,yes,2,no,0,0,Sometimes,Automobile,Overweight_Level_I,60.67,Active
+Female,31,1.48,44.23,true,1,2,2,no,no,0,no,1,0,Sometimes,Public_Transportation,Underweight,20.19,StayHome
+Male,37,1.03,64.94,true,1,2,1,Sometimes,yes,1,no,1,0,Sometimes,Public_Transportation,Overweight_Level_I,61.21,Moderately Active
+Female,11,1.12,76.24,true,0,2,2,Sometimes,yes,0,no,2,0,Sometimes,Public_Transportation,Normal_Weight,60.78,Moderately Active
+Male,73,1.41,76.53,true,1,2,1,no,no,2,no,0,0,no,Public_Transportation,Overweight_Level_I,38.49,Active
+Female,76,1.07,84.82,true,0,3,2,no,no,2,no,2,1,Frequently,Public_Transportation,Overweight_Level_I,74.09,Moderately Active
+Male,3,1.63,73.84,false,1,3,3,Sometimes,no,1,no,0,0,Sometimes,Public_Transportation,Underweight,27.79,Active
+Genderfluid,17,1.28,52.72,true,0,1,1,Sometimes,no,0,no,0,2,Frequently,Public_Transportation,Underweight,32.18,Active
+Female,17,1.58,86.33,true,1,3,3,Sometimes,no,0,no,2,0,no,Public_Transportation,Underweight,34.58,StayHome
+Male,52,1.64,74.77,true,0,2,3,no,yes,1,yes,2,0,no,Automobile,Overweight_Level_I,27.8,StayHome
+Male,27,1.6,75.69,true,0,2,1,Sometimes,no,2,yes,1,2,Sometimes,Public_Transportation,Normal_Weight,29.57,Active
+Female,6,1.61,49.37,true,1,1,3,Sometimes,no,1,yes,2,1,no,Public_Transportation,Normal_Weight,19.05,StayHome
+Female,63,1.45,56.18,true,1,3,3,no,no,1,yes,1,0,Sometimes,Automobile,Normal_Weight,26.72,Moderately Active
+Female,42,1.72,69.45,false,0,2,1,Sometimes,yes,0,yes,2,1,Sometimes,Public_Transportation,Overweight_Level_I,23.48,Moderately Active
+Agender,10,1.17,86.17,true,0,2,3,no,yes,1,no,0,1,Frequently,Public_Transportation,Overweight_Level_I,62.95,Active
+Male,69,1.01,62.81,true,0,2,3,no,yes,2,yes,2,2,Sometimes,Automobile,Overweight_Level_II,61.57,Active
+Male,41,1.62,77.85,false,1,2,2,no,no,2,no,0,0,Frequently,Public_Transportation,Overweight_Level_I,29.66,Moderately Active
+Male,7,1.2,46.43,false,1,2,1,Sometimes,yes,1,no,1,0,Sometimes,Automobile,Overweight_Level_I,32.24,StayHome
+Female,44,1.73,43.05,false,1,1,1,Sometimes,yes,2,no,1,0,Sometimes,Public_Transportation,Underweight,14.38,Active
+Genderqueer,19,1.05,53.93,true,1,2,3,no,no,2,yes,0,1,Sometimes,Automobile,Underweight,48.92,Active
+Female,25,1.56,52.08,true,1,1,1,Sometimes,no,1,yes,2,0,Frequently,Public_Transportation,Overweight_Level_II,21.4,Moderately Active
+Male,1,1.03,83.95,true,0,3,2,Sometimes,no,0,no,2,2,no,Automobile,Normal_Weight,79.13,StayHome
+Female,49,1.26,77.76,false,0,2,3,Sometimes,yes,0,no,1,0,Sometimes,Public_Transportation,Normal_Weight,48.98,StayHome
+Male,73,1.49,81.5,true,0,1,3,no,yes,0,no,2,2,Sometimes,Public_Transportation,Overweight_Level_II,36.71,Moderately Active
+Agender,16,1.65,66.38,false,1,2,2,Sometimes,no,0,yes,0,2,Frequently,Public_Transportation,Overweight_Level_II,24.38,StayHome
+Male,75,1.11,57.35,true,0,2,2,Sometimes,yes,1,no,0,0,Sometimes,Automobile,Underweight,46.55,StayHome
+Female,69,1.15,69.34,false,1,3,2,Sometimes,no,2,yes,2,1,Frequently,Public_Transportation,Normal_Weight,52.43,StayHome
+Male,66,1.74,57.56,true,1,2,2,Sometimes,yes,0,no,1,1,Sometimes,Public_Transportation,Underweight,19.01,StayHome
+Male,36,1.6,74.0,true,1,3,2,no,yes,1,yes,1,0,Frequently,Automobile,Underweight,28.91,Moderately Active
+Male,23,1.19,54.98,false,1,3,3,Sometimes,no,0,yes,1,0,Frequently,Automobile,Overweight_Level_II,38.82,Active
+Female,49,1.1,85.57,false,1,3,1,Sometimes,no,2,no,1,1,no,Public_Transportation,Underweight,70.72,StayHome
+Female,34,1.79,86.42,true,0,1,1,no,yes,1,yes,0,2,no,Public_Transportation,Underweight,26.97,Moderately Active
+Female,72,1.22,86.97,false,1,3,3,no,yes,2,yes,2,1,Frequently,Public_Transportation,Underweight,58.43,StayHome
+Female,73,1.23,48.98,false,0,1,3,Sometimes,yes,2,yes,2,0,Frequently,Automobile,Underweight,32.37,Moderately Active
+Male,23,1.15,45.74,false,1,1,1,no,no,1,no,1,1,no,Public_Transportation,Overweight_Level_I,34.59,Active
+Female,57,1.76,81.03,false,1,1,2,Sometimes,no,2,yes,1,0,no,Automobile,Overweight_Level_I,26.16,StayHome
+Male,68,1.14,83.05,false,1,1,3,Sometimes,no,1,yes,1,2,Sometimes,Public_Transportation,Overweight_Level_II,63.9,Moderately Active
+Female,25,1.33,89.97,true,0,1,3,Sometimes,no,2,no,2,1,no,Automobile,Underweight,50.86,Moderately Active
+Male,40,1.03,80.38,true,1,2,3,Sometimes,no,1,yes,2,1,Sometimes,Public_Transportation,Normal_Weight,75.77,StayHome
+Male,80,1.38,81.63,false,0,2,2,no,yes,1,no,2,1,Sometimes,Public_Transportation,Overweight_Level_I,42.86,Active
+Female,56,1.0,79.75,false,1,1,1,no,yes,0,no,1,1,Sometimes,Public_Transportation,Overweight_Level_II,79.75,Moderately Active
+Bigender,26,1.59,73.94,false,1,2,3,no,yes,1,yes,1,2,Frequently,Public_Transportation,Normal_Weight,29.25,Active
+Male,53,1.43,83.1,true,0,3,1,Sometimes,no,2,yes,0,0,no,Public_Transportation,Overweight_Level_II,40.64,Active
+Male,6,1.47,46.5,false,0,1,3,no,yes,0,no,1,0,no,Public_Transportation,Normal_Weight,21.52,Moderately Active
+Female,68,1.44,68.52,true,0,3,2,Sometimes,yes,1,no,0,1,Sometimes,Public_Transportation,Normal_Weight,33.04,StayHome
+Female,22,1.5,88.82,true,1,3,1,Sometimes,no,1,yes,2,1,Sometimes,Automobile,Overweight_Level_II,39.48,Active
+Non-binary,8,1.51,66.92,true,1,1,3,Sometimes,yes,0,no,1,1,no,Public_Transportation,Underweight,29.35,Moderately Active
+Female,71,1.43,44.06,true,1,1,1,Sometimes,yes,0,yes,1,2,Sometimes,Automobile,Normal_Weight,21.55,Moderately Active
+Female,80,1.63,49.32,false,1,3,2,Sometimes,yes,1,no,1,2,no,Automobile,Overweight_Level_I,18.56,Moderately Active
+Female,6,1.62,61.69,false,1,2,1,Sometimes,yes,0,no,0,2,Frequently,Automobile,Overweight_Level_II,23.51,Active
+Female,58,1.25,60.92,true,0,1,2,Sometimes,no,0,yes,2,2,no,Automobile,Normal_Weight,38.99,StayHome
+Male,13,1.45,51.17,true,0,3,2,no,yes,2,yes,1,2,Sometimes,Automobile,Normal_Weight,24.34,Moderately Active
+Male,19,1.09,56.82,true,1,2,1,Sometimes,no,1,yes,0,2,Frequently,Public_Transportation,Normal_Weight,47.82,Moderately Active
+Male,18,1.2,79.43,false,0,2,3,Sometimes,yes,0,no,1,1,no,Automobile,Overweight_Level_I,55.16,Moderately Active
+Male,71,1.6,45.74,false,1,1,3,no,yes,2,no,0,1,Frequently,Public_Transportation,Normal_Weight,17.87,Moderately Active
+Male,64,1.65,50.17,true,1,2,2,Sometimes,yes,0,no,2,1,Sometimes,Automobile,Normal_Weight,18.43,StayHome
+Female,33,1.07,40.68,false,0,2,1,Sometimes,yes,2,yes,1,2,Sometimes,Automobile,Overweight_Level_II,35.53,StayHome
+Male,3,1.25,77.75,false,1,3,2,Sometimes,no,2,no,1,0,Frequently,Public_Transportation,Overweight_Level_II,49.76,StayHome
+Male,29,1.27,79.88,true,0,2,1,Sometimes,no,0,no,0,0,Frequently,Public_Transportation,Overweight_Level_I,49.53,Moderately Active
+Male,28,1.01,46.49,false,0,3,2,no,no,1,no,0,2,Sometimes,Public_Transportation,Overweight_Level_I,45.57,StayHome
+Male,9,1.82,56.43,false,1,2,1,no,no,1,no,2,2,Frequently,Public_Transportation,Overweight_Level_II,17.04,StayHome
+Genderfluid,14,1.45,75.55,true,0,2,3,Sometimes,yes,0,no,0,1,no,Public_Transportation,Normal_Weight,35.93,Active
+Male,26,1.11,76.09,false,1,3,3,Sometimes,yes,0,no,2,2,no,Automobile,Overweight_Level_I,61.76,StayHome
+Female,51,1.2,50.69,false,1,1,2,Sometimes,no,0,yes,2,1,Sometimes,Automobile,Underweight,35.2,Active
+Female,51,1.8,84.83,true,1,3,3,Sometimes,no,1,no,2,1,Sometimes,Public_Transportation,Normal_Weight,26.18,Active
+Female,3,1.28,50.55,true,0,3,2,Sometimes,yes,2,yes,0,2,Frequently,Automobile,Overweight_Level_I,30.85,Moderately Active
+Female,32,1.08,58.39,false,1,3,2,no,no,1,no,1,2,no,Automobile,Normal_Weight,50.06,Active
+Female,50,1.3,79.43,true,1,2,3,no,yes,0,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_II,47.0,StayHome
+Female,48,1.64,44.74,false,1,3,3,Sometimes,yes,2,no,1,0,no,Automobile,Overweight_Level_I,16.63,Moderately Active
+Female,63,1.2,49.98,false,1,3,2,Sometimes,no,0,no,1,2,Frequently,Automobile,Overweight_Level_I,34.71,Moderately Active
+Female,64,1.45,55.23,false,0,2,1,Sometimes,no,0,no,1,2,Frequently,Public_Transportation,Overweight_Level_II,26.27,Moderately Active
+Genderfluid,20,1.47,86.7,true,1,1,1,Sometimes,yes,0,yes,2,2,Frequently,Automobile,Overweight_Level_I,40.12,Moderately Active
+Female,55,1.66,76.05,true,1,1,2,no,no,0,yes,1,0,Sometimes,Automobile,Underweight,27.6,Active
+Male,76,1.05,83.5,false,0,1,1,no,yes,2,yes,0,0,Sometimes,Public_Transportation,Underweight,75.74,StayHome
+Male,70,1.33,46.85,false,1,1,2,Sometimes,yes,1,yes,1,2,no,Automobile,Overweight_Level_I,26.49,Active
+Male,67,1.72,73.78,false,0,2,1,Sometimes,yes,2,yes,2,1,Sometimes,Automobile,Normal_Weight,24.94,Moderately Active
+Male,18,1.79,56.82,true,0,1,2,no,yes,1,no,2,0,Sometimes,Automobile,Normal_Weight,17.73,StayHome
+Female,27,1.41,60.98,false,0,2,2,Sometimes,no,2,no,1,2,no,Automobile,Underweight,30.67,Active
+Female,11,1.01,66.61,true,1,2,1,Sometimes,no,2,no,0,0,Frequently,Public_Transportation,Underweight,65.3,StayHome
+Bigender,34,1.63,88.97,true,0,2,3,no,yes,2,no,0,0,Sometimes,Public_Transportation,Overweight_Level_I,33.49,Moderately Active
+Male,23,1.75,74.95,false,0,3,2,no,no,0,yes,1,1,Sometimes,Public_Transportation,Underweight,24.47,StayHome
+Male,32,1.8,45.52,true,1,1,2,Sometimes,no,1,yes,2,0,no,Public_Transportation,Overweight_Level_II,14.05,Moderately Active
+Agender,3,1.81,86.41,false,0,3,1,no,yes,0,no,1,2,no,Public_Transportation,Underweight,26.38,StayHome
+Female,30,1.35,56.54,false,1,2,2,Sometimes,no,2,no,1,1,no,Public_Transportation,Underweight,31.02,Active
+Male,14,1.38,54.42,false,0,1,2,Sometimes,no,2,no,0,0,no,Public_Transportation,Normal_Weight,28.58,StayHome
+Female,31,1.21,72.57,false,1,1,3,Sometimes,no,2,yes,1,1,Frequently,Public_Transportation,Overweight_Level_II,49.57,Moderately Active
+Female,76,1.17,86.72,true,1,3,1,Sometimes,no,0,yes,0,1,no,Automobile,Underweight,63.35,Moderately Active
+Female,61,1.35,68.39,false,1,1,3,no,yes,1,no,1,0,Frequently,Automobile,Normal_Weight,37.53,Moderately Active
+Genderqueer,57,1.73,46.64,false,1,1,1,Sometimes,yes,0,yes,2,2,no,Public_Transportation,Underweight,15.58,Moderately Active
+Female,34,1.06,81.57,true,0,3,2,no,no,0,yes,0,2,Sometimes,Public_Transportation,Overweight_Level_I,72.6,StayHome
+Male,26,1.45,48.76,true,1,3,2,Sometimes,no,1,no,1,1,Frequently,Public_Transportation,Normal_Weight,23.19,Moderately Active
+Female,45,1.65,50.48,false,0,3,2,no,yes,1,yes,1,2,no,Automobile,Overweight_Level_II,18.54,Active
+Female,51,1.43,75.87,false,1,3,3,Sometimes,yes,2,no,2,2,Frequently,Automobile,Overweight_Level_I,37.1,Moderately Active
+Male,24,1.22,63.38,true,0,2,2,Sometimes,yes,1,no,2,0,Frequently,Automobile,Normal_Weight,42.58,Moderately Active
+Male,59,1.05,78.5,true,1,1,2,no,yes,2,yes,2,1,Frequently,Public_Transportation,Underweight,71.2,Active
+Female,22,1.6,81.71,true,0,1,2,Sometimes,yes,1,no,2,0,Frequently,Public_Transportation,Overweight_Level_II,31.92,Active
+Bigender,42,1.02,75.94,false,0,3,2,Sometimes,no,1,yes,0,1,no,Automobile,Overweight_Level_I,72.99,Active
+Female,61,1.57,64.8,false,0,1,1,no,yes,1,no,2,0,no,Automobile,Overweight_Level_I,26.29,Active
+Female,72,1.58,57.85,false,0,2,1,no,no,2,no,2,1,no,Automobile,Underweight,23.17,Moderately Active
+Female,33,1.73,68.7,true,0,1,2,no,yes,0,no,0,0,no,Public_Transportation,Normal_Weight,22.95,Moderately Active
+Female,70,1.06,74.36,true,1,1,1,no,no,1,yes,0,0,Frequently,Automobile,Overweight_Level_I,66.18,Active
+Male,60,1.31,70.16,true,0,3,3,Sometimes,yes,1,no,2,2,Frequently,Automobile,Overweight_Level_I,40.88,StayHome
+Female,71,1.49,41.16,true,0,3,1,Sometimes,yes,0,yes,0,2,Frequently,Public_Transportation,Underweight,18.54,Moderately Active
+Female,79,1.63,77.48,true,0,3,2,no,yes,0,no,0,0,Sometimes,Automobile,Underweight,29.16,StayHome
+Female,52,1.31,89.95,false,1,2,3,no,yes,2,yes,2,1,no,Public_Transportation,Overweight_Level_I,52.42,Active
+Male,8,1.59,42.81,true,0,3,3,no,yes,2,no,0,1,Frequently,Automobile,Normal_Weight,16.93,Active
+Bigender,46,1.62,48.75,true,1,3,1,no,no,2,no,1,0,Sometimes,Public_Transportation,Normal_Weight,18.58,Moderately Active
+Female,40,1.77,43.0,false,0,3,3,no,yes,2,no,1,0,Sometimes,Automobile,Overweight_Level_II,13.73,Moderately Active
+Male,78,1.72,72.02,false,1,1,3,no,yes,2,no,2,0,no,Public_Transportation,Overweight_Level_II,24.34,Moderately Active
+Non-binary,13,1.5,54.5,false,0,3,3,no,no,2,yes,2,0,no,Automobile,Normal_Weight,24.22,Moderately Active
+Non-binary,76,1.26,80.17,true,0,2,3,Sometimes,no,2,no,1,0,Frequently,Automobile,Overweight_Level_I,50.5,Moderately Active
+Male,39,1.79,76.59,false,0,2,3,Sometimes,no,1,no,1,1,no,Public_Transportation,Underweight,23.9,Moderately Active
+Male,61,1.65,80.16,false,0,2,3,Sometimes,no,1,yes,2,1,Sometimes,Automobile,Overweight_Level_I,29.44,Active
+Male,15,1.26,54.79,true,1,3,1,Sometimes,yes,2,yes,2,1,Sometimes,Automobile,Overweight_Level_I,34.51,Moderately Active
+Female,12,1.51,79.3,true,0,1,2,Sometimes,yes,1,yes,2,2,Frequently,Automobile,Overweight_Level_I,34.78,Moderately Active
+Male,34,1.21,61.47,false,1,2,1,no,yes,1,yes,1,0,Frequently,Automobile,Overweight_Level_I,41.98,StayHome
+Male,46,1.67,68.51,true,1,1,1,Sometimes,yes,2,yes,0,1,Frequently,Public_Transportation,Overweight_Level_II,24.57,StayHome
+Female,70,1.5,76.73,false,0,3,1,Sometimes,yes,0,no,0,2,Frequently,Automobile,Normal_Weight,34.1,Moderately Active
+Male,35,1.53,67.68,false,1,3,3,no,yes,1,no,2,2,no,Automobile,Underweight,28.91,Active
+Male,51,1.33,81.14,false,1,3,1,no,yes,2,yes,2,2,Frequently,Public_Transportation,Overweight_Level_II,45.87,Active
+Female,55,1.15,66.69,true,1,3,1,no,no,1,no,2,1,Sometimes,Public_Transportation,Overweight_Level_I,50.43,StayHome
+Male,77,1.14,40.57,false,1,3,1,Sometimes,no,1,yes,2,2,Sometimes,Public_Transportation,Underweight,31.22,StayHome
+Female,49,1.55,60.55,true,1,1,1,Sometimes,no,0,yes,1,2,Frequently,Public_Transportation,Normal_Weight,25.2,StayHome
+Male,56,1.49,43.62,false,1,1,1,no,yes,0,yes,1,0,no,Automobile,Overweight_Level_II,19.65,Moderately Active
+Male,35,1.37,88.72,true,1,1,3,Sometimes,no,2,yes,2,2,Frequently,Automobile,Normal_Weight,47.27,Moderately Active
+Female,29,1.13,59.87,false,1,1,3,Sometimes,yes,0,no,2,1,Frequently,Public_Transportation,Underweight,46.89,Moderately Active
+Genderfluid,2,1.2,61.29,false,1,2,3,no,yes,0,no,0,2,Frequently,Public_Transportation,Overweight_Level_I,42.56,StayHome
+Female,75,1.76,68.42,false,0,1,3,Sometimes,no,1,no,2,1,Frequently,Automobile,Normal_Weight,22.09,StayHome
+Genderfluid,56,1.31,88.5,true,1,1,3,Sometimes,yes,1,yes,1,2,Sometimes,Automobile,Overweight_Level_II,51.57,Moderately Active
+Female,58,1.21,54.71,false,0,3,3,Sometimes,no,1,no,1,1,Sometimes,Automobile,Normal_Weight,37.37,Moderately Active
+Female,32,1.43,57.14,false,0,1,3,no,yes,2,yes,2,1,Frequently,Public_Transportation,Overweight_Level_I,27.94,StayHome
+Female,32,1.51,66.72,true,1,3,3,no,no,0,no,2,0,Sometimes,Automobile,Overweight_Level_I,29.26,StayHome
+Male,11,1.15,70.17,true,1,2,1,Sometimes,yes,0,no,2,2,Frequently,Automobile,Overweight_Level_II,53.06,Active
+Genderfluid,67,1.69,70.08,false,1,2,3,no,yes,2,no,0,1,Frequently,Public_Transportation,Normal_Weight,24.54,Active
+Male,60,1.63,69.19,true,0,1,1,Sometimes,no,0,yes,0,0,Frequently,Automobile,Overweight_Level_I,26.04,Active
+Male,6,1.31,45.42,true,1,1,1,no,yes,2,no,2,2,Frequently,Automobile,Underweight,26.47,Active
+Female,79,1.21,50.75,false,1,1,3,Sometimes,yes,0,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_I,34.66,Active
+Female,17,1.17,65.26,false,1,3,2,no,no,0,yes,0,1,Sometimes,Automobile,Overweight_Level_I,47.67,StayHome
+Female,10,1.56,56.82,true,1,1,1,no,yes,2,yes,1,2,Frequently,Automobile,Overweight_Level_I,23.35,Moderately Active
+Male,80,1.39,41.33,true,1,2,1,Sometimes,yes,1,yes,2,2,Frequently,Public_Transportation,Underweight,21.39,StayHome
+Male,61,1.28,63.84,false,0,2,1,no,yes,1,yes,0,0,Sometimes,Automobile,Overweight_Level_II,38.96,Moderately Active
+Genderqueer,68,1.23,62.99,true,1,3,3,no,no,0,no,1,0,Frequently,Public_Transportation,Overweight_Level_II,41.64,StayHome
+Male,58,1.7,46.62,false,1,1,3,Sometimes,yes,1,yes,2,2,no,Automobile,Normal_Weight,16.13,StayHome
+Male,72,1.56,82.64,false,1,1,1,Sometimes,yes,1,no,2,1,Frequently,Automobile,Normal_Weight,33.96,Active
+Polygender,58,1.58,52.61,true,0,1,1,no,yes,1,no,0,2,Frequently,Public_Transportation,Normal_Weight,21.07,StayHome
+Agender,55,1.81,57.61,true,1,3,3,Sometimes,yes,0,yes,0,0,no,Public_Transportation,Overweight_Level_II,17.58,Active
+Female,76,1.22,47.83,true,1,1,1,Sometimes,yes,1,yes,0,0,no,Automobile,Overweight_Level_I,32.14,Active
+Female,9,1.27,69.57,true,0,3,3,no,yes,0,yes,2,0,no,Automobile,Underweight,43.13,Moderately Active
+Male,22,1.4,64.4,false,1,1,2,Sometimes,no,0,no,1,2,Sometimes,Automobile,Overweight_Level_I,32.86,Active
+Male,32,1.21,84.01,false,1,1,1,Sometimes,no,2,yes,2,2,Frequently,Automobile,Underweight,57.38,Active
+Female,53,1.13,42.44,true,1,1,3,Sometimes,yes,2,no,0,2,Sometimes,Public_Transportation,Underweight,33.24,Moderately Active
+Female,31,1.37,74.85,true,0,3,3,Sometimes,yes,0,yes,1,2,no,Public_Transportation,Overweight_Level_I,39.88,StayHome
+Male,44,1.02,43.98,true,1,2,3,Sometimes,yes,1,yes,0,0,no,Public_Transportation,Normal_Weight,42.27,Moderately Active
+Male,63,1.24,45.93,false,1,2,3,no,yes,0,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_I,29.87,StayHome
+Male,17,1.42,75.18,true,0,1,2,Sometimes,no,2,yes,0,0,Sometimes,Public_Transportation,Normal_Weight,37.28,Moderately Active
+Male,39,1.28,70.33,false,1,2,1,no,yes,1,no,2,1,Frequently,Automobile,Underweight,42.93,StayHome
+Male,16,1.23,85.95,false,0,1,2,Sometimes,no,0,yes,0,1,Sometimes,Public_Transportation,Overweight_Level_I,56.81,StayHome
+Male,69,1.81,82.72,false,1,1,1,Sometimes,yes,1,no,2,0,Sometimes,Public_Transportation,Overweight_Level_I,25.25,Moderately Active
+Female,19,1.06,52.4,false,0,1,2,Sometimes,no,1,no,0,0,no,Public_Transportation,Normal_Weight,46.64,StayHome
+Male,80,1.67,58.04,false,1,3,1,no,no,2,yes,1,1,Sometimes,Public_Transportation,Underweight,20.81,Active
+Male,60,1.63,63.56,false,1,1,1,no,no,1,yes,2,2,no,Automobile,Overweight_Level_II,23.92,Moderately Active
+Male,31,1.73,63.69,false,0,2,2,no,no,1,no,0,2,Sometimes,Automobile,Normal_Weight,21.28,Moderately Active
+Female,64,1.23,61.77,false,0,1,2,no,yes,1,yes,1,2,no,Public_Transportation,Underweight,40.83,StayHome
+Male,61,1.14,43.5,false,1,3,2,no,no,1,no,2,2,Sometimes,Automobile,Underweight,33.47,StayHome
+Female,25,1.47,86.06,true,0,3,3,no,no,2,yes,1,1,Frequently,Automobile,Overweight_Level_I,39.83,Active
+Male,70,1.09,83.16,false,1,2,2,Sometimes,yes,1,no,1,2,Frequently,Automobile,Underweight,69.99,Moderately Active
+Female,46,1.3,43.83,false,0,3,1,Sometimes,yes,0,yes,0,1,Frequently,Automobile,Underweight,25.93,Moderately Active
+Male,69,1.57,72.62,true,1,3,2,no,yes,2,no,2,2,no,Automobile,Underweight,29.46,StayHome
+Male,38,1.55,86.09,true,1,2,2,no,yes,1,no,2,0,no,Automobile,Underweight,35.83,Moderately Active
+Female,65,1.71,60.85,false,0,2,3,no,no,2,no,2,0,no,Automobile,Overweight_Level_I,20.81,Moderately Active
+Female,9,1.51,48.33,false,1,1,2,Sometimes,yes,1,yes,1,2,no,Public_Transportation,Overweight_Level_I,21.2,StayHome
+Female,76,1.12,54.07,true,0,3,1,no,no,2,no,1,0,Frequently,Public_Transportation,Normal_Weight,43.1,StayHome
+Male,77,1.48,89.65,true,0,2,1,Sometimes,no,0,yes,0,2,Sometimes,Public_Transportation,Overweight_Level_II,40.93,Active
+Agender,47,1.75,42.15,false,1,1,1,no,no,1,no,1,1,Frequently,Automobile,Normal_Weight,13.76,Active
+Genderfluid,48,1.17,53.35,true,0,1,1,Sometimes,yes,2,no,0,0,Frequently,Automobile,Overweight_Level_I,38.97,StayHome
+Male,59,1.15,85.51,true,0,2,2,Sometimes,yes,1,no,1,1,Sometimes,Automobile,Underweight,64.66,StayHome
+Female,65,1.07,72.06,true,0,1,3,Sometimes,no,2,yes,0,0,Sometimes,Public_Transportation,Underweight,62.94,Moderately Active
+Male,11,1.03,81.61,false,1,1,1,no,yes,0,yes,1,0,Sometimes,Automobile,Underweight,76.93,Moderately Active
+Bigender,73,1.54,45.3,true,1,1,2,no,no,2,no,2,2,Frequently,Automobile,Overweight_Level_I,19.1,Moderately Active
+Female,10,1.57,68.73,true,1,1,2,Sometimes,no,0,yes,1,2,Sometimes,Public_Transportation,Underweight,27.88,Moderately Active
+Female,34,1.27,74.38,true,1,2,1,Sometimes,yes,0,no,1,2,Frequently,Public_Transportation,Overweight_Level_I,46.12,Active
+Female,60,1.14,42.87,false,0,2,1,no,no,1,no,0,2,no,Automobile,Underweight,32.99,Moderately Active
+Female,74,1.49,45.77,true,1,3,2,Sometimes,yes,2,no,1,1,Sometimes,Public_Transportation,Underweight,20.62,Moderately Active
+Male,66,1.14,48.95,true,1,2,3,no,yes,0,no,0,2,Sometimes,Public_Transportation,Overweight_Level_II,37.67,StayHome
+Genderfluid,70,1.05,75.61,true,0,3,2,Sometimes,no,1,no,1,2,Frequently,Public_Transportation,Overweight_Level_II,68.58,Moderately Active
+Male,2,1.63,81.5,true,1,1,3,Sometimes,yes,2,yes,1,2,Frequently,Automobile,Overweight_Level_II,30.67,Moderately Active
+Male,61,1.5,43.59,false,0,2,2,Sometimes,yes,2,yes,2,0,no,Public_Transportation,Underweight,19.37,Moderately Active
+Female,73,1.73,50.22,true,0,3,1,Sometimes,no,1,yes,2,0,Sometimes,Public_Transportation,Underweight,16.78,Active
+Female,32,1.04,41.66,false,0,3,2,Sometimes,no,1,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_I,38.52,StayHome
+Female,42,1.08,83.11,true,0,2,3,no,yes,0,yes,0,0,Frequently,Public_Transportation,Normal_Weight,71.25,Active
+Female,17,1.25,87.33,true,1,2,3,no,no,1,yes,1,1,Sometimes,Public_Transportation,Underweight,55.89,Active
+Male,49,1.31,53.38,true,0,3,1,no,yes,1,yes,2,0,no,Public_Transportation,Overweight_Level_I,31.11,Moderately Active
+Female,33,1.68,52.31,true,1,1,1,Sometimes,no,0,no,1,1,Sometimes,Automobile,Normal_Weight,18.53,Active
+Male,22,1.59,46.04,false,1,2,1,Sometimes,yes,0,yes,2,2,Frequently,Public_Transportation,Overweight_Level_I,18.21,StayHome
+Female,21,1.82,81.75,false,1,1,2,Sometimes,no,1,yes,2,1,Frequently,Public_Transportation,Overweight_Level_I,24.68,StayHome
+Male,12,1.52,58.69,true,1,2,2,no,no,0,no,0,2,no,Public_Transportation,Overweight_Level_II,25.4,StayHome
+Female,3,1.28,85.08,false,1,1,1,Sometimes,yes,0,no,1,2,no,Public_Transportation,Underweight,51.93,Active
+Female,12,1.36,76.07,true,0,1,1,no,yes,1,no,2,1,Frequently,Public_Transportation,Underweight,41.13,Moderately Active
+Male,70,1.67,68.98,true,1,2,3,no,no,0,no,0,2,no,Public_Transportation,Overweight_Level_I,24.73,StayHome
+Male,35,1.02,66.82,false,1,1,2,Sometimes,yes,1,no,1,2,Frequently,Automobile,Overweight_Level_I,64.23,Moderately Active
+Male,79,1.37,49.17,true,0,3,2,Sometimes,yes,1,yes,0,2,Sometimes,Public_Transportation,Overweight_Level_II,26.2,Moderately Active
+Female,7,1.34,45.57,true,0,1,1,Sometimes,yes,0,yes,0,1,Sometimes,Automobile,Overweight_Level_I,25.38,Moderately Active
+Male,78,1.77,47.28,false,0,1,1,Sometimes,no,2,no,0,0,no,Automobile,Overweight_Level_I,15.09,StayHome
+Male,54,1.05,48.13,false,1,3,3,no,yes,0,no,0,2,Frequently,Public_Transportation,Overweight_Level_II,43.66,StayHome
+Male,31,1.8,65.93,false,0,3,2,Sometimes,yes,1,yes,0,2,no,Public_Transportation,Overweight_Level_I,20.35,Moderately Active
+Female,21,1.37,89.2,true,1,1,3,no,yes,2,no,2,1,no,Public_Transportation,Overweight_Level_II,47.53,Moderately Active
+Male,14,1.6,44.33,true,0,2,3,Sometimes,yes,1,yes,0,0,Sometimes,Automobile,Overweight_Level_I,17.32,Moderately Active
+Male,43,1.27,44.35,false,1,2,3,no,no,2,yes,0,2,Sometimes,Public_Transportation,Overweight_Level_I,27.5,Active
+Female,80,1.36,46.38,false,1,1,1,no,yes,2,no,1,0,Sometimes,Public_Transportation,Underweight,25.08,Active
+Male,14,1.01,63.17,true,0,2,3,Sometimes,no,1,yes,2,0,Sometimes,Public_Transportation,Underweight,61.93,StayHome
+Female,68,1.01,40.82,false,1,1,1,Sometimes,no,1,no,1,1,Sometimes,Automobile,Overweight_Level_II,40.02,Moderately Active
+Female,24,1.27,47.48,false,0,2,2,Sometimes,no,0,no,1,1,Sometimes,Automobile,Overweight_Level_II,29.44,StayHome
+Polygender,43,1.63,88.28,false,0,1,2,no,yes,0,yes,2,0,Frequently,Automobile,Overweight_Level_II,33.23,Moderately Active
+Male,16,1.68,52.62,true,1,2,1,Sometimes,no,1,no,0,1,no,Automobile,Overweight_Level_I,18.64,Moderately Active
+Male,40,1.12,40.19,true,1,3,2,no,no,2,yes,1,2,Sometimes,Public_Transportation,Normal_Weight,32.04,StayHome
+Female,76,1.08,69.87,true,1,1,3,no,no,2,no,1,1,Frequently,Public_Transportation,Underweight,59.9,Active
+Female,44,1.28,72.91,true,1,3,3,no,yes,1,no,2,2,Frequently,Public_Transportation,Overweight_Level_II,44.5,Active
+Male,63,1.48,49.67,false,1,3,3,Sometimes,no,0,yes,2,0,Sometimes,Automobile,Overweight_Level_I,22.68,StayHome
+Female,21,1.8,68.47,false,1,3,1,Sometimes,no,2,no,0,0,Sometimes,Public_Transportation,Underweight,21.13,StayHome
+Female,2,1.1,79.3,true,1,3,1,no,no,1,no,2,2,no,Public_Transportation,Underweight,65.54,Active
+Female,29,1.11,53.21,true,1,1,2,no,yes,1,yes,1,0,Sometimes,Public_Transportation,Underweight,43.19,Active
+Female,24,1.42,49.4,true,1,3,2,no,yes,0,no,1,2,no,Automobile,Overweight_Level_II,24.5,Active
+Male,40,1.41,63.35,false,0,1,3,Sometimes,no,0,yes,2,2,Frequently,Automobile,Underweight,31.86,StayHome
+Male,64,1.08,50.01,true,0,1,2,Sometimes,yes,2,yes,0,1,no,Automobile,Overweight_Level_II,42.88,Moderately Active
+Bigender,71,1.8,71.57,true,0,2,3,no,yes,1,yes,1,1,Frequently,Automobile,Overweight_Level_I,22.09,Moderately Active
+Female,41,1.33,76.45,false,0,2,2,no,no,2,no,0,1,no,Public_Transportation,Underweight,43.22,Active
+Male,80,1.0,60.89,true,0,2,2,no,no,0,yes,0,0,no,Automobile,Overweight_Level_I,60.89,StayHome
+Male,66,1.04,42.07,true,1,1,2,no,no,2,yes,1,0,Frequently,Automobile,Overweight_Level_II,38.9,StayHome
+Female,66,1.72,74.12,true,0,3,3,Sometimes,yes,0,no,1,1,Frequently,Public_Transportation,Overweight_Level_I,25.05,Active
+Female,66,1.45,49.46,false,1,2,2,Sometimes,yes,1,no,1,2,no,Public_Transportation,Overweight_Level_I,23.52,StayHome
+Male,41,1.44,47.29,true,0,2,3,Sometimes,no,2,no,2,1,Frequently,Public_Transportation,Overweight_Level_II,22.81,Moderately Active
+Male,26,1.7,68.32,false,0,3,3,no,no,1,yes,0,0,Sometimes,Public_Transportation,Underweight,23.64,Active
+Female,22,1.69,89.8,false,0,2,2,Sometimes,yes,2,no,0,2,no,Public_Transportation,Normal_Weight,31.44,Moderately Active
+Male,64,1.48,49.9,false,0,3,1,Sometimes,no,2,yes,2,1,no,Automobile,Underweight,22.78,StayHome
+Female,46,1.47,81.33,false,1,2,2,no,yes,0,yes,2,1,no,Public_Transportation,Overweight_Level_I,37.64,Active
+Male,38,1.78,69.79,true,1,2,1,no,no,0,no,2,1,Sometimes,Automobile,Overweight_Level_II,22.03,Active
+Male,60,1.71,53.12,false,1,1,3,no,no,0,yes,0,2,Frequently,Public_Transportation,Underweight,18.17,Moderately Active
+Male,23,1.46,55.28,false,0,3,1,no,yes,2,yes,0,2,Sometimes,Automobile,Overweight_Level_II,25.93,StayHome
+Male,51,1.56,55.07,false,0,3,2,no,yes,0,no,0,0,Sometimes,Public_Transportation,Overweight_Level_II,22.63,Moderately Active
+Male,36,1.64,68.25,true,1,3,1,Sometimes,yes,0,no,0,1,Frequently,Automobile,Overweight_Level_I,25.38,StayHome
+Male,74,1.26,68.27,true,1,2,1,Sometimes,no,0,no,0,2,Sometimes,Public_Transportation,Underweight,43.0,Active
+Female,51,1.34,47.9,true,1,2,2,no,yes,2,yes,0,0,Frequently,Automobile,Overweight_Level_I,26.68,StayHome
+Male,66,1.4,75.53,false,0,1,1,no,no,0,yes,1,0,no,Public_Transportation,Overweight_Level_II,38.54,Active
+Female,65,1.49,78.44,false,1,3,1,no,yes,0,no,0,0,Sometimes,Automobile,Normal_Weight,35.33,StayHome
+Female,66,1.65,71.19,true,1,3,2,no,yes,0,no,0,2,no,Automobile,Overweight_Level_I,26.15,Moderately Active
+Male,66,1.15,76.25,false,0,2,3,Sometimes,yes,2,yes,1,1,no,Automobile,Normal_Weight,57.66,StayHome
+Non-binary,8,1.7,87.75,false,0,2,1,Sometimes,yes,2,no,2,1,Frequently,Automobile,Overweight_Level_II,30.36,Active
+Female,6,1.76,60.02,true,1,3,3,Sometimes,yes,2,yes,2,2,no,Automobile,Overweight_Level_II,19.38,Moderately Active
+Male,51,1.13,47.67,false,0,1,1,no,yes,0,yes,0,1,Sometimes,Automobile,Underweight,37.33,Moderately Active
+Non-binary,61,1.26,64.62,true,1,2,2,Sometimes,no,2,yes,0,1,Sometimes,Public_Transportation,Overweight_Level_II,40.7,StayHome
+Male,9,1.13,76.67,false,0,1,2,Sometimes,no,0,no,0,0,Sometimes,Automobile,Overweight_Level_I,60.04,StayHome
+Female,36,1.3,64.92,false,1,2,3,Sometimes,no,0,yes,1,1,Frequently,Public_Transportation,Overweight_Level_I,38.41,StayHome
+Non-binary,16,1.43,87.36,true,1,1,3,no,no,0,no,0,0,no,Public_Transportation,Overweight_Level_I,42.72,StayHome
+Female,46,1.25,46.2,true,0,2,3,no,no,1,yes,0,2,Sometimes,Public_Transportation,Underweight,29.57,StayHome
+Genderfluid,65,1.15,83.88,true,1,1,1,no,yes,1,no,0,2,no,Public_Transportation,Overweight_Level_I,63.43,Moderately Active
+Female,2,1.05,71.38,true,1,1,2,Sometimes,yes,2,yes,1,0,no,Public_Transportation,Overweight_Level_II,64.74,Moderately Active
+Female,19,1.31,75.39,false,0,2,3,Sometimes,no,0,yes,1,2,Sometimes,Automobile,Underweight,43.93,Moderately Active
+Male,12,1.16,48.52,true,1,3,2,no,no,2,yes,2,2,Frequently,Automobile,Normal_Weight,36.06,StayHome
+Male,80,1.01,47.29,true,0,2,2,Sometimes,yes,2,no,0,2,no,Automobile,Overweight_Level_I,46.36,StayHome
+Male,80,1.77,67.82,false,0,2,2,Sometimes,yes,1,yes,2,2,Frequently,Public_Transportation,Overweight_Level_II,21.65,Moderately Active
+Male,64,1.2,58.73,true,1,2,1,Sometimes,yes,1,yes,1,0,no,Public_Transportation,Normal_Weight,40.78,Active
+Male,11,1.23,87.41,true,1,2,1,Sometimes,no,2,no,0,0,Sometimes,Public_Transportation,Underweight,57.78,Moderately Active
+Male,53,1.61,54.48,false,0,2,3,no,no,2,yes,1,0,no,Public_Transportation,Overweight_Level_II,21.02,Moderately Active
+Female,48,1.32,51.11,true,1,3,2,no,no,0,no,2,1,Frequently,Automobile,Underweight,29.33,Moderately Active
+Female,15,1.41,55.93,true,1,2,3,Sometimes,no,1,yes,0,0,Frequently,Public_Transportation,Overweight_Level_I,28.13,StayHome
+Female,54,1.27,75.86,true,1,2,3,Sometimes,no,1,no,0,1,Sometimes,Public_Transportation,Overweight_Level_I,47.03,StayHome
+Male,9,1.64,50.96,false,0,2,1,Sometimes,no,0,yes,2,2,Frequently,Public_Transportation,Overweight_Level_II,18.95,Active
+Female,33,1.33,48.06,true,0,2,1,no,no,0,no,1,0,no,Automobile,Underweight,27.17,Moderately Active
+Female,60,1.47,67.77,false,1,2,2,Sometimes,no,2,no,0,1,Frequently,Public_Transportation,Overweight_Level_I,31.36,StayHome
+Female,50,1.51,70.52,true,0,2,3,Sometimes,no,2,yes,0,2,no,Public_Transportation,Normal_Weight,30.93,StayHome
+Female,49,1.56,40.65,true,0,1,1,Sometimes,no,1,yes,2,2,Frequently,Public_Transportation,Normal_Weight,16.7,Active
+Female,35,1.67,42.09,true,0,3,2,Sometimes,no,0,yes,1,1,no,Public_Transportation,Overweight_Level_I,15.09,Active
+Female,20,1.66,73.04,false,1,2,2,Sometimes,yes,1,yes,2,1,Sometimes,Automobile,Overweight_Level_II,26.51,Moderately Active
+Female,30,1.74,68.88,true,1,2,3,Sometimes,no,1,yes,0,1,Frequently,Public_Transportation,Underweight,22.75,Active
+Female,64,1.38,40.72,false,1,1,3,Sometimes,yes,2,yes,1,0,Sometimes,Public_Transportation,Underweight,21.38,StayHome
+Male,25,1.11,42.77,false,1,1,2,no,no,1,yes,0,2,no,Automobile,Underweight,34.71,StayHome
+Female,62,1.01,69.62,false,1,1,2,Sometimes,no,0,yes,2,2,Frequently,Automobile,Normal_Weight,68.25,StayHome
+Male,11,1.5,74.96,true,1,3,2,Sometimes,no,0,yes,0,2,Sometimes,Public_Transportation,Overweight_Level_I,33.32,Moderately Active
+Female,37,1.64,77.61,false,0,1,1,no,yes,2,no,2,0,Frequently,Public_Transportation,Overweight_Level_II,28.86,StayHome
+Polygender,11,1.01,61.25,false,1,1,3,no,no,2,yes,0,0,Frequently,Automobile,Overweight_Level_I,60.04,Active
+Male,46,1.29,66.54,false,1,1,3,no,yes,1,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_I,39.99,StayHome
+Male,48,1.03,62.75,false,0,1,2,Sometimes,no,0,no,2,1,no,Automobile,Normal_Weight,59.15,StayHome
+Non-binary,46,1.23,69.87,false,1,1,2,Sometimes,no,0,no,2,0,Frequently,Public_Transportation,Overweight_Level_I,46.18,Active
+Genderqueer,20,1.05,46.12,true,1,1,1,no,yes,1,yes,0,1,Frequently,Automobile,Overweight_Level_II,41.83,Active
+Female,74,1.72,63.74,true,1,2,2,Sometimes,no,2,no,0,2,Sometimes,Public_Transportation,Normal_Weight,21.55,Active
+Male,11,1.73,69.11,true,0,3,3,no,yes,0,no,2,0,Sometimes,Automobile,Overweight_Level_II,23.09,Moderately Active
+Male,21,1.75,53.11,false,1,2,2,Sometimes,yes,0,no,1,1,Frequently,Public_Transportation,Normal_Weight,17.34,Moderately Active
+Female,10,1.49,71.56,true,0,2,3,no,yes,2,yes,0,2,Frequently,Public_Transportation,Overweight_Level_I,32.23,Active
+Female,46,1.52,89.13,true,1,3,2,no,no,1,no,0,0,Sometimes,Public_Transportation,Underweight,38.58,StayHome
+Female,23,1.2,71.18,true,1,3,2,no,yes,0,no,1,2,no,Automobile,Underweight,49.43,Moderately Active
+Polygender,74,1.18,76.5,false,1,1,3,Sometimes,no,0,yes,0,1,Sometimes,Public_Transportation,Overweight_Level_II,54.94,Moderately Active
+Genderqueer,34,1.03,82.47,false,0,2,1,Sometimes,yes,1,yes,1,2,Sometimes,Automobile,Underweight,77.74,StayHome
+Genderqueer,70,1.02,80.04,true,1,1,2,Sometimes,yes,0,no,1,2,no,Automobile,Normal_Weight,76.93,StayHome
+Female,58,1.06,67.38,true,0,3,2,no,no,0,no,2,0,no,Public_Transportation,Normal_Weight,59.97,StayHome
+Female,70,1.61,58.67,true,1,1,1,Sometimes,yes,2,yes,1,1,no,Public_Transportation,Overweight_Level_I,22.63,Moderately Active
+Genderfluid,55,1.05,73.54,true,1,1,3,Sometimes,no,1,no,1,2,Sometimes,Public_Transportation,Underweight,66.7,Moderately Active
+Male,65,1.55,86.91,false,1,1,2,no,yes,1,yes,2,1,Frequently,Public_Transportation,Underweight,36.17,Active
+Male,75,1.25,70.24,true,1,1,3,Sometimes,yes,1,no,2,2,Sometimes,Automobile,Underweight,44.95,Active
+Female,23,1.58,52.19,true,0,2,2,Sometimes,yes,1,no,1,0,Sometimes,Automobile,Overweight_Level_II,20.91,Moderately Active
+Female,66,1.18,73.57,true,1,3,2,Sometimes,yes,2,no,1,0,Sometimes,Automobile,Underweight,52.84,Active
+Male,21,1.66,42.22,true,1,2,3,Sometimes,yes,2,yes,1,0,no,Public_Transportation,Normal_Weight,15.32,StayHome
+Genderqueer,72,1.71,47.89,false,1,1,2,Sometimes,no,2,yes,0,0,Frequently,Public_Transportation,Normal_Weight,16.38,StayHome
+Female,48,1.11,58.9,true,1,1,2,no,no,2,yes,1,0,Frequently,Public_Transportation,Underweight,47.8,Active
+Female,57,1.8,61.41,true,0,2,3,Sometimes,yes,0,no,2,2,Frequently,Automobile,Underweight,18.95,StayHome
+Male,29,1.5,56.69,false,0,3,1,Sometimes,yes,2,no,0,1,no,Public_Transportation,Overweight_Level_I,25.2,StayHome
+Male,74,1.22,51.5,false,1,3,3,Sometimes,no,0,no,0,2,Frequently,Automobile,Underweight,34.6,StayHome
+Male,52,1.76,44.34,false,0,1,3,no,yes,0,no,0,1,no,Automobile,Normal_Weight,14.31,Moderately Active
+Male,13,1.69,59.17,false,1,3,3,Sometimes,yes,1,no,1,1,Sometimes,Public_Transportation,Overweight_Level_I,20.72,Active
+Female,40,1.41,77.95,true,1,1,3,no,yes,0,yes,2,0,Frequently,Public_Transportation,Normal_Weight,39.21,Moderately Active
+Male,32,1.3,71.68,false,0,1,2,Sometimes,yes,2,yes,0,1,no,Public_Transportation,Overweight_Level_II,42.41,Active
+Genderqueer,10,1.1,72.95,false,1,3,2,Sometimes,no,2,yes,1,2,Frequently,Automobile,Normal_Weight,60.29,Active
+Male,57,1.56,51.09,false,0,3,1,no,no,1,yes,2,0,Sometimes,Automobile,Overweight_Level_II,20.99,StayHome
+Female,8,1.69,62.75,false,1,1,3,Sometimes,no,2,no,2,0,no,Public_Transportation,Normal_Weight,21.97,StayHome
+Female,20,1.24,57.62,false,1,3,2,no,no,1,no,1,1,Sometimes,Automobile,Overweight_Level_I,37.47,StayHome
+Male,41,1.26,45.76,false,0,1,2,Sometimes,no,2,yes,2,2,Frequently,Automobile,Overweight_Level_II,28.82,Moderately Active
+Female,57,1.14,48.1,false,0,2,1,no,yes,1,no,2,0,no,Automobile,Overweight_Level_I,37.01,Moderately Active
+Female,20,1.35,70.17,true,1,1,1,Sometimes,no,0,yes,2,2,Frequently,Automobile,Overweight_Level_I,38.5,Active
+Female,32,1.55,49.94,false,1,1,2,no,yes,1,yes,0,1,no,Automobile,Overweight_Level_I,20.79,Active
+Male,1,1.44,65.54,false,0,2,2,no,no,0,yes,2,2,Sometimes,Public_Transportation,Normal_Weight,31.61,Active
+Female,35,1.02,42.04,false,0,3,2,Sometimes,no,1,no,0,1,no,Public_Transportation,Overweight_Level_I,40.41,Active
+Polygender,54,1.51,66.5,true,1,2,1,no,no,1,yes,1,1,Sometimes,Automobile,Underweight,29.17,StayHome
+Male,52,1.63,52.57,true,1,1,2,Sometimes,yes,0,yes,2,1,Frequently,Public_Transportation,Overweight_Level_I,19.79,Active
+Female,12,1.67,54.42,false,1,3,1,no,no,0,yes,0,2,Frequently,Public_Transportation,Overweight_Level_II,19.51,Moderately Active
+Female,28,1.5,58.26,false,1,3,3,no,yes,2,yes,1,1,Frequently,Automobile,Overweight_Level_II,25.89,Moderately Active
+Male,47,1.25,76.3,true,0,3,1,no,yes,1,no,1,0,Sometimes,Automobile,Overweight_Level_II,48.83,Moderately Active
+Genderqueer,7,1.69,53.13,true,1,3,1,Sometimes,no,1,yes,2,2,no,Public_Transportation,Overweight_Level_I,18.6,Active
+Female,39,1.39,40.0,true,0,3,1,no,no,1,no,2,0,no,Public_Transportation,Overweight_Level_I,20.7,Moderately Active
+Female,50,1.35,65.78,false,0,1,2,no,yes,0,yes,0,2,Sometimes,Public_Transportation,Normal_Weight,36.09,Active
+Male,22,1.16,46.9,true,1,3,2,no,no,1,yes,0,0,Frequently,Automobile,Normal_Weight,34.85,Active
+Female,17,1.65,82.74,true,0,2,3,no,yes,2,no,0,0,Sometimes,Automobile,Overweight_Level_II,30.39,Active
+Agender,26,1.01,89.65,true,1,3,2,no,yes,2,no,0,1,no,Public_Transportation,Overweight_Level_I,87.88,StayHome
+Genderqueer,19,1.54,65.56,true,0,1,2,no,yes,2,no,2,2,Sometimes,Automobile,Overweight_Level_II,27.64,StayHome
+Male,56,1.72,61.91,true,1,3,2,no,yes,0,yes,1,2,no,Automobile,Underweight,20.93,Active
+Female,11,1.04,62.32,true,1,2,2,no,no,0,no,2,0,no,Public_Transportation,Overweight_Level_II,57.62,StayHome
+Male,29,1.6,64.09,false,0,3,2,no,no,1,no,0,1,no,Automobile,Normal_Weight,25.04,Active
+Male,15,1.75,57.25,true,1,3,3,no,no,1,yes,0,1,Sometimes,Public_Transportation,Overweight_Level_I,18.69,Active
+Female,40,1.31,43.76,true,1,3,2,Sometimes,no,2,yes,0,2,Sometimes,Public_Transportation,Underweight,25.5,Active
+Polygender,9,1.08,72.45,true,1,1,2,Sometimes,no,1,yes,1,1,no,Public_Transportation,Underweight,62.11,Moderately Active
+Male,53,1.32,85.79,true,1,2,1,no,yes,1,no,2,0,Frequently,Public_Transportation,Underweight,49.24,Moderately Active
+Male,74,1.59,63.21,true,0,2,3,no,yes,0,no,2,0,Frequently,Automobile,Underweight,25.0,StayHome
+Female,60,1.8,45.44,false,0,3,1,no,no,2,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_II,14.02,Active
+Male,78,1.01,73.23,true,1,3,2,Sometimes,no,0,yes,2,1,Frequently,Public_Transportation,Normal_Weight,71.79,Active
+Male,27,1.42,78.16,true,0,2,2,no,yes,2,no,1,1,Frequently,Public_Transportation,Overweight_Level_II,38.76,Moderately Active
+Male,55,1.47,40.74,false,1,2,2,no,no,0,yes,0,2,Sometimes,Public_Transportation,Underweight,18.85,StayHome
+Male,55,1.45,63.34,false,0,2,2,Sometimes,no,2,no,2,2,no,Public_Transportation,Overweight_Level_II,30.13,StayHome
+Female,7,1.52,51.68,false,1,2,1,Sometimes,no,1,no,0,1,no,Automobile,Overweight_Level_II,22.37,StayHome
+Male,48,1.63,56.68,true,0,1,3,no,no,1,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_I,21.33,StayHome
+Female,61,1.15,50.16,true,1,2,1,Sometimes,yes,0,yes,0,1,no,Automobile,Overweight_Level_I,37.93,Active
+Male,13,1.17,67.73,false,0,3,2,Sometimes,yes,1,no,2,0,Frequently,Public_Transportation,Underweight,49.48,Moderately Active
+Male,77,1.22,68.78,true,1,2,1,no,yes,1,no,1,0,no,Public_Transportation,Underweight,46.21,Active
+Male,14,1.42,76.64,false,0,2,1,no,no,0,yes,1,2,Frequently,Automobile,Underweight,38.01,StayHome
+Female,39,1.27,61.88,false,1,3,3,no,no,0,yes,0,2,no,Automobile,Normal_Weight,38.37,Active
+Female,63,1.46,77.58,true,1,1,1,Sometimes,yes,0,yes,1,1,no,Automobile,Overweight_Level_II,36.4,Active
+Male,69,1.4,63.61,true,1,2,3,no,no,2,yes,1,1,Sometimes,Public_Transportation,Overweight_Level_I,32.45,StayHome
+Female,10,1.57,60.97,true,1,2,2,no,no,0,no,1,2,Frequently,Public_Transportation,Overweight_Level_II,24.74,Active
+Female,74,1.56,66.62,true,1,3,1,no,no,1,no,2,1,no,Public_Transportation,Overweight_Level_I,27.38,Moderately Active
+Male,51,1.39,85.38,true,0,1,3,no,yes,0,no,1,0,Frequently,Automobile,Normal_Weight,44.19,StayHome
+Male,1,1.02,63.33,false,0,1,3,no,no,2,no,1,0,Sometimes,Public_Transportation,Normal_Weight,60.87,Moderately Active
+Genderqueer,4,1.14,89.29,false,1,3,3,Sometimes,yes,1,no,0,0,no,Automobile,Overweight_Level_II,68.71,StayHome
+Female,15,1.43,63.5,false,1,1,2,Sometimes,yes,2,yes,1,2,Frequently,Public_Transportation,Overweight_Level_II,31.05,StayHome
+Male,35,1.46,64.55,false,1,2,2,Sometimes,no,2,no,1,0,Frequently,Automobile,Overweight_Level_I,30.28,Active
+Male,78,1.29,49.5,false,0,3,1,Sometimes,yes,1,yes,2,1,no,Automobile,Overweight_Level_I,29.75,Active
+Female,14,1.81,49.06,true,0,2,3,Sometimes,no,2,yes,1,0,Sometimes,Automobile,Normal_Weight,14.98,Moderately Active
+Male,21,1.15,75.13,false,1,2,3,no,no,2,yes,0,1,Sometimes,Public_Transportation,Underweight,56.81,Active
+Female,51,1.01,72.56,false,1,2,1,Sometimes,yes,2,yes,2,1,no,Public_Transportation,Overweight_Level_II,71.13,StayHome
+Male,46,1.29,81.55,true,1,1,2,Sometimes,no,1,yes,2,0,Frequently,Public_Transportation,Underweight,49.01,Moderately Active
+Female,39,1.24,48.25,false,0,1,2,no,yes,1,no,2,0,Frequently,Automobile,Underweight,31.38,Active
+Male,59,1.79,72.36,true,0,3,1,Sometimes,no,0,no,2,0,no,Automobile,Normal_Weight,22.58,StayHome
+Male,17,1.68,59.52,true,0,1,2,Sometimes,yes,0,no,2,0,Sometimes,Automobile,Normal_Weight,21.09,StayHome
+Female,8,1.43,64.9,false,0,2,2,no,yes,2,yes,2,2,Sometimes,Public_Transportation,Overweight_Level_I,31.74,StayHome
+Male,39,1.6,72.0,true,0,2,1,no,yes,1,no,2,0,Frequently,Automobile,Overweight_Level_II,28.13,Active
+Female,3,1.66,86.46,false,0,3,2,no,yes,0,yes,2,1,no,Automobile,Normal_Weight,31.38,StayHome
+Male,41,1.07,65.69,false,0,3,1,Sometimes,no,1,no,2,2,Frequently,Automobile,Overweight_Level_I,57.38,Active
+Male,7,1.58,85.84,false,0,2,3,Sometimes,yes,2,yes,1,1,no,Public_Transportation,Overweight_Level_II,34.39,Moderately Active
+Female,48,1.09,46.42,false,1,1,1,Sometimes,yes,1,no,2,0,Sometimes,Automobile,Overweight_Level_II,39.07,Active
+Male,59,1.05,42.8,true,0,3,3,no,yes,1,no,1,2,no,Public_Transportation,Normal_Weight,38.82,StayHome
+Male,5,1.2,77.05,true,1,3,1,no,no,1,yes,2,1,Frequently,Public_Transportation,Underweight,53.51,Moderately Active
+Male,15,1.63,79.74,true,1,2,3,Sometimes,no,1,no,2,1,Sometimes,Public_Transportation,Underweight,30.01,StayHome
+Male,5,1.21,82.96,false,1,1,1,Sometimes,no,2,no,0,2,no,Public_Transportation,Overweight_Level_II,56.66,Active
+Non-binary,46,1.33,81.43,false,0,1,1,Sometimes,yes,0,no,0,2,Frequently,Automobile,Underweight,46.03,StayHome
+Genderfluid,70,1.29,83.96,false,1,3,2,Sometimes,no,2,yes,2,1,no,Automobile,Overweight_Level_II,50.45,StayHome
+Female,63,1.6,88.42,false,0,2,1,no,no,1,no,2,1,no,Automobile,Overweight_Level_II,34.54,Active
+Male,29,1.38,69.67,true,1,3,3,Sometimes,no,1,yes,1,2,no,Public_Transportation,Underweight,36.58,Moderately Active
+Male,29,1.77,82.45,false,1,2,2,Sometimes,no,1,no,2,2,Sometimes,Public_Transportation,Normal_Weight,26.32,Moderately Active
+Genderqueer,39,1.64,74.63,false,0,3,2,no,yes,2,yes,0,2,no,Public_Transportation,Overweight_Level_II,27.75,Moderately Active
+Female,5,1.18,82.64,false,1,3,1,no,yes,2,yes,1,2,Frequently,Automobile,Normal_Weight,59.35,StayHome
+Female,17,1.3,44.76,false,0,1,2,no,no,2,yes,0,0,Sometimes,Automobile,Overweight_Level_II,26.49,Moderately Active
+Female,64,1.79,85.45,true,1,3,3,no,no,2,no,2,2,no,Public_Transportation,Underweight,26.67,Active
+Female,50,1.07,79.04,false,1,3,2,Sometimes,yes,2,yes,1,2,no,Automobile,Underweight,69.04,StayHome
+Female,9,1.12,56.68,true,1,1,1,no,no,1,yes,1,2,no,Public_Transportation,Overweight_Level_I,45.18,Active

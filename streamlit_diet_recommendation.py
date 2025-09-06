@@ -1,0 +1,833 @@
+import streamlit as st
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import pickle
+import os
+from datetime import datetime
+
+# Set page config
+st.set_page_config(
+    page_title="🤖 RL Diet Recommendation System",
+    page_icon="🤖",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Custom CSS
+st.markdown("""
+<style>
+    .main-header {
+        font-size: 3rem;
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 2rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .metric-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1rem;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+    .recommendation-card {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        color: white;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 0.5rem 2rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+</style>
+""", unsafe_allow_html=True)
+
+class PolicyGradientAgent:
+    """Simplified Policy Gradient Agent for Diet Recommendations"""
+    
+    def __init__(self, state_dim=8, action_dim=6, learning_rate=0.01, discount_factor=0.95):
+        self.state_dim = state_dim
+        self.action_dim = action_dim
+        self.learning_rate = learning_rate
+        self.discount_factor = discount_factor
+        
+        # Policy network parameters (simple linear model)
+        self.theta = np.random.normal(0, 0.1, (state_dim, action_dim))
+        
+        # Training metrics
+        self.training_rewards = []
+        self.episode_rewards = []
+    
+    def get_action(self, state, training=True):
+        """Select action using policy"""
+        # Compute action probabilities using softmax
+        logits = np.dot(state, self.theta)
+        exp_logits = np.exp(logits - np.max(logits))  # Numerical stability
+        action_probs = exp_logits / np.sum(exp_logits)
+        
+        if training:
+            # Sample action from policy
+            action = np.random.choice(self.action_dim, p=action_probs)
+            return action, action_probs
+        else:
+            # Greedy action selection
+            action = np.argmax(action_probs)
+            return action, action_probs
+    
+    def update(self, states, actions, rewards):
+        """Update policy using REINFORCE algorithm"""
+        # Compute discounted returns
+        returns = []
+        discounted_return = 0
+        for reward in reversed(rewards):
+            discounted_return = reward + self.discount_factor * discounted_return
+            returns.insert(0, discounted_return)
+        
+        # Normalize returns
+        returns = np.array(returns)
+        if len(returns) > 1:
+            returns = (returns - np.mean(returns)) / (np.std(returns) + 1e-8)
+        
+        # Compute policy gradient
+        gradient = np.zeros_like(self.theta)
+        
+        for i, (state, action, return_val) in enumerate(zip(states, actions, returns)):
+            # Compute action probabilities
+            logits = np.dot(state, self.theta)
+            exp_logits = np.exp(logits - np.max(logits))
+            action_probs = exp_logits / np.sum(exp_logits)
+            
+            # Compute gradient
+            for a in range(self.action_dim):
+                if a == action:
+                    gradient[:, a] += return_val * (1 - action_probs[a]) * state
+                else:
+                    gradient[:, a] += return_val * (-action_probs[a]) * state
+        
+        # Update policy parameters
+        self.theta += self.learning_rate * gradient
+    
+    def train(self, env, episodes=1000, verbose=True):
+        """Train the Policy Gradient agent"""
+        self.training_rewards = []
+        self.episode_rewards = []
+        
+        progress_bar = st.progress(0)
+        status_text = st.empty()
+        
+        for episode in range(episodes):
+            state = env.reset()
+            states, actions, rewards = [], [], []
+            episode_reward = 0
+            
+            for step in range(env.max_steps):
+                action, _ = self.get_action(state, training=True)
+                next_state, reward, done = env.step(action)
+                
+                states.append(state)
+                actions.append(action)
+                rewards.append(reward)
+                
+                state = next_state
+                episode_reward += reward
+                
+                if done:
+                    break
+            
+            # Update policy
+            self.update(states, actions, rewards)
+            
+            self.episode_rewards.append(episode_reward)
+            
+            # Calculate average reward for last 100 episodes
+            if len(self.episode_rewards) >= 100:
+                avg_reward = np.mean(self.episode_rewards[-100:])
+                self.training_rewards.append(avg_reward)
+            else:
+                self.training_rewards.append(episode_reward)
+            
+            # Update progress
+            if episode % 50 == 0:
+                progress = episode / episodes
+                progress_bar.progress(progress)
+                status_text.text(f'Episode {episode}/{episodes} - Avg Reward: {self.training_rewards[-1]:.3f}')
+        
+        progress_bar.progress(1.0)
+        status_text.text('Training completed!')
+        
+        return self.training_rewards
+
+class DietRecommendationEnvironment:
+    """Simplified Environment for Diet Recommendations"""
+    
+    def __init__(self, data=None):
+        # State space: [BMI, age, gender, exercise, water, vegetables, screen_time, meals]
+        self.state_dim = 8
+        self.action_dim = 6
+        
+        # Action space: 6 different diet strategies
+        self.actions = {
+            0: "High Protein, Low Carb",
+            1: "Balanced Mediterranean", 
+            2: "Low Calorie, High Volume",
+            3: "Intermittent Fasting",
+            4: "Plant-Based Focus",
+            5: "Keto-Inspired"
+        }
+        
+        # State bounds for normalization
+        self.state_bounds = {
+            'bmi': (15, 50),
+            'age': (16, 80),
+            'gender': (0, 1),
+            'exercise': (0, 7),
+            'water': (0, 5),
+            'vegetables': (0, 5),
+            'screen_time': (0, 12),
+            'meals': (1, 6)
+        }
+        
+        # Load or generate data
+        if data is not None:
+            self.data = data
+        else:
+            self.data = self._load_or_generate_data()
+            
+        self.current_state = None
+        self.episode_reward = 0
+        self.step_count = 0
+        self.max_steps = 50  # Reduced for faster training
+        
+    def _load_or_generate_data(self):
+        """Load processed obesity data"""
+        try:
+            # Load the processed obesity data
+            df = pd.read_csv('processed_obesity_data.csv')
+            print(f"✅ Loaded processed obesity data: {len(df)} samples")
+            
+            # Map columns to our format
+            processed_data = pd.DataFrame({
+                'bmi': df['BMI'],
+                'age': df['Age'],
+                'gender': (df['Gender'] == 'Female').astype(int),
+                'exercise': df['ActivityLevel'],
+                'water': df['H2O'],
+                'vegetables': df['eatvege'],
+                'screen_time': df['TechFreq'],
+                'meals': df['MainMeal']
+            })
+            
+            return processed_data
+            
+        except FileNotFoundError:
+            st.error("❌ processed_obesity_data.csv not found! Please ensure the file is in the same directory.")
+            st.stop()
+        except Exception as e:
+            st.error(f"❌ Error loading data: {e}")
+            st.stop()
+    
+    def reset(self):
+        """Reset environment to initial state"""
+        user_data = self.data.sample(1).iloc[0]
+        self.current_state = self._normalize_state(user_data)
+        self.episode_reward = 0
+        self.step_count = 0
+        return self.current_state
+    
+    def _normalize_state(self, user_data):
+        """Normalize user data to [0, 1] range"""
+        normalized = np.zeros(self.state_dim)
+        
+        # BMI normalization
+        normalized[0] = (user_data['bmi'] - self.state_bounds['bmi'][0]) / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])
+        
+        # Age normalization
+        normalized[1] = (user_data['age'] - self.state_bounds['age'][0]) / (self.state_bounds['age'][1] - self.state_bounds['age'][0])
+        
+        # Gender
+        normalized[2] = user_data['gender']
+        
+        # Exercise normalization
+        normalized[3] = user_data['exercise'] / self.state_bounds['exercise'][1]
+        
+        # Water normalization
+        normalized[4] = user_data['water'] / self.state_bounds['water'][1]
+        
+        # Vegetables normalization
+        normalized[5] = user_data['vegetables'] / self.state_bounds['vegetables'][1]
+        
+        # Screen time normalization
+        normalized[6] = user_data['screen_time'] / self.state_bounds['screen_time'][1]
+        
+        # Meals normalization
+        normalized[7] = (user_data['meals'] - self.state_bounds['meals'][0]) / (self.state_bounds['meals'][1] - self.state_bounds['meals'][0])
+        
+        return np.clip(normalized, 0, 1)
+    
+    def step(self, action):
+        """Execute action and return next state, reward, done"""
+        if self.current_state is None:
+            raise ValueError("Environment not reset. Call reset() first.")
+        
+        reward = self._calculate_reward(action)
+        next_state = self._simulate_state_transition(action)
+        
+        self.episode_reward += reward
+        self.step_count += 1
+        done = self.step_count >= self.max_steps
+        
+        self.current_state = next_state
+        return next_state, reward, done
+    
+    def _calculate_reward(self, action):
+        """Calculate reward based on action and current state"""
+        # Base reward for each action
+        action_effectiveness = {
+            0: 0.8,  # High Protein, Low Carb
+            1: 0.9,  # Balanced Mediterranean
+            2: 0.7,  # Low Calorie, High Volume
+            3: 0.6,  # Intermittent Fasting
+            4: 0.8,  # Plant-Based Focus
+            5: 0.5   # Keto-Inspired
+        }
+        
+        base_reward = action_effectiveness[action]
+        
+        # Adjust based on state
+        bmi = self.current_state[0] * (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0]) + self.state_bounds['bmi'][0]
+        exercise = self.current_state[3] * (self.state_bounds['exercise'][1] - self.state_bounds['exercise'][0])
+        vegetables = self.current_state[5] * (self.state_bounds['vegetables'][1] - self.state_bounds['vegetables'][0])
+        
+        # Reward adjustments
+        if bmi > 30 and action in [0, 2]:  # Good for obese
+            base_reward += 0.2
+        elif bmi < 20 and action in [1, 4]:  # Good for underweight
+            base_reward += 0.2
+        elif bmi > 30 and action in [5, 3]:  # Too extreme for obese
+            base_reward -= 0.3
+        elif bmi < 18.5 and action in [2, 3, 5]:  # Too restrictive for underweight
+            base_reward -= 0.4
+            
+        if exercise > 4 and action in [0, 1]:  # Good for active people
+            base_reward += 0.1
+        elif exercise < 2 and action in [5, 3]:  # Too extreme for sedentary
+            base_reward -= 0.2
+            
+        if vegetables > 3 and action == 4:  # Plant-based for veggie lovers
+            base_reward += 0.1
+        elif vegetables < 1 and action in [5, 3]:  # Too restrictive for low veggie intake
+            base_reward -= 0.2
+        
+        # Add noise
+        noise = np.random.normal(0, 0.1)
+        return base_reward + noise
+    
+    def _simulate_state_transition(self, action):
+        """Simulate state changes based on action"""
+        next_state = self.current_state.copy()
+        
+        # Simulate improvements based on action
+        if action == 0:  # High Protein, Low Carb
+            next_state[0] = max(0, next_state[0] - 0.01)  # BMI reduction
+            next_state[3] = min(1, next_state[3] + 0.02)  # Exercise increase
+        elif action == 1:  # Balanced Mediterranean
+            next_state[0] = max(0, next_state[0] - 0.005)
+            next_state[5] = min(1, next_state[5] + 0.01)
+            next_state[4] = min(1, next_state[4] + 0.01)
+        elif action == 2:  # Low Calorie, High Volume
+            next_state[0] = max(0, next_state[0] - 0.015)
+            next_state[5] = min(1, next_state[5] + 0.02)
+        elif action == 3:  # Intermittent Fasting
+            next_state[0] = max(0, next_state[0] - 0.01)
+            next_state[7] = max(0, next_state[7] - 0.01)
+        elif action == 4:  # Plant-Based Focus
+            next_state[5] = min(1, next_state[5] + 0.03)
+            next_state[0] = max(0, next_state[0] - 0.005)
+        elif action == 5:  # Keto-Inspired
+            next_state[0] = max(0, next_state[0] - 0.02)
+            next_state[7] = max(0, next_state[7] - 0.02)
+        
+        return next_state
+
+def calculate_bmi(weight, height_cm):
+    """Calculate BMI"""
+    height_m = height_cm / 100
+    return weight / (height_m ** 2)
+
+def get_bmi_category(bmi):
+    """Get BMI category"""
+    if bmi < 18.5:
+        return "Underweight"
+    elif bmi < 25:
+        return "Normal Weight"
+    elif bmi < 30:
+        return "Overweight"
+    elif bmi < 35:
+        return "Obese Level I"
+    elif bmi < 40:
+        return "Obese Level II"
+    else:
+        return "Obese Level III"
+
+def calculate_health_score(veg, water, exercise, screen, meals):
+    """Calculate health score (0-100)"""
+    score = 0
+    
+    # Vegetable intake (0-20 points)
+    if veg >= 5:
+        score += 20
+    elif veg >= 3:
+        score += 15
+    elif veg >= 2:
+        score += 10
+    elif veg >= 1:
+        score += 5
+    
+    # Water intake (0-20 points)
+    if water >= 3:
+        score += 20
+    elif water >= 2:
+        score += 15
+    elif water >= 1:
+        score += 10
+    
+    # Exercise (0-20 points)
+    if exercise >= 5:
+        score += 20
+    elif exercise >= 3:
+        score += 15
+    elif exercise >= 1:
+        score += 10
+    
+    # Screen time (0-20 points) - lower is better
+    if screen <= 2:
+        score += 20
+    elif screen <= 4:
+        score += 15
+    elif screen <= 6:
+        score += 10
+    elif screen <= 8:
+        score += 5
+    
+    # Meals per day (0-20 points)
+    if meals >= 3 and meals <= 4:
+        score += 20
+    elif meals >= 2 and meals <= 5:
+        score += 15
+    elif meals >= 1 and meals <= 6:
+        score += 10
+    
+    return min(score, 100)
+
+def create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals):
+    """Create normalized state vector for RL agent"""
+    bmi = calculate_bmi(weight, height)
+    
+    # Normalize to [0, 1] range
+    bmi_norm = np.clip((bmi - 15) / (50 - 15), 0, 1)
+    age_norm = np.clip((age - 16) / (80 - 16), 0, 1)
+    gender_norm = 1 if gender == "Female" else 0
+    exercise_norm = exercise / 7
+    water_norm = (water - 1) / (5 - 1)
+    veg_norm = veg / 5
+    screen_norm = screen / 12
+    meals_norm = (meals - 1) / (6 - 1)
+    
+    return np.array([bmi_norm, age_norm, gender_norm, exercise_norm, 
+                    water_norm, veg_norm, screen_norm, meals_norm])
+
+def get_diet_recommendations():
+    """Get detailed diet recommendations"""
+    return {
+        0: {  # High Protein, Low Carb
+            "name": "High Protein, Low Carb",
+            "description": "Focus on lean proteins with minimal carbohydrates",
+            "foods": [
+                "🥩 Lean meats: chicken breast, turkey, lean beef",
+                "🐟 Fatty fish: salmon, mackerel, sardines",
+                "🥚 Eggs and egg whites",
+                "🧀 Greek yogurt, cottage cheese",
+                "🥜 Nuts and seeds in moderation",
+                "🥬 Non-starchy vegetables: spinach, broccoli, kale",
+                "🥑 Avocados for healthy fats"
+            ],
+            "avoid": [
+                "🍞 Bread, pasta, rice",
+                "🍰 Sugary foods and desserts",
+                "🍟 Processed snacks",
+                "🍺 Alcoholic beverages"
+            ],
+            "tips": [
+                "Aim for 1.2-1.6g protein per kg body weight",
+                "Keep carbs under 50g per day",
+                "Stay hydrated with water and herbal teas",
+                "Consider intermittent fasting windows"
+            ]
+        },
+        1: {  # Balanced Mediterranean
+            "name": "Balanced Mediterranean",
+            "description": "Balanced macronutrients with Mediterranean principles",
+            "foods": [
+                "🐟 Fish and seafood 2-3 times per week",
+                "🥜 Nuts, seeds, and olive oil daily",
+                "🍇 Fresh fruits and vegetables",
+                "🌾 Whole grains: quinoa, brown rice, oats",
+                "🥛 Greek yogurt and cheese in moderation",
+                "🍷 Red wine in moderation (optional)",
+                "🌿 Herbs and spices for flavor"
+            ],
+            "avoid": [
+                "🍔 Processed meats",
+                "🍰 Refined sugars and desserts",
+                "🍟 Fried foods",
+                "🥤 Sugary beverages"
+            ],
+            "tips": [
+                "Use olive oil as primary fat source",
+                "Include fish 2-3 times per week",
+                "Focus on plant-based foods",
+                "Enjoy meals with family and friends"
+            ]
+        },
+        2: {  # Low Calorie, High Volume
+            "name": "Low Calorie, High Volume",
+            "description": "High-volume, low-calorie foods for satiety",
+            "foods": [
+                "🥬 Leafy greens: spinach, lettuce, kale",
+                "🥒 Non-starchy vegetables: cucumbers, celery, bell peppers",
+                "🍓 Berries and low-sugar fruits",
+                "🥣 Broth-based soups",
+                "🥗 Large salads with lean protein",
+                "💧 Water-rich foods: watermelon, cucumber",
+                "🥕 Crudités with hummus"
+            ],
+            "avoid": [
+                "🍕 High-calorie dense foods",
+                "🍰 Desserts and sweets",
+                "🥤 Caloric beverages",
+                "🍟 Fried and processed foods"
+            ],
+            "tips": [
+                "Fill half your plate with vegetables",
+                "Eat slowly and mindfully",
+                "Drink water before meals",
+                "Use smaller plates to control portions"
+            ]
+        },
+        3: {  # Intermittent Fasting
+            "name": "Intermittent Fasting",
+            "description": "Time-restricted eating patterns",
+            "foods": [
+                "🥩 High-quality proteins during eating window",
+                "🥬 Nutrient-dense vegetables",
+                "🥑 Healthy fats: avocado, nuts, olive oil",
+                "🍓 Low-sugar fruits",
+                "🥚 Eggs and lean proteins",
+                "🌾 Complex carbohydrates in moderation",
+                "💧 Plenty of water and herbal teas"
+            ],
+            "avoid": [
+                "🍰 Sugary foods during eating window",
+                "🥤 Caloric beverages during fasting",
+                "🍟 Processed and junk foods",
+                "🍺 Alcohol (can break fast)"
+            ],
+            "tips": [
+                "Start with 12:12 (12 hours eating, 12 hours fasting)",
+                "Gradually increase to 16:8 or 18:6",
+                "Stay hydrated during fasting periods",
+                "Focus on nutrient density during eating windows"
+            ]
+        },
+        4: {  # Plant-Based Focus
+            "name": "Plant-Based Focus",
+            "description": "Primarily plant-based nutrition",
+            "foods": [
+                "🥬 Leafy greens and vegetables",
+                "🍎 Fresh fruits",
+                "🌾 Whole grains: quinoa, brown rice, oats",
+                "🥜 Nuts, seeds, and legumes",
+                "🥑 Plant-based fats: avocado, olive oil",
+                "🥛 Plant milks and yogurts",
+                "🍄 Mushrooms and plant proteins"
+            ],
+            "avoid": [
+                "🥩 Animal products",
+                "🍳 Eggs and dairy",
+                "🍔 Processed plant-based meats",
+                "🍰 Vegan desserts high in sugar"
+            ],
+            "tips": [
+                "Ensure adequate protein from plant sources",
+                "Consider B12 supplementation",
+                "Include variety of colorful vegetables",
+                "Focus on whole, unprocessed foods"
+            ]
+        },
+        5: {  # Keto-Inspired
+            "name": "Keto-Inspired",
+            "description": "Very low carbohydrate, high fat approach",
+            "foods": [
+                "🥩 Fatty cuts of meat",
+                "🐟 Fatty fish and seafood",
+                "🥑 Avocados and olive oil",
+                "🥜 Nuts and seeds",
+                "🧀 High-fat dairy products",
+                "🥬 Non-starchy vegetables",
+                "🥚 Eggs and egg yolks"
+            ],
+            "avoid": [
+                "🍞 All grains and bread",
+                "🍎 Most fruits (except berries)",
+                "🍯 Sugars and sweeteners",
+                "🍺 Alcoholic beverages"
+            ],
+            "tips": [
+                "Keep carbs under 20g per day",
+                "Focus on healthy fats",
+                "Monitor ketone levels if desired",
+                "Stay hydrated and supplement electrolytes"
+            ]
+        }
+    }
+
+def main():
+    """Main Streamlit app"""
+    
+    # Header
+    st.markdown('<h1 class="main-header">🤖 RL Diet Recommendation System</h1>', unsafe_allow_html=True)
+    st.markdown("### Powered by Policy Gradient Reinforcement Learning")
+    
+    # Initialize session state
+    if 'agent' not in st.session_state:
+        st.session_state.agent = None
+    if 'env' not in st.session_state:
+        st.session_state.env = None
+    if 'trained' not in st.session_state:
+        st.session_state.trained = False
+    
+    # Sidebar
+    with st.sidebar:
+        st.header("🎛️ Control Panel")
+        
+        # Training section
+        st.subheader("🤖 Train RL Agent")
+        if st.button("🚀 Train Policy Gradient Agent", type="primary"):
+            with st.spinner("Training RL agent... This may take a few minutes."):
+                # Create environment
+                env = DietRecommendationEnvironment()
+                
+                # Create agent
+                agent = PolicyGradientAgent()
+                
+                # Train agent
+                training_rewards = agent.train(env, episodes=500, verbose=False)
+                
+                # Store in session state
+                st.session_state.agent = agent
+                st.session_state.env = env
+                st.session_state.trained = True
+                
+                st.success("✅ Agent trained successfully!")
+                
+                # Show training progress
+                fig = px.line(x=range(len(training_rewards)), y=training_rewards,
+                            title="Training Progress", labels={'x': 'Episodes', 'y': 'Average Reward'})
+                st.plotly_chart(fig, use_container_width=True)
+        
+        # Status
+        if st.session_state.trained:
+            st.success("✅ Agent is trained and ready!")
+        else:
+            st.warning("⚠️ Please train the agent first")
+    
+    # Main content
+    col1, col2 = st.columns([1, 1])
+    
+    with col1:
+        st.header("📊 Your Health Profile")
+        
+        # Health inputs
+        height = st.slider("Height (cm)", 120, 220, 170)
+        weight = st.slider("Weight (kg)", 30, 150, 70)
+        age = st.slider("Age", 16, 80, 25)
+        gender = st.selectbox("Gender", ["Male", "Female"])
+        
+        st.subheader("🏃 Lifestyle Assessment")
+        veg = st.slider("Vegetable Intake (servings/day)", 0, 5, 2)
+        water = st.slider("Water Intake (liters/day)", 1, 5, 2)
+        exercise = st.slider("Exercise (days/week)", 0, 7, 2)
+        screen = st.slider("Screen Time (hours/day)", 0, 12, 3)
+        meals = st.slider("Main Meals (per day)", 1, 6, 3)
+        
+        # Calculate metrics
+        if st.button("🧮 Calculate Health Metrics", type="primary"):
+            bmi = calculate_bmi(weight, height)
+            category = get_bmi_category(bmi)
+            health_score = calculate_health_score(veg, water, exercise, screen, meals)
+            
+            # Store in session state
+            st.session_state.bmi = bmi
+            st.session_state.category = category
+            st.session_state.health_score = health_score
+            st.session_state.user_state = create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals)
+    
+    with col2:
+        st.header("📈 Health Analysis")
+        
+        if 'bmi' in st.session_state:
+            # Display metrics
+            col_a, col_b, col_c = st.columns(3)
+            
+            with col_a:
+                st.metric("BMI", f"{st.session_state.bmi:.1f}")
+            with col_b:
+                st.metric("Category", st.session_state.category)
+            with col_c:
+                st.metric("Health Score", f"{st.session_state.health_score}/100")
+            
+            # BMI visualization
+            fig = go.Figure()
+            
+            # BMI categories
+            categories = [
+                ("Underweight", 0, 18.5, "lightblue"),
+                ("Normal", 18.5, 24.9, "lightgreen"),
+                ("Overweight", 25, 29.9, "yellow"),
+                ("Obese I", 30, 34.9, "orange"),
+                ("Obese II", 35, 39.9, "red"),
+                ("Obese III", 40, 60, "darkred")
+            ]
+            
+            for label, start, end, color in categories:
+                fig.add_trace(go.Bar(
+                    x=[end - start],
+                    y=[label],
+                    orientation='h',
+                    marker_color=color,
+                    name=label,
+                    showlegend=False
+                ))
+            
+            # Current BMI marker
+            fig.add_vline(x=st.session_state.bmi, line_dash="dash", line_color="black", 
+                         annotation_text=f"Your BMI: {st.session_state.bmi:.1f}")
+            
+            fig.update_layout(
+                title="BMI Categories",
+                xaxis_title="BMI Range",
+                height=300,
+                showlegend=False
+            )
+            
+            st.plotly_chart(fig, use_container_width=True)
+            
+            # Lifestyle chart
+            lifestyle_data = {
+                'Metric': ['Vegetables', 'Water', 'Exercise', 'Screen Time', 'Meals'],
+                'Value': [veg, water, exercise, screen, meals],
+                'Ideal': [4, 3, 5, 2, 3]  # Ideal values
+            }
+            
+            fig = go.Figure()
+            fig.add_trace(go.Bar(
+                name='Your Value',
+                x=lifestyle_data['Metric'],
+                y=lifestyle_data['Value'],
+                marker_color='lightblue'
+            ))
+            fig.add_trace(go.Bar(
+                name='Ideal Value',
+                x=lifestyle_data['Metric'],
+                y=lifestyle_data['Ideal'],
+                marker_color='lightgreen',
+                opacity=0.7
+            ))
+            
+            fig.update_layout(
+                title="Lifestyle Habits vs Ideal",
+                yaxis_title="Value",
+                height=300
+            )
+            
+            st.plotly_chart(fig, use_container_width=True)
+    
+    # RL Recommendation Section
+    if st.session_state.trained and 'user_state' in st.session_state:
+        st.header("🤖 AI Diet Recommendation")
+        
+        if st.button("🎯 Get Personalized Recommendation", type="primary"):
+            # Get recommendation from RL agent
+            action, action_probs = st.session_state.agent.get_action(st.session_state.user_state, training=False)
+            
+            # Get detailed recommendations
+            recommendations = get_diet_recommendations()
+            rec = recommendations[action]
+            
+            # Display recommendation
+            st.markdown(f"""
+            <div class="recommendation-card">
+                <h3>🎯 Recommended Diet: {rec['name']}</h3>
+                <p><strong>Description:</strong> {rec['description']}</p>
+                <p><strong>Confidence:</strong> {action_probs[action]:.1%}</p>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Detailed recommendations
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.subheader("✅ Recommended Foods")
+                for food in rec['foods']:
+                    st.write(food)
+                
+                st.subheader("❌ Foods to Avoid")
+                for food in rec['avoid']:
+                    st.write(food)
+            
+            with col2:
+                st.subheader("💡 Helpful Tips")
+                for tip in rec['tips']:
+                    st.write(f"• {tip}")
+                
+                # Action probabilities
+                st.subheader("🧠 AI Confidence Levels")
+                prob_data = pd.DataFrame({
+                    'Diet Strategy': [recommendations[i]['name'] for i in range(6)],
+                    'Confidence': action_probs
+                }).sort_values('Confidence', ascending=True)
+                
+                fig = px.bar(prob_data, x='Confidence', y='Diet Strategy', 
+                           orientation='h', title="AI Confidence in Each Strategy")
+                st.plotly_chart(fig, use_container_width=True)
+    
+    # Footer
+    st.markdown("---")
+    st.markdown("""
+    <div style='text-align: center; color: #7f8c8d;'>
+        <p>🤖 Powered by Policy Gradient Reinforcement Learning | 
+        Built with Streamlit | 
+        <a href='https://github.com' target='_blank'>GitHub</a></p>
+    </div>
+    """, unsafe_allow_html=True)
+
+if __name__ == "__main__":
+    main()
