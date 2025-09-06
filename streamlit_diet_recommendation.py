@@ -330,7 +330,29 @@ class DietRecommendationEnvironment:
     
     def _calculate_reward(self, action):
         """Calculate reward based on action and current state"""
-        # Base reward for each action
+        # Get current BMI
+        bmi = self.current_state[0] * (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0]) + self.state_bounds['bmi'][0]
+        exercise = self.current_state[3] * (self.state_bounds['exercise'][1] - self.state_bounds['exercise'][0])
+        vegetables = self.current_state[5] * (self.state_bounds['vegetables'][1] - self.state_bounds['vegetables'][0])
+        
+        # BMI-based reward (higher reward for closer to normal BMI range 18.5-24.9)
+        if 18.5 <= bmi <= 24.9:
+            # Perfect BMI range - highest reward
+            bmi_reward = 1.0
+        elif 17 <= bmi < 18.5 or 24.9 < bmi <= 26:
+            # Close to normal range - high reward
+            bmi_reward = 0.8
+        elif 15 <= bmi < 17 or 26 < bmi <= 30:
+            # Moderate distance from normal - medium reward
+            bmi_reward = 0.6
+        elif 30 < bmi <= 35:
+            # Overweight/Obese I - lower reward
+            bmi_reward = 0.4
+        else:
+            # Very far from normal - lowest reward
+            bmi_reward = 0.2
+        
+        # Action effectiveness based on BMI compatibility
         action_effectiveness = {
             0: 0.8,  # High Protein, Low Carb
             1: 0.9,  # Balanced Mediterranean
@@ -342,12 +364,7 @@ class DietRecommendationEnvironment:
         
         base_reward = action_effectiveness[action]
         
-        # Adjust based on state
-        bmi = self.current_state[0] * (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0]) + self.state_bounds['bmi'][0]
-        exercise = self.current_state[3] * (self.state_bounds['exercise'][1] - self.state_bounds['exercise'][0])
-        vegetables = self.current_state[5] * (self.state_bounds['vegetables'][1] - self.state_bounds['vegetables'][0])
-        
-        # Reward adjustments
+        # BMI-specific action adjustments
         if bmi > 30 and action in [0, 2]:  # Good for obese
             base_reward += 0.2
         elif bmi < 20 and action in [1, 4]:  # Good for underweight
@@ -357,6 +374,7 @@ class DietRecommendationEnvironment:
         elif bmi < 18.5 and action in [2, 3, 5]:  # Too restrictive for underweight
             base_reward -= 0.4
             
+        # Lifestyle factor adjustments
         if exercise > 4 and action in [0, 1]:  # Good for active people
             base_reward += 0.1
         elif exercise < 2 and action in [5, 3]:  # Too extreme for sedentary
@@ -367,34 +385,83 @@ class DietRecommendationEnvironment:
         elif vegetables < 1 and action in [5, 3]:  # Too restrictive for low veggie intake
             base_reward -= 0.2
         
-        # Add noise
-        noise = np.random.normal(0, 0.1)
-        return base_reward + noise
+        # Combine BMI reward with action effectiveness
+        total_reward = (bmi_reward * 0.6) + (base_reward * 0.4)
+        
+        # Add small noise for variability
+        noise = np.random.normal(0, 0.05)
+        return total_reward + noise
     
     def _simulate_state_transition(self, action):
         """Simulate state changes based on action"""
         next_state = self.current_state.copy()
         
-        # Simulate improvements based on action
+        # Get current BMI for intelligent transitions
+        current_bmi = next_state[0] * (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0]) + self.state_bounds['bmi'][0]
+        
+        # Calculate BMI change based on current BMI and action
         if action == 0:  # High Protein, Low Carb
-            next_state[0] = max(0, next_state[0] - 0.01)  # BMI reduction
+            if current_bmi > 25:  # If overweight/obese, reduce BMI
+                bmi_change = -0.02
+            elif current_bmi < 18.5:  # If underweight, slight increase
+                bmi_change = 0.01
+            else:  # Normal weight, maintain
+                bmi_change = -0.005
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
             next_state[3] = min(1, next_state[3] + 0.02)  # Exercise increase
+            
         elif action == 1:  # Balanced Mediterranean
-            next_state[0] = max(0, next_state[0] - 0.005)
-            next_state[5] = min(1, next_state[5] + 0.01)
-            next_state[4] = min(1, next_state[4] + 0.01)
+            if current_bmi > 25:  # If overweight/obese, reduce BMI
+                bmi_change = -0.015
+            elif current_bmi < 18.5:  # If underweight, slight increase
+                bmi_change = 0.01
+            else:  # Normal weight, maintain
+                bmi_change = -0.005
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
+            next_state[5] = min(1, next_state[5] + 0.01)  # Vegetable increase
+            next_state[4] = min(1, next_state[4] + 0.01)  # Water increase
+            
         elif action == 2:  # Low Calorie, High Volume
-            next_state[0] = max(0, next_state[0] - 0.015)
-            next_state[5] = min(1, next_state[5] + 0.02)
+            if current_bmi > 25:  # If overweight/obese, reduce BMI
+                bmi_change = -0.025
+            elif current_bmi < 18.5:  # If underweight, avoid further reduction
+                bmi_change = 0.005
+            else:  # Normal weight, slight reduction
+                bmi_change = -0.01
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
+            next_state[5] = min(1, next_state[5] + 0.02)  # Vegetable increase
+            
         elif action == 3:  # Intermittent Fasting
-            next_state[0] = max(0, next_state[0] - 0.01)
-            next_state[7] = max(0, next_state[7] - 0.01)
+            if current_bmi > 25:  # If overweight/obese, reduce BMI
+                bmi_change = -0.02
+            elif current_bmi < 18.5:  # If underweight, avoid fasting
+                bmi_change = 0.01
+            else:  # Normal weight, slight reduction
+                bmi_change = -0.01
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
+            next_state[7] = max(0, next_state[7] - 0.01)  # Meal reduction
+            
         elif action == 4:  # Plant-Based Focus
-            next_state[5] = min(1, next_state[5] + 0.03)
-            next_state[0] = max(0, next_state[0] - 0.005)
+            if current_bmi > 25:  # If overweight/obese, reduce BMI
+                bmi_change = -0.01
+            elif current_bmi < 18.5:  # If underweight, slight increase
+                bmi_change = 0.01
+            else:  # Normal weight, maintain
+                bmi_change = -0.005
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
+            next_state[5] = min(1, next_state[5] + 0.03)  # Vegetable increase
+            
         elif action == 5:  # Keto-Inspired
-            next_state[0] = max(0, next_state[0] - 0.02)
-            next_state[7] = max(0, next_state[7] - 0.02)
+            if current_bmi > 30:  # If obese, reduce BMI
+                bmi_change = -0.03
+            elif current_bmi > 25:  # If overweight, reduce BMI
+                bmi_change = -0.02
+            elif current_bmi < 18.5:  # If underweight, avoid keto
+                bmi_change = 0.01
+            else:  # Normal weight, slight reduction
+                bmi_change = -0.01
+            next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])))
+            next_state[7] = max(0, next_state[7] - 0.02)  # Meal reduction
         
         return next_state
 
