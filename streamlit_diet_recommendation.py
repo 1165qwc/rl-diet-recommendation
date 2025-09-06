@@ -972,6 +972,7 @@ def main():
             st.session_state.bmi = bmi
             st.session_state.category = category
             st.session_state.health_score = health_score
+            st.session_state.gender = gender
             st.session_state.user_state = create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals)
     
     with col2:
@@ -1059,7 +1060,7 @@ def main():
         st.header("🤖 AI Diet Recommendation")
         
         # Button section
-        col_btn1, col_btn2 = st.columns(2)
+        col_btn1, col_btn2, col_btn3 = st.columns(3)
         
         with col_btn1:
             if st.button("🎯 Get Personalized Recommendation", type="primary"):
@@ -1082,6 +1083,13 @@ def main():
                     st.warning("Please get a recommendation first!")
                 else:
                     st.session_state.show_prediction = True
+        
+        with col_btn3:
+            if st.button("👤 Visualize Body Type", type="secondary"):
+                if 'bmi' not in st.session_state:
+                    st.warning("Please calculate BMI first!")
+                else:
+                    st.session_state.show_body_type = True
         
         # Display recommendation if available
         if 'show_recommendation' in st.session_state and st.session_state.show_recommendation:
@@ -1132,9 +1140,16 @@ def main():
         # Display prediction if requested
         if 'show_prediction' in st.session_state and st.session_state.show_prediction:
             st.markdown("---")
-            st.subheader("🔮 Recommendation Impact Prediction")
+            st.subheader("🔮 What Happens If You Follow vs Don't Follow the Recommendation?")
             
-            with st.spinner("🔮 Predicting outcomes..."):
+            # Simple explanation
+            st.info("""
+            **This prediction shows you what could happen to your health over the next 30 days:**
+            - 🟢 **Green line**: If you follow the AI recommendation
+            - 🔴 **Red line**: If you ignore the recommendation and make poor food choices
+            """)
+            
+            with st.spinner("🔮 Analyzing your health outcomes..."):
                 # Create predictor
                 predictor = RecommendationImpactPredictor(st.session_state.env, st.session_state.agent)
                 
@@ -1159,88 +1174,318 @@ def main():
                     if len(follow_bmi) == 0 or len(not_follow_bmi) == 0:
                         st.error("❌ Prediction failed - no data generated")
                     else:
-                        # Create comparison plot
-                        fig = make_subplots(
-                            rows=2, cols=2,
-                            subplot_titles=('BMI Progression', 'Reward Comparison', 'BMI Change', 'Health Impact'),
-                            specs=[[{"secondary_y": False}, {"secondary_y": False}],
-                                   [{"secondary_y": False}, {"secondary_y": False}]]
+                        # Calculate key metrics
+                        current_bmi = follow_bmi[0]
+                        follow_final_bmi = follow_bmi[-1]
+                        not_follow_final_bmi = not_follow_bmi[-1]
+                        
+                        bmi_change_follow = follow_final_bmi - current_bmi
+                        bmi_change_not_follow = not_follow_final_bmi - current_bmi
+                        
+                        # Simple summary first
+                        st.markdown("### 📊 **Quick Summary**")
+                        
+                        col1, col2, col3 = st.columns(3)
+                        
+                        with col1:
+                            st.metric(
+                                "Your Current BMI", 
+                                f"{current_bmi:.1f}",
+                                help="This is your starting point"
+                            )
+                        
+                        with col2:
+                            follow_direction = "📉 Better" if bmi_change_follow < 0 else "📈 Worse" if bmi_change_follow > 0 else "➡️ Same"
+                            st.metric(
+                                "Following Recommendation", 
+                                f"{follow_final_bmi:.1f}",
+                                delta=f"{bmi_change_follow:+.1f}",
+                                help=f"BMI after 30 days: {follow_direction}"
+                            )
+                        
+                        with col3:
+                            not_follow_direction = "📉 Better" if bmi_change_not_follow < 0 else "📈 Worse" if bmi_change_not_follow > 0 else "➡️ Same"
+                            st.metric(
+                                "Not Following", 
+                                f"{not_follow_final_bmi:.1f}",
+                                delta=f"{bmi_change_not_follow:+.1f}",
+                                help=f"BMI after 30 days: {not_follow_direction}"
+                            )
+                        
+                        # Simple BMI progression chart
+                        st.markdown("### 📈 **Your BMI Over Time**")
+                        
+                        # Create simple BMI chart
+                        fig_bmi = go.Figure()
+                        
+                        days = list(range(len(follow_bmi)))
+                        fig_bmi.add_trace(go.Scatter(
+                            x=days, y=follow_bmi, 
+                            name='✅ Following Recommendation',
+                            line=dict(color='#2ECC71', width=4),
+                            mode='lines+markers',
+                            marker=dict(size=6)
+                        ))
+                        fig_bmi.add_trace(go.Scatter(
+                            x=days, y=not_follow_bmi, 
+                            name='❌ Not Following',
+                            line=dict(color='#E74C3C', width=4, dash='dash'),
+                            mode='lines+markers',
+                            marker=dict(size=6)
+                        ))
+                        
+                        # Add healthy BMI range
+                        fig_bmi.add_hline(y=18.5, line_dash="dot", line_color="blue", 
+                                        annotation_text="Healthy BMI Range", annotation_position="bottom right")
+                        fig_bmi.add_hline(y=24.9, line_dash="dot", line_color="blue")
+                        
+                        fig_bmi.update_layout(
+                            title="Your BMI Prediction Over 30 Days",
+                            xaxis_title="Days",
+                            yaxis_title="BMI",
+                            height=400,
+                            showlegend=True,
+                            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
                         )
                         
-                        # BMI progression
-                        steps = list(range(len(follow_bmi)))
-                        fig.add_trace(
-                            go.Scatter(x=steps, y=follow_bmi, name='Following Recommendation', 
-                                     line=dict(color='green', width=3), mode='lines+markers'),
-                            row=1, col=1
-                        )
-                        fig.add_trace(
-                            go.Scatter(x=steps, y=not_follow_bmi, name='Not Following', 
-                                     line=dict(color='red', width=3, dash='dash'), mode='lines+markers'),
-                            row=1, col=1
-                        )
+                        st.plotly_chart(fig_bmi, use_container_width=True)
                         
-                        # Reward comparison
-                        fig.add_trace(
-                            go.Bar(x=['Following', 'Not Following'], y=[follow_reward, not_follow_reward],
-                                  marker_color=['green', 'red'], name='Total Reward'),
-                            row=1, col=2
-                        )
+                        # Simple comparison
+                        st.markdown("### ⚖️ **The Difference**")
                         
-                        # BMI change
-                        bmi_change_follow = follow_bmi[-1] - follow_bmi[0]
-                        bmi_change_not_follow = not_follow_bmi[-1] - not_follow_bmi[0]
-                        fig.add_trace(
-                            go.Bar(x=['Following', 'Not Following'], 
-                                  y=[bmi_change_follow, bmi_change_not_follow],
-                                  marker_color=['green' if bmi_change_follow < 0 else 'red', 
-                                              'red' if bmi_change_not_follow > 0 else 'green'],
-                                  name='BMI Change'),
-                            row=2, col=1
-                        )
+                        bmi_difference = follow_final_bmi - not_follow_final_bmi
                         
-                        # Health impact summary
-                        impact_text = f"""
-                        <b>Following Recommendation:</b><br>
-                        • Final BMI: {follow_bmi[-1]:.1f}<br>
-                        • BMI Change: {bmi_change_follow:+.1f}<br>
-                        • Total Reward: {follow_reward:.1f}<br><br>
+                        if abs(bmi_difference) < 0.5:
+                            st.warning("⚠️ **Small Difference**: Both paths lead to similar results")
+                        elif bmi_difference < 0:
+                            st.success(f"🎉 **Following is Better**: You'll be {abs(bmi_difference):.1f} BMI points healthier!")
+                        else:
+                            st.error(f"⚠️ **Not Following is Worse**: You'll be {bmi_difference:.1f} BMI points unhealthier")
                         
-                        <b>Not Following:</b><br>
-                        • Final BMI: {not_follow_bmi[-1]:.1f}<br>
-                        • BMI Change: {bmi_change_not_follow:+.1f}<br>
-                        • Total Reward: {not_follow_reward:.1f}<br><br>
+                        # Simple explanation
+                        st.markdown("### 💡 **What This Means**")
                         
-                        <b>Impact:</b><br>
-                        • BMI Difference: {follow_bmi[-1] - not_follow_bmi[-1]:+.1f}<br>
-                        • Reward Difference: {follow_reward - not_follow_reward:+.1f}
-                        """
+                        if bmi_change_follow < 0 and bmi_change_not_follow > 0:
+                            st.success("""
+                            **Great news!** Following the recommendation will help you:
+                            - ✅ Lose weight and get healthier
+                            - ✅ Move closer to the healthy BMI range (18.5-24.9)
+                            - ❌ Not following will make you gain weight
+                            """)
+                        elif bmi_change_follow < 0 and bmi_change_not_follow < 0:
+                            st.info("""
+                            **Both paths help you lose weight, but:**
+                            - ✅ Following the recommendation is more effective
+                            - ⚠️ Not following will still help, but less effectively
+                            """)
+                        elif bmi_change_follow > 0 and bmi_change_not_follow > 0:
+                            st.warning("""
+                            **Both paths lead to weight gain, but:**
+                            - ⚠️ Following the recommendation minimizes weight gain
+                            - ❌ Not following will cause more weight gain
+                            """)
+                        else:
+                            st.info("""
+                            **The recommendation helps you:**
+                            - ✅ Maintain or improve your current health
+                            - ⚠️ Not following could lead to health decline
+                            """)
                         
-                        fig.add_annotation(
-                            text=impact_text,
-                            xref="paper", yref="paper",
-                            x=0.5, y=0.3, showarrow=False,
-                            font=dict(size=10),
-                            row=2, col=2
-                        )
+                        # Health category explanation
+                        def get_bmi_category(bmi):
+                            if bmi < 18.5:
+                                return "Underweight", "🔵"
+                            elif bmi < 25:
+                                return "Normal Weight", "🟢"
+                            elif bmi < 30:
+                                return "Overweight", "🟡"
+                            elif bmi < 35:
+                                return "Obese Level I", "🟠"
+                            else:
+                                return "Obese Level II+", "🔴"
                         
-                        fig.update_layout(height=600, showlegend=True, title_text="🔮 Recommendation Impact Prediction")
-                        st.plotly_chart(fig, use_container_width=True)
+                        current_cat, current_icon = get_bmi_category(current_bmi)
+                        follow_cat, follow_icon = get_bmi_category(follow_final_bmi)
+                        not_follow_cat, not_follow_icon = get_bmi_category(not_follow_final_bmi)
                         
-                        # Summary metrics
-                        col_a, col_b, col_c = st.columns(3)
-                        with col_a:
-                            st.metric("BMI Impact", f"{follow_bmi[-1] - not_follow_bmi[-1]:+.1f}", 
-                                    delta=f"{bmi_change_follow:+.1f} vs {bmi_change_not_follow:+.1f}")
-                        with col_b:
-                            st.metric("Reward Impact", f"{follow_reward - not_follow_reward:+.1f}", 
-                                    delta=f"{follow_reward:.1f} vs {not_follow_reward:.1f}")
-                        with col_c:
-                            health_impact = "Better" if follow_bmi[-1] < not_follow_bmi[-1] else "Worse"
-                            st.metric("Health Impact", health_impact)
+                        st.markdown("### 🏥 **Health Category Changes**")
+                        
+                        col1, col2, col3 = st.columns(3)
+                        
+                        with col1:
+                            st.markdown(f"**Starting:** {current_icon} {current_cat}")
+                        with col2:
+                            st.markdown(f"**Following:** {follow_icon} {follow_cat}")
+                        with col3:
+                            st.markdown(f"**Not Following:** {not_follow_icon} {not_follow_cat}")
+                        
+                        if follow_cat != not_follow_cat:
+                            st.success(f"🎯 **Important**: Following the recommendation could change your health category from {not_follow_cat} to {follow_cat}!")
+                        
+                        # Final recommendation
+                        st.markdown("### 🎯 **Our Recommendation**")
+                        
+                        if bmi_difference < -0.5:
+                            st.success("""
+                            **Strongly recommend following the AI suggestion!** 
+                            
+                            The benefits are clear - you'll be significantly healthier by following the recommendation.
+                            """)
+                        elif bmi_difference < 0:
+                            st.info("""
+                            **We recommend following the AI suggestion.** 
+                            
+                            While the difference is modest, every step toward better health counts.
+                            """)
+                        else:
+                            st.warning("""
+                            **Consider the AI suggestion carefully.** 
+                            
+                            The recommendation may not be the best fit for your current situation.
+                            """)
                         
                 except Exception as e:
                     st.error(f"❌ Prediction failed: {str(e)}")
+                    st.info("Please try getting a recommendation first, then try the prediction again.")
+        
+        # Display body type visualization if requested
+        if 'show_body_type' in st.session_state and st.session_state.show_body_type:
+            st.markdown("---")
+            st.subheader("👤 Your Body Type Visualization")
+            
+            if 'bmi' in st.session_state and 'category' in st.session_state:
+                # Create body type visualization
+                bmi = st.session_state.bmi
+                category = st.session_state.category
+                gender = st.session_state.get('gender', 'Male')  # Default to Male if not set
+                
+                # Create the visualization
+                fig, ax = plt.subplots(figsize=(8, 10))
+                
+                # Determine body color based on BMI category
+                if category == "Underweight":
+                    body_color = "#87CEEB"  # Light blue
+                elif category == "Normal Weight":
+                    body_color = "#90EE90"  # Light green
+                elif category == "Overweight":
+                    body_color = "#FFD700"  # Gold
+                elif category == "Obese Level I":
+                    body_color = "#FFA500"  # Orange
+                elif category == "Obese Level II":
+                    body_color = "#FF6347"  # Tomato
+                else:  # Obese Level III
+                    body_color = "#DC143C"  # Crimson
+                
+                # Head
+                ax.scatter([0], [2], s=800, c=body_color, alpha=0.8, edgecolors="black", linewidth=3)
+                
+                # Body style based on BMI
+                if bmi < 25:
+                    # Normal body
+                    ax.plot([0, 0], [1, 1.7], color=body_color, lw=6)
+                elif bmi < 30:
+                    # Slightly larger body
+                    ax.plot([0, 0], [1, 1.7], color=body_color, lw=8)
+                else:
+                    # Larger body with belly
+                    belly_size = min(max((bmi - 20) * 150, 500), 4000)
+                    ax.scatter([0], [1.3], s=belly_size, c=body_color, alpha=0.6, edgecolors="black", linewidth=2)
+                    ax.plot([0, 0], [1, 1.7], color=body_color, lw=8)
+                
+                # Arms
+                arm_length = 0.8 if bmi < 30 else 1.0
+                ax.plot([-arm_length, arm_length], [1.5, 1.5], color=body_color, lw=4)
+                
+                # Legs
+                leg_length = 0.6 if bmi < 30 else 0.7
+                ax.plot([0, -leg_length], [1, 0], color=body_color, lw=4)
+                ax.plot([0, leg_length], [1, 0], color=body_color, lw=4)
+                
+                # Set plot limits and style
+                ax.set_xlim(-2.5, 2.5)
+                ax.set_ylim(-0.5, 3.5)
+                ax.axis("off")
+                
+                # Add title and info
+                plt.title(f"👤 {gender} | BMI: {bmi:.1f} ({category})\nBody Type Visualization", 
+                         fontsize=16, fontweight='bold', pad=20)
+                
+                # Add BMI category info
+                category_info = {
+                    "Underweight": "🔵 BMI < 18.5 - May need to gain healthy weight",
+                    "Normal Weight": "🟢 BMI 18.5-24.9 - Healthy weight range",
+                    "Overweight": "🟡 BMI 25-29.9 - Consider weight management",
+                    "Obese Level I": "🟠 BMI 30-34.9 - Weight loss recommended",
+                    "Obese Level II": "🔴 BMI 35-39.9 - Significant weight loss needed",
+                    "Obese Level III": "🔴 BMI ≥ 40 - Medical intervention recommended"
+                }
+                
+                # Display the plot
+                st.pyplot(fig)
+                
+                # Add BMI category explanation
+                st.markdown("### 📊 **BMI Category Information**")
+                st.info(category_info.get(category, "BMI category information"))
+                
+                # Add health tips based on BMI
+                st.markdown("### 💡 **Health Tips for Your BMI Range**")
+                
+                if category == "Underweight":
+                    st.success("""
+                    **For Underweight Individuals:**
+                    - Focus on healthy weight gain through nutritious foods
+                    - Include healthy fats like avocados, nuts, and olive oil
+                    - Eat regular meals and snacks throughout the day
+                    - Consider working with a healthcare provider
+                    """)
+                elif category == "Normal Weight":
+                    st.success("""
+                    **For Normal Weight Individuals:**
+                    - Maintain your current healthy lifestyle
+                    - Continue balanced eating and regular exercise
+                    - Monitor your weight to prevent future changes
+                    - Keep up the great work!
+                    """)
+                elif category == "Overweight":
+                    st.warning("""
+                    **For Overweight Individuals:**
+                    - Focus on gradual, sustainable weight loss
+                    - Create a moderate calorie deficit
+                    - Increase physical activity gradually
+                    - Consider portion control and mindful eating
+                    """)
+                else:  # Obese categories
+                    st.error("""
+                    **For Obese Individuals:**
+                    - Consult with a healthcare provider for guidance
+                    - Focus on significant lifestyle changes
+                    - Consider working with a dietitian or nutritionist
+                    - Set realistic, achievable weight loss goals
+                    - Consider medical supervision for your weight loss journey
+                    """)
+                
+                # Add interactive BMI calculator
+                st.markdown("### 🧮 **BMI Calculator**")
+                st.info(f"Your current BMI of {bmi:.1f} is in the **{category}** range.")
+                
+                # Show BMI ranges
+                bmi_ranges = {
+                    "Underweight": "Below 18.5",
+                    "Normal Weight": "18.5 - 24.9",
+                    "Overweight": "25.0 - 29.9",
+                    "Obese Level I": "30.0 - 34.9",
+                    "Obese Level II": "35.0 - 39.9",
+                    "Obese Level III": "40.0 and above"
+                }
+                
+                st.markdown("**BMI Categories:**")
+                for cat, range_text in bmi_ranges.items():
+                    if cat == category:
+                        st.markdown(f"- **{cat}**: {range_text} ← **You are here**")
+                    else:
+                        st.markdown(f"- {cat}: {range_text}")
+            else:
+                st.error("Please calculate your BMI first by clicking 'Calculate Health Metrics'")
     
     # Footer
     st.markdown("---")
