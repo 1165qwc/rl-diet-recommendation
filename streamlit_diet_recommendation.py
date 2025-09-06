@@ -222,19 +222,40 @@ class DietRecommendationEnvironment:
             # Load the processed obesity data
             df = pd.read_csv('processed_obesity_data.csv')
             print(f"✅ Loaded processed obesity data: {len(df)} samples")
+            print(f"📊 Available columns: {list(df.columns)}")
+            
+            # Check for required columns
+            required_columns = ['BMI', 'Age', 'Gender', 'ActivityLevel', 'H2O', 'eatvege', 'TechFreq', 'MainMeal']
+            missing_columns = [col for col in required_columns if col not in df.columns]
+            if missing_columns:
+                st.error(f"❌ Missing required columns: {missing_columns}")
+                st.stop()
             
             # Map columns to our format
+            # Map ActivityLevel to exercise days per week
+            activity_mapping = {
+                'StayHome': 0,
+                'Moderately Active': 3,
+                'Active': 6
+            }
+            df['exercise_days'] = df['ActivityLevel'].map(activity_mapping)
+            
+            # Map TechFreq to screen time hours
+            screen_mapping = {0: 0, 1: 6, 2: 12}
+            df['screen_hours'] = df['TechFreq'].map(screen_mapping)
+            
             processed_data = pd.DataFrame({
                 'bmi': df['BMI'],
                 'age': df['Age'],
                 'gender': (df['Gender'] == 'Female').astype(int),
-                'exercise': df['ActivityLevel'],
+                'exercise': df['exercise_days'],
                 'water': df['H2O'],
                 'vegetables': df['eatvege'],
-                'screen_time': df['TechFreq'],
+                'screen_time': df['screen_hours'],
                 'meals': df['MainMeal']
             })
             
+            print(f"✅ Data processed successfully. Shape: {processed_data.shape}")
             return processed_data
             
         except FileNotFoundError:
@@ -254,33 +275,43 @@ class DietRecommendationEnvironment:
     
     def _normalize_state(self, user_data):
         """Normalize user data to [0, 1] range"""
-        normalized = np.zeros(self.state_dim)
-        
-        # BMI normalization
-        normalized[0] = (user_data['bmi'] - self.state_bounds['bmi'][0]) / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])
-        
-        # Age normalization
-        normalized[1] = (user_data['age'] - self.state_bounds['age'][0]) / (self.state_bounds['age'][1] - self.state_bounds['age'][0])
-        
-        # Gender
-        normalized[2] = user_data['gender']
-        
-        # Exercise normalization
-        normalized[3] = user_data['exercise'] / self.state_bounds['exercise'][1]
-        
-        # Water normalization
-        normalized[4] = user_data['water'] / self.state_bounds['water'][1]
-        
-        # Vegetables normalization
-        normalized[5] = user_data['vegetables'] / self.state_bounds['vegetables'][1]
-        
-        # Screen time normalization
-        normalized[6] = user_data['screen_time'] / self.state_bounds['screen_time'][1]
-        
-        # Meals normalization
-        normalized[7] = (user_data['meals'] - self.state_bounds['meals'][0]) / (self.state_bounds['meals'][1] - self.state_bounds['meals'][0])
-        
-        return np.clip(normalized, 0, 1)
+        try:
+            normalized = np.zeros(self.state_dim)
+            
+            # BMI normalization
+            normalized[0] = (user_data['bmi'] - self.state_bounds['bmi'][0]) / (self.state_bounds['bmi'][1] - self.state_bounds['bmi'][0])
+            
+            # Age normalization
+            normalized[1] = (user_data['age'] - self.state_bounds['age'][0]) / (self.state_bounds['age'][1] - self.state_bounds['age'][0])
+            
+            # Gender
+            normalized[2] = user_data['gender']
+            
+            # Exercise normalization
+            normalized[3] = user_data['exercise'] / self.state_bounds['exercise'][1]
+            
+            # Water normalization
+            normalized[4] = user_data['water'] / self.state_bounds['water'][1]
+            
+            # Vegetables normalization
+            normalized[5] = user_data['vegetables'] / self.state_bounds['vegetables'][1]
+            
+            # Screen time normalization
+            normalized[6] = user_data['screen_time'] / self.state_bounds['screen_time'][1]
+            
+            # Meals normalization
+            normalized[7] = (user_data['meals'] - self.state_bounds['meals'][0]) / (self.state_bounds['meals'][1] - self.state_bounds['meals'][0])
+            
+            return np.clip(normalized, 0, 1)
+            
+        except KeyError as e:
+            print(f"❌ Missing key in user_data: {e}")
+            print(f"Available keys: {list(user_data.keys())}")
+            raise
+        except Exception as e:
+            print(f"❌ Error normalizing state: {e}")
+            print(f"User data: {user_data}")
+            raise
     
     def step(self, action):
         """Execute action and return next state, reward, done"""
