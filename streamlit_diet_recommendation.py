@@ -960,124 +960,126 @@ def main():
         else:
             st.warning("⚠️ Please train the agent first")
     
-    # Main content
+    # Main content - Health Profile Section
+    st.header("📊 Your Health Profile")
+    
+    # Health inputs in columns for better layout
     col1, col2 = st.columns([1, 1])
     
     with col1:
-        st.header("📊 Your Health Profile")
-        
-        # Health inputs
         height = st.slider("Height (cm)", 120, 220, 170)
         weight = st.slider("Weight (kg)", 30, 150, 70)
         age = st.slider("Age", 16, 80, 25)
         gender = st.selectbox("Gender", ["Male", "Female"])
-        
+    
+    with col2:
         st.subheader("🏃 Lifestyle Assessment")
         veg = st.slider("Vegetable Intake (servings/day)", 0, 5, 2)
         water = st.slider("Water Intake (liters/day)", 1, 5, 2)
         exercise = st.slider("Exercise (days/week)", 0, 7, 2)
         screen = st.slider("Screen Time (hours/day)", 0, 12, 3)
         meals = st.slider("Main Meals (per day)", 1, 6, 3)
-        
-        # Calculate metrics
-        if st.button("🧮 Calculate Health Metrics", type="primary"):
-            try:
-                bmi = calculate_bmi(weight, height)
-                category_str, category_icon = get_bmi_category_local(bmi)
-                health_score = calculate_health_score(veg, water, exercise, screen, meals)
-                
-                # Store in session state
-                st.session_state.bmi = bmi
-                st.session_state.category = category_str
-                st.session_state.category_icon = category_icon
-                st.session_state.health_score = health_score
-                st.session_state.gender = gender
-                st.session_state.user_state = create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals)
-                
-                st.success("✅ Health metrics calculated successfully!")
-            except Exception as e:
-                st.error(f"❌ Error calculating health metrics: {str(e)}")
-                st.info("Please check your input values and try again.")
     
-    with col2:
-        st.header("📈 Health Analysis")
+    # Calculate metrics button
+    if st.button("🧮 Calculate Health Metrics", type="primary"):
+        try:
+            bmi = calculate_bmi(weight, height)
+            category_str, category_icon = get_bmi_category_local(bmi)
+            health_score = calculate_health_score(veg, water, exercise, screen, meals)
+            
+            # Store in session state
+            st.session_state.bmi = bmi
+            st.session_state.category = category_str
+            st.session_state.category_icon = category_icon
+            st.session_state.health_score = health_score
+            st.session_state.gender = gender
+            st.session_state.user_state = create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals)
+            
+            st.success("✅ Health metrics calculated successfully!")
+        except Exception as e:
+            st.error(f"❌ Error calculating health metrics: {str(e)}")
+            st.info("Please check your input values and try again.")
+    
+    # Health Analysis Section
+    st.markdown("---")
+    st.header("📈 Health Analysis")
+    
+    if 'bmi' in st.session_state:
+        # Display metrics
+        col_a, col_b, col_c = st.columns(3)
         
-        if 'bmi' in st.session_state:
-            # Display metrics
-            col_a, col_b, col_c = st.columns(3)
-            
-            with col_a:
-                st.metric("BMI", f"{st.session_state.bmi:.1f}")
-            with col_b:
-                st.metric("Category", f"{st.session_state.category_icon} {st.session_state.category}")
-            with col_c:
-                st.metric("Health Score", f"{st.session_state.health_score}/100")
-            
-            # BMI visualization
-            fig = go.Figure()
-            
-            # BMI categories
-            categories = [
-                ("Underweight", 0, 18.5, "lightblue"),
-                ("Normal", 18.5, 24.9, "lightgreen"),
-                ("Overweight", 25, 29.9, "yellow"),
-                ("Obese I", 30, 34.9, "orange"),
-                ("Obese II", 35, 39.9, "red"),
-                ("Obese III", 40, 60, "darkred")
-            ]
-            
-            for label, start, end, color in categories:
-                fig.add_trace(go.Bar(
-                    x=[end - start],
-                    y=[label],
-                    orientation='h',
-                    marker_color=color,
-                    name=label,
-                    showlegend=False
-                ))
-            
-            # Current BMI marker
-            fig.add_vline(x=st.session_state.bmi, line_dash="dash", line_color="black", 
-                         annotation_text=f"Your BMI: {st.session_state.bmi:.1f}")
-            
-            fig.update_layout(
-                title="BMI Categories",
-                xaxis_title="BMI Range",
-                height=300,
+        with col_a:
+            st.metric("BMI", f"{st.session_state.bmi:.1f}")
+        with col_b:
+            st.metric("Category", f"{st.session_state.category_icon} {st.session_state.category}")
+        with col_c:
+            st.metric("Health Score", f"{st.session_state.health_score}/100")
+        
+        # BMI visualization
+        fig = go.Figure()
+        
+        # BMI categories
+        categories = [
+            ("Underweight", 0, 18.5, "lightblue"),
+            ("Normal", 18.5, 24.9, "lightgreen"),
+            ("Overweight", 25, 29.9, "yellow"),
+            ("Obese I", 30, 34.9, "orange"),
+            ("Obese II", 35, 39.9, "red"),
+            ("Obese III", 40, 60, "darkred")
+        ]
+        
+        for label, start, end, color in categories:
+            fig.add_trace(go.Bar(
+                x=[end - start],
+                y=[label],
+                orientation='h',
+                marker_color=color,
+                name=label,
                 showlegend=False
-            )
-            
-            st.plotly_chart(fig, use_container_width=True)
-            
-            # Lifestyle chart
-            lifestyle_data = {
-                'Metric': ['Vegetables', 'Water', 'Exercise', 'Screen Time', 'Meals'],
-                'Value': [veg, water, exercise, screen, meals],
-                'Ideal': [4, 3, 5, 2, 3]  # Ideal values
-            }
-            
-            fig = go.Figure()
-            fig.add_trace(go.Bar(
-                name='Your Value',
-                x=lifestyle_data['Metric'],
-                y=lifestyle_data['Value'],
-                marker_color='lightblue'
             ))
-            fig.add_trace(go.Bar(
-                name='Ideal Value',
-                x=lifestyle_data['Metric'],
-                y=lifestyle_data['Ideal'],
-                marker_color='lightgreen',
-                opacity=0.7
-            ))
-            
-            fig.update_layout(
-                title="Lifestyle Habits vs Ideal",
-                yaxis_title="Value",
-                height=300
-            )
-            
-            st.plotly_chart(fig, use_container_width=True)
+        
+        # Current BMI marker
+        fig.add_vline(x=st.session_state.bmi, line_dash="dash", line_color="black", 
+                     annotation_text=f"Your BMI: {st.session_state.bmi:.1f}")
+        
+        fig.update_layout(
+            title="BMI Categories",
+            xaxis_title="BMI Range",
+            height=300,
+            showlegend=False
+        )
+        
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # Lifestyle chart
+        lifestyle_data = {
+            'Metric': ['Vegetables', 'Water', 'Exercise', 'Screen Time', 'Meals'],
+            'Value': [veg, water, exercise, screen, meals],
+            'Ideal': [4, 3, 5, 2, 3]  # Ideal values
+        }
+        
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            name='Your Value',
+            x=lifestyle_data['Metric'],
+            y=lifestyle_data['Value'],
+            marker_color='lightblue'
+        ))
+        fig.add_trace(go.Bar(
+            name='Ideal Value',
+            x=lifestyle_data['Metric'],
+            y=lifestyle_data['Ideal'],
+            marker_color='lightgreen',
+            opacity=0.7
+        ))
+        
+        fig.update_layout(
+            title="Lifestyle Habits vs Ideal",
+            yaxis_title="Value",
+            height=300
+        )
+        
+        st.plotly_chart(fig, use_container_width=True)
     
     # RL Recommendation Section
     if st.session_state.trained and 'user_state' in st.session_state:
