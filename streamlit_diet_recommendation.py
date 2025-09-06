@@ -25,19 +25,19 @@ def calculate_bmi(weight, height_cm):
     return weight / (height_m ** 2)
 
 def get_bmi_category(bmi):
-    """Get BMI category"""
+    """Get BMI category and icon"""
     if bmi < 18.5:
-        return "Underweight"
+        return "Underweight", "🔵"
     elif bmi < 25:
-        return "Normal Weight"
+        return "Normal Weight", "🟢"
     elif bmi < 30:
-        return "Overweight"
+        return "Overweight", "🟡"
     elif bmi < 35:
-        return "Obese Level I"
+        return "Obese Level I", "🟠"
     elif bmi < 40:
-        return "Obese Level II"
+        return "Obese Level II", "🔴"
     else:
-        return "Obese Level III"
+        return "Obese Level III", "🔴"
 
 def calculate_health_score(veg, water, exercise, screen, meals):
     """Calculate health score (0-100)"""
@@ -899,19 +899,19 @@ def main():
     
     # Define helper functions locally to ensure they're in scope
     def get_bmi_category_local(bmi):
-        """Get BMI category - local function"""
+        """Get BMI category and icon - local function"""
         if bmi < 18.5:
-            return "Underweight"
+            return "Underweight", "🔵"
         elif bmi < 25:
-            return "Normal Weight"
+            return "Normal Weight", "🟢"
         elif bmi < 30:
-            return "Overweight"
+            return "Overweight", "🟡"
         elif bmi < 35:
-            return "Obese Level I"
+            return "Obese Level I", "🟠"
         elif bmi < 40:
-            return "Obese Level II"
+            return "Obese Level II", "🔴"
         else:
-            return "Obese Level III"
+            return "Obese Level III", "🔴"
     
     # Header
     st.markdown('<h1 class="main-header">🤖 RL Diet Recommendation System</h1>', unsafe_allow_html=True)
@@ -983,12 +983,13 @@ def main():
         if st.button("🧮 Calculate Health Metrics", type="primary"):
             try:
                 bmi = calculate_bmi(weight, height)
-                category = get_bmi_category_local(bmi)
+                category_str, category_icon = get_bmi_category_local(bmi)
                 health_score = calculate_health_score(veg, water, exercise, screen, meals)
                 
                 # Store in session state
                 st.session_state.bmi = bmi
-                st.session_state.category = category
+                st.session_state.category = category_str
+                st.session_state.category_icon = category_icon
                 st.session_state.health_score = health_score
                 st.session_state.gender = gender
                 st.session_state.user_state = create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals)
@@ -1008,7 +1009,7 @@ def main():
             with col_a:
                 st.metric("BMI", f"{st.session_state.bmi:.1f}")
             with col_b:
-                st.metric("Category", st.session_state.category)
+                st.metric("Category", f"{st.session_state.category_icon} {st.session_state.category}")
             with col_c:
                 st.metric("Health Score", f"{st.session_state.health_score}/100")
             
@@ -1315,18 +1316,6 @@ def main():
                             """)
                         
                         # Health category explanation
-                        def get_bmi_category(bmi):
-                            if bmi < 18.5:
-                                return "Underweight", "🔵"
-                            elif bmi < 25:
-                                return "Normal Weight", "🟢"
-                            elif bmi < 30:
-                                return "Overweight", "🟡"
-                            elif bmi < 35:
-                                return "Obese Level I", "🟠"
-                            else:
-                                return "Obese Level II+", "🔴"
-                        
                         current_cat, current_icon = get_bmi_category(current_bmi)
                         follow_cat, follow_icon = get_bmi_category(follow_final_bmi)
                         not_follow_cat, not_follow_icon = get_bmi_category(not_follow_final_bmi)
