@@ -777,62 +777,62 @@ class RecommendationImpactPredictor:
         # Get current BMI for poor transitions
         current_bmi = next_state[0] * (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0]) + self.env.state_bounds['bmi'][0]
         
-        # Poor BMI changes (opposite of good choices) - increased for longer timeline
+        # Poor BMI changes - realistic outcomes when not following recommendations
         if action == 0:  # High Protein, Low Carb (poor choice for some)
             if current_bmi < 18.5:  # If underweight, make it worse
-                bmi_change = -0.12  # Increased from -0.03
-            elif current_bmi > 25:  # If overweight, less effective
-                bmi_change = -0.02  # Increased from -0.005
+                bmi_change = -0.12  # Further weight loss (bad for underweight)
+            elif current_bmi > 25:  # If overweight, no improvement or slight gain
+                bmi_change = 0.02  # Slight weight gain (no improvement)
             else:  # Normal weight, slight increase
-                bmi_change = 0.04  # Increased from 0.01
+                bmi_change = 0.04  # Weight gain
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
-            next_state[3] = max(0, next_state[3] - 0.04)  # Exercise decrease (increased from 0.01)
+            next_state[3] = max(0, next_state[3] - 0.04)  # Exercise decrease
             
-        elif action == 1:  # Balanced Mediterranean (less effective for weight loss)
-            if current_bmi > 25:  # If overweight, minimal improvement
-                bmi_change = -0.02  # Increased from -0.005
-            else:  # Normal/underweight, slight increase
-                bmi_change = 0.04  # Increased from 0.01
+        elif action == 1:  # Balanced Mediterranean (not following = poor choices)
+            if current_bmi > 25:  # If overweight, no improvement or slight gain
+                bmi_change = 0.02  # Slight weight gain (no improvement)
+            else:  # Normal/underweight, weight gain
+                bmi_change = 0.04  # Weight gain
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
-            next_state[5] = max(0, next_state[5] - 0.04)  # Vegetable decrease (increased from 0.01)
+            next_state[5] = max(0, next_state[5] - 0.04)  # Vegetable decrease
             
-        elif action == 2:  # Low Calorie, High Volume (poor for underweight)
+        elif action == 2:  # Low Calorie, High Volume (not following = poor choices)
             if current_bmi < 18.5:  # If underweight, make it worse
-                bmi_change = -0.08  # Increased from -0.02
-            elif current_bmi > 25:  # If overweight, less effective
-                bmi_change = -0.04  # Increased from -0.01
-            else:  # Normal weight, slight increase
-                bmi_change = 0.02  # Increased from 0.005
+                bmi_change = -0.08  # Further weight loss (bad for underweight)
+            elif current_bmi > 25:  # If overweight, no improvement or slight gain
+                bmi_change = 0.02  # Slight weight gain (no improvement)
+            else:  # Normal weight, weight gain
+                bmi_change = 0.04  # Weight gain
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
             
-        elif action == 3:  # Intermittent Fasting (poor for underweight)
+        elif action == 3:  # Intermittent Fasting (not following = poor choices)
             if current_bmi < 18.5:  # If underweight, make it worse
-                bmi_change = -0.08  # Increased from -0.02
-            elif current_bmi > 25:  # If overweight, less effective
-                bmi_change = -0.04  # Increased from -0.01
-            else:  # Normal weight, slight increase
-                bmi_change = 0.04  # Increased from 0.01
+                bmi_change = -0.08  # Further weight loss (bad for underweight)
+            elif current_bmi > 25:  # If overweight, no improvement or slight gain
+                bmi_change = 0.02  # Slight weight gain (no improvement)
+            else:  # Normal weight, weight gain
+                bmi_change = 0.04  # Weight gain
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
-            next_state[7] = min(1, next_state[7] + 0.04)  # Meal increase (increased from 0.01)
+            next_state[7] = min(1, next_state[7] + 0.04)  # Meal increase (more eating)
             
-        elif action == 4:  # Plant-Based Focus (less effective for weight gain)
-            if current_bmi < 18.5:  # If underweight, less effective
-                bmi_change = 0.02  # Increased from 0.005
-            elif current_bmi > 25:  # If overweight, minimal improvement
-                bmi_change = -0.02  # Increased from -0.005
-            else:  # Normal weight, slight increase
-                bmi_change = 0.04  # Increased from 0.01
+        elif action == 4:  # Plant-Based Focus (not following = poor choices)
+            if current_bmi < 18.5:  # If underweight, no improvement or slight gain
+                bmi_change = 0.02  # Slight weight gain (no improvement)
+            elif current_bmi > 25:  # If overweight, no improvement or slight gain
+                bmi_change = 0.02  # Slight weight gain (no improvement)
+            else:  # Normal weight, weight gain
+                bmi_change = 0.04  # Weight gain
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
             
-        elif action == 5:  # Keto-Inspired (poor for underweight)
+        elif action == 5:  # Keto-Inspired (not following = poor choices)
             if current_bmi < 18.5:  # If underweight, make it worse
-                bmi_change = -0.12  # Increased from -0.03
-            elif current_bmi > 30:  # If obese, less effective
-                bmi_change = -0.04  # Increased from -0.01
-            else:  # Normal/overweight, slight increase
-                bmi_change = 0.04  # Increased from 0.01
+                bmi_change = -0.12  # Further weight loss (bad for underweight)
+            elif current_bmi > 30:  # If obese, no improvement or slight gain
+                bmi_change = 0.02  # Slight weight gain (no improvement)
+            else:  # Normal/overweight, weight gain
+                bmi_change = 0.04  # Weight gain
             next_state[0] = max(0, min(1, next_state[0] + bmi_change / (self.env.state_bounds['bmi'][1] - self.env.state_bounds['bmi'][0])))
-            next_state[7] = min(1, next_state[7] + 0.04)  # Meal increase (increased from 0.01)
+            next_state[7] = min(1, next_state[7] + 0.04)  # Meal increase (more eating)
         
         return next_state
     
@@ -1288,24 +1288,24 @@ def main():
                         # Simple explanation
                         st.markdown("### 💡 **What This Means**")
                         
-                        if bmi_change_follow < 0 and bmi_change_not_follow > 0:
-                            st.success("""
-                            **Great news!** Following the recommendation will help you over 3 months:
-                            - ✅ Lose weight and get healthier
-                            - ✅ Move closer to the healthy BMI range (18.5-24.9)
-                            - ❌ Not following will make you gain weight
-                            """)
-                        elif bmi_change_follow < 0 and bmi_change_not_follow < 0:
+                        if bmi_change_follow < 0 and bmi_change_not_follow < 0:
                             st.info("""
-                            **Both paths help you lose weight over 3 months, but:**
-                            - ✅ Following the recommendation is more effective
-                            - ⚠️ Not following will still help, but less effectively
+                            **Weight loss scenario over 3 months:**
+                            - ✅ Following the recommendation helps you lose weight effectively
+                            - ⚠️ Not following leads to further weight loss (bad for underweight users)
                             """)
                         elif bmi_change_follow > 0 and bmi_change_not_follow > 0:
                             st.warning("""
-                            **Both paths lead to weight gain over 3 months, but:**
-                            - ⚠️ Following the recommendation minimizes weight gain
-                            - ❌ Not following will cause more weight gain
+                            **Weight gain scenario over 3 months:**
+                            - ⚠️ Following the recommendation leads to controlled, healthy weight gain
+                            - ❌ Not following will cause more significant weight gain
+                            """)
+                        elif bmi_change_follow < 0 and bmi_change_not_follow > 0:
+                            st.success("""
+                            **Perfect scenario over 3 months:**
+                            - ✅ Following the recommendation helps you lose weight and get healthier
+                            - ❌ Not following will make you gain weight and become less healthy
+                            - 🎯 The AI recommendation is clearly beneficial for your goals!
                             """)
                         else:
                             st.info("""
