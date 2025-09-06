@@ -18,6 +18,94 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Utility functions
+def calculate_bmi(weight, height_cm):
+    """Calculate BMI"""
+    height_m = height_cm / 100
+    return weight / (height_m ** 2)
+
+def get_bmi_category(bmi):
+    """Get BMI category"""
+    if bmi < 18.5:
+        return "Underweight"
+    elif bmi < 25:
+        return "Normal Weight"
+    elif bmi < 30:
+        return "Overweight"
+    elif bmi < 35:
+        return "Obese Level I"
+    elif bmi < 40:
+        return "Obese Level II"
+    else:
+        return "Obese Level III"
+
+def calculate_health_score(veg, water, exercise, screen, meals):
+    """Calculate health score (0-100)"""
+    score = 0
+    
+    # Vegetable intake (0-20 points)
+    if veg >= 5:
+        score += 20
+    elif veg >= 3:
+        score += 15
+    elif veg >= 2:
+        score += 10
+    elif veg >= 1:
+        score += 5
+    
+    # Water intake (0-20 points)
+    if water >= 3:
+        score += 20
+    elif water >= 2:
+        score += 15
+    elif water >= 1:
+        score += 10
+    
+    # Exercise (0-20 points)
+    if exercise >= 5:
+        score += 20
+    elif exercise >= 3:
+        score += 15
+    elif exercise >= 1:
+        score += 10
+    
+    # Screen time (0-20 points) - lower is better
+    if screen <= 2:
+        score += 20
+    elif screen <= 4:
+        score += 15
+    elif screen <= 6:
+        score += 10
+    elif screen <= 8:
+        score += 5
+    
+    # Meals per day (0-20 points)
+    if meals >= 3 and meals <= 4:
+        score += 20
+    elif meals >= 2 and meals <= 5:
+        score += 15
+    elif meals >= 1 and meals <= 6:
+        score += 10
+    
+    return min(score, 100)
+
+def create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals):
+    """Create normalized state vector for RL agent"""
+    bmi = calculate_bmi(weight, height)
+    
+    # Normalize to [0, 1] range
+    bmi_norm = np.clip((bmi - 15) / (50 - 15), 0, 1)
+    age_norm = np.clip((age - 16) / (80 - 16), 0, 1)
+    gender_norm = 1 if gender == "Female" else 0
+    exercise_norm = exercise / 7
+    water_norm = (water - 1) / (5 - 1)
+    veg_norm = veg / 5
+    screen_norm = screen / 12
+    meals_norm = (meals - 1) / (6 - 1)
+    
+    return np.array([bmi_norm, age_norm, gender_norm, exercise_norm, 
+                    water_norm, veg_norm, screen_norm, meals_norm])
+
 # Custom CSS
 st.markdown("""
 <style>
@@ -464,93 +552,6 @@ class DietRecommendationEnvironment:
             next_state[7] = max(0, next_state[7] - 0.02)  # Meal reduction
         
         return next_state
-
-def calculate_bmi(weight, height_cm):
-    """Calculate BMI"""
-    height_m = height_cm / 100
-    return weight / (height_m ** 2)
-
-def get_bmi_category(bmi):
-    """Get BMI category"""
-    if bmi < 18.5:
-        return "Underweight"
-    elif bmi < 25:
-        return "Normal Weight"
-    elif bmi < 30:
-        return "Overweight"
-    elif bmi < 35:
-        return "Obese Level I"
-    elif bmi < 40:
-        return "Obese Level II"
-    else:
-        return "Obese Level III"
-
-def calculate_health_score(veg, water, exercise, screen, meals):
-    """Calculate health score (0-100)"""
-    score = 0
-    
-    # Vegetable intake (0-20 points)
-    if veg >= 5:
-        score += 20
-    elif veg >= 3:
-        score += 15
-    elif veg >= 2:
-        score += 10
-    elif veg >= 1:
-        score += 5
-    
-    # Water intake (0-20 points)
-    if water >= 3:
-        score += 20
-    elif water >= 2:
-        score += 15
-    elif water >= 1:
-        score += 10
-    
-    # Exercise (0-20 points)
-    if exercise >= 5:
-        score += 20
-    elif exercise >= 3:
-        score += 15
-    elif exercise >= 1:
-        score += 10
-    
-    # Screen time (0-20 points) - lower is better
-    if screen <= 2:
-        score += 20
-    elif screen <= 4:
-        score += 15
-    elif screen <= 6:
-        score += 10
-    elif screen <= 8:
-        score += 5
-    
-    # Meals per day (0-20 points)
-    if meals >= 3 and meals <= 4:
-        score += 20
-    elif meals >= 2 and meals <= 5:
-        score += 15
-    elif meals >= 1 and meals <= 6:
-        score += 10
-    
-    return min(score, 100)
-
-def create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals):
-    """Create normalized state vector for RL agent"""
-    bmi = calculate_bmi(weight, height)
-    
-    # Normalize to [0, 1] range
-    bmi_norm = np.clip((bmi - 15) / (50 - 15), 0, 1)
-    age_norm = np.clip((age - 16) / (80 - 16), 0, 1)
-    gender_norm = 1 if gender == "Female" else 0
-    exercise_norm = exercise / 7
-    water_norm = (water - 1) / (5 - 1)
-    veg_norm = veg / 5
-    screen_norm = screen / 12
-    meals_norm = (meals - 1) / (6 - 1)
-    
-    return np.array([bmi_norm, age_norm, gender_norm, exercise_norm, 
-                    water_norm, veg_norm, screen_norm, meals_norm])
 
 def get_diet_recommendations():
     """Get detailed diet recommendations"""
