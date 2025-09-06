@@ -897,6 +897,22 @@ class RecommendationImpactPredictor:
 def main():
     """Main Streamlit app"""
     
+    # Define helper functions locally to ensure they're in scope
+    def get_bmi_category_local(bmi):
+        """Get BMI category - local function"""
+        if bmi < 18.5:
+            return "Underweight"
+        elif bmi < 25:
+            return "Normal Weight"
+        elif bmi < 30:
+            return "Overweight"
+        elif bmi < 35:
+            return "Obese Level I"
+        elif bmi < 40:
+            return "Obese Level II"
+        else:
+            return "Obese Level III"
+    
     # Header
     st.markdown('<h1 class="main-header">🤖 RL Diet Recommendation System</h1>', unsafe_allow_html=True)
     st.markdown("### Powered by Policy Gradient Reinforcement Learning")
@@ -965,16 +981,22 @@ def main():
         
         # Calculate metrics
         if st.button("🧮 Calculate Health Metrics", type="primary"):
-            bmi = calculate_bmi(weight, height)
-            category = get_bmi_category(bmi)
-            health_score = calculate_health_score(veg, water, exercise, screen, meals)
-            
-            # Store in session state
-            st.session_state.bmi = bmi
-            st.session_state.category = category
-            st.session_state.health_score = health_score
-            st.session_state.gender = gender
-            st.session_state.user_state = create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals)
+            try:
+                bmi = calculate_bmi(weight, height)
+                category = get_bmi_category_local(bmi)
+                health_score = calculate_health_score(veg, water, exercise, screen, meals)
+                
+                # Store in session state
+                st.session_state.bmi = bmi
+                st.session_state.category = category
+                st.session_state.health_score = health_score
+                st.session_state.gender = gender
+                st.session_state.user_state = create_user_state(height, weight, age, gender, veg, water, exercise, screen, meals)
+                
+                st.success("✅ Health metrics calculated successfully!")
+            except Exception as e:
+                st.error(f"❌ Error calculating health metrics: {str(e)}")
+                st.info("Please check your input values and try again.")
     
     with col2:
         st.header("📈 Health Analysis")
