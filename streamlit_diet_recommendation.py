@@ -935,20 +935,30 @@ def main():
                         predictor = RecommendationImpactPredictor(st.session_state.env, st.session_state.agent)
                         
                         # Get predictions
-                        follow_states, follow_reward = predictor.predict_following_recommendation(st.session_state.user_state, steps_ahead=30)
-                        not_follow_states, not_follow_reward = predictor.predict_not_following_recommendation(st.session_state.user_state, steps_ahead=30)
-                        
-                        # Extract BMI progression
-                        follow_bmi = []
-                        not_follow_bmi = []
-                        
-                        for state in follow_states:
-                            bmi = state[0] * (st.session_state.env.state_bounds['bmi'][1] - st.session_state.env.state_bounds['bmi'][0]) + st.session_state.env.state_bounds['bmi'][0]
-                            follow_bmi.append(bmi)
+                        try:
+                            follow_states, follow_reward = predictor.predict_following_recommendation(st.session_state.user_state, steps_ahead=30)
+                            not_follow_states, not_follow_reward = predictor.predict_not_following_recommendation(st.session_state.user_state, steps_ahead=30)
                             
-                        for state in not_follow_states:
-                            bmi = state[0] * (st.session_state.env.state_bounds['bmi'][1] - st.session_state.env.state_bounds['bmi'][0]) + st.session_state.env.state_bounds['bmi'][0]
-                            not_follow_bmi.append(bmi)
+                            # Extract BMI progression
+                            follow_bmi = []
+                            not_follow_bmi = []
+                            
+                            for state in follow_states:
+                                bmi = state[0] * (st.session_state.env.state_bounds['bmi'][1] - st.session_state.env.state_bounds['bmi'][0]) + st.session_state.env.state_bounds['bmi'][0]
+                                follow_bmi.append(bmi)
+                                
+                            for state in not_follow_states:
+                                bmi = state[0] * (st.session_state.env.state_bounds['bmi'][1] - st.session_state.env.state_bounds['bmi'][0]) + st.session_state.env.state_bounds['bmi'][0]
+                                not_follow_bmi.append(bmi)
+                            
+                            # Ensure we have data to plot
+                            if len(follow_bmi) == 0 or len(not_follow_bmi) == 0:
+                                st.error("❌ Prediction failed - no data generated")
+                                return
+                                
+                        except Exception as e:
+                            st.error(f"❌ Prediction failed: {str(e)}")
+                            return
                         
                         # Create comparison plot
                         fig = make_subplots(
@@ -959,7 +969,7 @@ def main():
                         )
                         
                         # BMI progression
-                        steps = range(len(follow_bmi))
+                        steps = list(range(len(follow_bmi)))
                         fig.add_trace(
                             go.Scatter(x=steps, y=follow_bmi, name='Following Recommendation', 
                                      line=dict(color='green', width=3), mode='lines+markers'),
